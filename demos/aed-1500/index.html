@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, interactive Launch1500 AED 1,500 website demo for a local UAE studio.">
+  <title>Luma Studio — Launch1500 AED 1,500 Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #2f2020;
+      --muted: #6f5c59;
+      --paper: #fffaf6;
+      --paper-deep: #f7ede6;
+      --peach: #d98468;
+      --peach-dark: #994f3d;
+      --peach-soft: #f4c7b6;
+      --cream: #fff3e8;
+      --sage: #627a67;
+      --line: rgba(72, 43, 39, 0.15);
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(103, 57, 48, 0.16);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --content: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 148px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] body {
+      font-family: "Geeza Pro", Tahoma, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    .button,
+    .nav-link,
+    .language-toggle,
+    .menu-toggle {
+      min-height: 48px;
+    }
+
+    :focus-visible {
+      outline: 3px solid #147a68;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: 8px;
+      inset-inline-start: 8px;
+      z-index: 999;
+      padding: 12px 18px;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 10px;
+      transform: translateY(-160%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content));
+      margin-inline: auto;
+    }
+
+    .demo-band {
+      background: #342324;
+      color: #fff7f0;
+      font-size: 0.83rem;
+      letter-spacing: 0.025em;
+    }
+
+    .demo-band .container {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-block: 7px;
+    }
+
+    .demo-band a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      color: #ffd8c9;
+      font-weight: 750;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      white-space: nowrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 246, 0.93);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-row {
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      text-decoration: none;
+      font-size: 1.14rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 44% 56%;
+      background: linear-gradient(145deg, var(--peach-soft), var(--peach));
+      color: #4c2923;
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      padding-inline: 15px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      background: var(--cream);
+      color: var(--peach-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-toggle,
+    .menu-toggle {
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 999px;
+      padding-inline: 17px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      min-width: 48px;
+      padding-inline: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--peach-dark);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(153, 79, 61, 0.24);
+    }
+
+    .button-primary:hover {
+      background: #7f3f32;
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(153, 79, 61, 0.45);
+      background: var(--cream);
+    }
+
+    .hero {
+      padding: 54px 0 74px;
+      overflow: clip;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      margin-bottom: 18px;
+      padding: 5px 13px;
+      border: 1px solid rgba(153, 79, 61, 0.2);
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--peach-dark);
+      font-size: 0.77rem;
+      font-weight: 850;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    html[dir="rtl"] h1,
+    html[dir="rtl"] h2 {
+      font-family: "Geeza Pro", Tahoma, Arial, sans-serif;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(2.75rem, 6vw, 5.6rem);
+      line-height: 0.99;
+    }
+
+    h1 span {
+      color: var(--peach-dark);
+    }
+
+    .hero-copy > p {
+      max-width: 620px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .package-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .proof {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .proof strong,
+    .proof span {
+      display: block;
+    }
+
+    .proof strong {
+      color: var(--peach-dark);
+      font-size: 1.02rem;
+    }
+
+    .proof span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 640px;
+      overflow: hidden;
+      border-radius: min(4vw, 42px);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .triptych-crop {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .triptych-crop img {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 300%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(50, 24, 21, 0.36), transparent 45%);
+      pointer-events: none;
+    }
+
+    .art-note {
+      position: absolute;
+      inset-inline: 22px;
+      inset-block-end: 22px;
+      z-index: 2;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 18px;
+      background: rgba(255, 250, 246, 0.86);
+      color: var(--ink);
+      backdrop-filter: blur(12px);
+    }
+
+    .art-note strong,
+    .art-note span {
+      display: block;
+    }
+
+    .art-note strong {
+      font-size: 1rem;
+    }
+
+    .art-note span {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-soft {
+      background: var(--paper-deep);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 12px 32px rgba(91, 51, 43, 0.07);
+    }
+
+    .service-index {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 34px;
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--peach-dark);
+      font-weight: 850;
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .service-card p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .service-card strong {
+      margin-top: auto;
+      color: var(--peach-dark);
+      font-size: 0.9rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      align-items: center;
+      gap: 64px;
+    }
+
+    .story-card {
+      padding: clamp(28px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .story-card h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 1.06;
+    }
+
+    .story-card p {
+      color: var(--muted);
+    }
+
+    .process-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .process-list li {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--cream);
+    }
+
+    .process-list b {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--peach-dark);
+      color: var(--white);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+    }
+
+    .visit-card,
+    .cta-card {
+      padding: clamp(28px, 5vw, 52px);
+      border-radius: var(--radius-lg);
+    }
+
+    .visit-card {
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .visit-card h2,
+    .cta-card h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.06;
+    }
+
+    .visit-details {
+      display: grid;
+      gap: 14px;
+      margin-block: 26px;
+    }
+
+    .visit-detail {
+      padding-block: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .visit-detail strong,
+    .visit-detail span {
+      display: block;
+    }
+
+    .visit-detail span {
+      color: var(--muted);
+    }
+
+    .cta-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      background: #342324;
+      color: var(--white);
+    }
+
+    .cta-card p {
+      max-width: 590px;
+      color: #e5d5cc;
+    }
+
+    .cta-card .button {
+      margin-top: 12px;
+      background: #ffd9c9;
+      color: #4b2924;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    dialog {
+      width: min(calc(100% - 32px), 580px);
+      padding: 0;
+      border: 0;
+      border-radius: 26px;
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 35px 110px rgba(47, 32, 32, 0.34);
+    }
+
+    dialog::backdrop {
+      background: rgba(47, 32, 32, 0.65);
+      backdrop-filter: blur(5px);
+    }
+
+    .dialog-body {
+      padding: 34px;
+    }
+
+    .dialog-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      margin-bottom: 18px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--peach-dark);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dialog-body h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      line-height: 1.05;
+    }
+
+    .dialog-body p {
+      color: var(--muted);
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 920px) {
+      .header-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main-nav {
+        position: absolute;
+        inset-block-start: 100%;
+        inset-inline: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .nav-link {
+        justify-content: center;
+      }
+
+      .hero-grid,
+      .story-grid,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 560px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      html {
+        scroll-padding-top: 124px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--content));
+      }
+
+      .demo-band .container {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1px;
+      }
+
+      .header-row {
+        min-height: 74px;
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .language-toggle {
+        padding-inline: 14px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 15vw, 4.25rem);
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .hero-art {
+        min-height: 470px;
+      }
+
+      .package-proof,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .dialog-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button,
+      .dialog-actions .button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .button:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+
+  <div class="demo-band" role="note">
+    <div class="container">
+      <span data-en="Fictional Launch1500 demo — no enquiry, booking, payment or message is submitted." data-ar="نموذج خيالي من Launch1500 — لا يتم إرسال أي استفسار أو حجز أو دفعة أو رسالة.">Fictional Launch1500 demo — no enquiry, booking, payment or message is submitted.</span>
+      <a href="/launch1500/index.html" data-en="Return to Launch1500" data-ar="العودة إلى Launch1500">Return to Launch1500</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#top" aria-label="Luma Studio home" data-aria-en="Luma Studio home" data-aria-ar="الصفحة الرئيسية لاستوديو لوما">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span data-en="Luma Studio" data-ar="استوديو لوما">Luma Studio</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary" data-aria-en="Primary" data-aria-ar="التنقل الرئيسي">
+        <a class="nav-link" href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+        <a class="nav-link" href="#studio" data-en="Our studio" data-ar="الاستوديو">Our studio</a>
+        <a class="nav-link" href="#visit" data-en="Visit" data-ar="الزيارة">Visit</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Arabic">العربية</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" data-aria-en="Open menu" data-aria-ar="فتح القائمة">
+          <span data-en="Menu" data-ar="القائمة">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-en="One-page local studio demo" data-ar="نموذج استوديو محلي من صفحة واحدة">One-page local studio demo</span>
+          <h1 data-en="A softer way to make time for you." data-ar="مساحتك الهادئة لتخصيص وقت لنفسك.">A softer way to make time for <span>you.</span></h1>
+          <p data-en="A warm, focused website concept for an independent UAE studio: clear services, a welcoming story and one simple enquiry path." data-ar="تصور دافئ وواضح لموقع استوديو مستقل في الإمارات: خدمات مفهومة، وقصة ترحيبية، وطريق بسيط واحد للاستفسار.">A warm, focused website concept for an independent UAE studio: clear services, a welcoming story and one simple enquiry path.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#services" data-en="Explore the services" data-ar="استكشف الخدمات">Explore the services</a>
+            <button class="button button-secondary" id="demoWhatsApp" type="button" data-en="Try WhatsApp enquiry" data-ar="جرّب استفسار واتساب">Try WhatsApp enquiry</button>
+          </div>
+          <div class="package-proof" aria-label="Demo package highlights">
+            <div class="proof">
+              <strong data-en="AED 1,500" data-ar="1,500 درهم">AED 1,500</strong>
+              <span data-en="One-time demo package" data-ar="باقة تجريبية بدفعة واحدة">One-time demo package</span>
+            </div>
+            <div class="proof">
+              <strong data-en="AED 450" data-ar="450 درهماً">AED 450</strong>
+              <span data-en="Example 30% start" data-ar="مثال لدفعة البدء 30%">Example 30% start</span>
+            </div>
+            <div class="proof">
+              <strong data-en="~5 days" data-ar="نحو 5 أيام">~5 days</strong>
+              <span data-en="Illustrative delivery target" data-ar="مدة تسليم توضيحية">Illustrative delivery target</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="triptych-crop">
+            <img src="../../assets/launch1500-triptych.png" alt="Warm peach-toned fictional studio interior" data-alt-en="Warm peach-toned fictional studio interior" data-alt-ar="تصميم داخلي خيالي دافئ لاستوديو بدرجات الخوخ">
+          </div>
+          <div class="art-note">
+            <strong data-en="Warm, local and unmistakably yours" data-ar="دافئ ومحلي ويعبّر عنك">Warm, local and unmistakably yours</strong>
+            <span data-en="Real visual direction shown in this demo" data-ar="اتجاه بصري حقيقي معروض في هذا النموذج">Real visual direction shown in this demo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow" data-en="Example services" data-ar="خدمات توضيحية">Example services</span>
+          <h2 data-en="Simple choices, calmly explained." data-ar="خيارات بسيطة، موضّحة بهدوء.">Simple choices, calmly explained.</h2>
+          <p data-en="These fictional service cards show how a one-page site can make an offer easy to scan without overwhelming customers." data-ar="توضح بطاقات الخدمات الخيالية كيف يمكن لموقع من صفحة واحدة أن يعرض خدماته بوضوح دون إرباك العملاء.">These fictional service cards show how a one-page site can make an offer easy to scan without overwhelming customers.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-index" aria-hidden="true">01</span>
+            <h3 data-en="Signature styling" data-ar="تصفيف مميز">Signature styling</h3>
+            <p data-en="A considered appointment built around your preferred look and occasion." data-ar="موعد مصمم بعناية ليتناسب مع إطلالتك المفضلة والمناسبة.">A considered appointment built around your preferred look and occasion.</p>
+            <strong data-en="Example from AED 120" data-ar="مثال ابتداءً من 120 درهماً">Example from AED 120</strong>
+          </article>
+          <article class="service-card">
+            <span class="service-index" aria-hidden="true">02</span>
+            <h3 data-en="Nail ritual" data-ar="جلسة عناية بالأظافر">Nail ritual</h3>
+            <p data-en="A relaxed care session with a clean, polished finish." data-ar="جلسة عناية مريحة بلمسة نهائية أنيقة ونظيفة.">A relaxed care session with a clean, polished finish.</p>
+            <strong data-en="Example from AED 80" data-ar="مثال ابتداءً من 80 درهماً">Example from AED 80</strong>
+          </article>
+          <article class="service-card">
+            <span class="service-index" aria-hidden="true">03</span>
+            <h3 data-en="Event ready" data-ar="إطلالة المناسبات">Event ready</h3>
+            <p data-en="A coordinated studio experience for celebrations and special days." data-ar="تجربة متكاملة داخل الاستوديو للاحتفالات والأيام المميزة.">A coordinated studio experience for celebrations and special days.</p>
+            <strong data-en="Tailored example quote" data-ar="عرض سعر توضيحي مخصص">Tailored example quote</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="studio">
+      <div class="container story-grid">
+        <div class="story-card">
+          <span class="eyebrow" data-en="The studio story" data-ar="قصة الاستوديو">The studio story</span>
+          <h2 data-en="A small business can still feel beautifully complete." data-ar="يمكن للمشروع الصغير أن يبدو متكاملاً وجميلاً.">A small business can still feel beautifully complete.</h2>
+          <p data-en="This section gives the fictional founder room to explain the atmosphere, approach and personal care behind the business—without turning the page into a corporate brochure." data-ar="يمنح هذا القسم المؤسسة الخيالية مساحة لشرح الأجواء والأسلوب والعناية الشخصية وراء المشروع، دون تحويل الصفحة إلى كتيب شركات.">This section gives the fictional founder room to explain the atmosphere, approach and personal care behind the business—without turning the page into a corporate brochure.</p>
+        </div>
+
+        <ol class="process-list" aria-label="Example customer journey">
+          <li>
+            <b aria-hidden="true">1</b>
+            <span data-en="Choose a service that suits your day." data-ar="اختر الخدمة المناسبة ليومك.">Choose a service that suits your day.</span>
+          </li>
+          <li>
+            <b aria-hidden="true">2</b>
+            <span data-en="Send a simple availability enquiry." data-ar="أرسل استفساراً بسيطاً عن المواعيد.">Send a simple availability enquiry.</span>
+          </li>
+          <li>
+            <b aria-hidden="true">3</b>
+            <span data-en="The real business would confirm directly." data-ar="يقوم المشروع الحقيقي بالتأكيد مباشرة.">The real business would confirm directly.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="visit">
+      <div class="container visit-grid">
+        <div class="visit-card">
+          <span class="eyebrow" data-en="Fictional visit details" data-ar="تفاصيل زيارة خيالية">Fictional visit details</span>
+          <h2 data-en="Come as you are." data-ar="أهلاً بك كما أنت.">Come as you are.</h2>
+          <div class="visit-details">
+            <div class="visit-detail">
+              <strong data-en="Sample location" data-ar="موقع توضيحي">Sample location</strong>
+              <span data-en="Al Zahia, Sharjah — fictional for this demo" data-ar="الزاهية، الشارقة — موقع خيالي لهذا النموذج">Al Zahia, Sharjah — fictional for this demo</span>
+            </div>
+            <div class="visit-detail">
+              <strong data-en="Sample hours" data-ar="ساعات توضيحية">Sample hours</strong>
+              <span data-en="Daily, 10:00–20:00" data-ar="يومياً، 10:00–20:00">Daily, 10:00–20:00</span>
+            </div>
+          </div>
+          <button class="button button-secondary" type="button" id="visitEnquiry" data-en="Try the demo enquiry" data-ar="جرّب الاستفسار التجريبي">Try the demo enquiry</button>
+        </div>
+
+        <div class="cta-card">
+          <span class="eyebrow" data-en="Launch Lite" data-ar="باقة Launch Lite">Launch Lite</span>
+          <h2 data-en="Want this level of clarity for your business?" data-ar="هل تريد هذا المستوى من الوضوح لمشروعك؟">Want this level of clarity for your business?</h2>
+          <p data-en="Return to Launch1500 with the AED 1,500 package already selected. The next page is a project-start demo, not a payment page." data-ar="ارجع إلى Launch1500 مع اختيار باقة 1,500 درهم مسبقاً. الصفحة التالية نموذج لبدء المشروع وليست صفحة دفع.">Return to Launch1500 with the AED 1,500 package already selected. The next page is a project-start demo, not a payment page.</p>
+          <a class="button" href="/launch1500/start/index.html?package=lite&amp;source=WEB-DEMO-1500" data-en="Start with the AED 1,500 package" data-ar="ابدأ بباقة 1,500 درهم">Start with the AED 1,500 package</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <strong data-en="Luma Studio — fictional Launch1500 demo" data-ar="استوديو لوما — نموذج خيالي من Launch1500">Luma Studio — fictional Launch1500 demo</strong>
+      <a href="/launch1500/index.html" data-en="Back to packages and pricing" data-ar="العودة إلى الباقات والأسعار">Back to packages and pricing</a>
+    </div>
+  </footer>
+
+  <dialog id="enquiryDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-body">
+      <span class="dialog-label" data-en="Safe demo interaction" data-ar="تفاعل تجريبي آمن">Safe demo interaction</span>
+      <h2 id="dialogTitle" data-en="Nothing has been sent." data-ar="لم يتم إرسال أي شيء.">Nothing has been sent.</h2>
+      <p data-en="On a real customer website, this control could open a WhatsApp conversation with the service already selected. In this fictional demo, no message opens, no information is stored and no enquiry is transmitted." data-ar="في موقع عميل حقيقي يمكن لهذا الزر فتح محادثة واتساب مع تحديد الخدمة مسبقاً. في هذا النموذج الخيالي لا تُفتح أي رسالة ولا تُخزّن أي معلومات ولا يُرسل أي استفسار.">On a real customer website, this control could open a WhatsApp conversation with the service already selected. In this fictional demo, no message opens, no information is stored and no enquiry is transmitted.</p>
+      <div class="dialog-actions">
+        <button class="button button-secondary" id="closeDialog" type="button" data-en="Close demo" data-ar="إغلاق النموذج">Close demo</button>
+        <a class="button button-primary" href="/launch1500/start/index.html?package=lite&amp;source=WEB-DEMO-1500" data-en="View the project-start demo" data-ar="شاهد نموذج بدء المشروع">View the project-start demo</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var languageToggle = document.getElementById("languageToggle");
+      var menuToggle = document.getElementById("menuToggle");
+      var mainNav = document.getElementById("mainNav");
+      var enquiryDialog = document.getElementById("enquiryDialog");
+      var closeDialog = document.getElementById("closeDialog");
+      var enquiryButtons = [
+        document.getElementById("demoWhatsApp"),
+        document.getElementById("visitEnquiry")
+      ];
+
+      function applyLanguage(language) {
+        var isArabic = language === "ar";
+        document.documentElement.lang = isArabic ? "ar" : "en";
+        document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+        document.querySelectorAll("[data-en][data-ar]").forEach(function (element) {
+          element.textContent = isArabic ? element.dataset.ar : element.dataset.en;
+        });
+
+        document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(function (element) {
+          element.setAttribute("aria-label", isArabic ? element.dataset.ariaAr : element.dataset.ariaEn);
+        });
+
+        document.querySelectorAll("[data-alt-en][data-alt-ar]").forEach(function (element) {
+          element.setAttribute("alt", isArabic ? element.dataset.altAr : element.dataset.altEn);
+        });
+
+        languageToggle.textContent = isArabic ? "English" : "العربية";
+        languageToggle.setAttribute("aria-label", isArabic ? "Switch to English" : "التبديل إلى العربية");
+
+        try {
+          localStorage.setItem("launch1500-demo-language", isArabic ? "ar" : "en");
+        } catch (error) {
+          // Language still works when storage is unavailable.
+        }
+      }
+
+      function openDemoDialog() {
+        if (typeof enquiryDialog.showModal === "function") {
+          enquiryDialog.showModal();
+        } else {
+          enquiryDialog.setAttribute("open", "");
+        }
+      }
+
+      languageToggle.addEventListener("click", function () {
+        applyLanguage(document.documentElement.lang === "ar" ? "en" : "ar");
+      });
+
+      menuToggle.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mainNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      enquiryButtons.forEach(function (button) {
+        button.addEventListener("click", openDemoDialog);
+      });
+
+      function closeDemoDialog() {
+        if (typeof enquiryDialog.close === "function") {
+          enquiryDialog.close();
+        } else {
+          enquiryDialog.removeAttribute("open");
+        }
+      }
+
+      closeDialog.addEventListener("click", closeDemoDialog);
+
+      enquiryDialog.addEventListener("click", function (event) {
+        if (event.target === enquiryDialog) {
+          closeDemoDialog();
+        }
+      });
+
+      var savedLanguage = "en";
+      try {
+        savedLanguage = localStorage.getItem("launch1500-demo-language") || "en";
+      } catch (error) {
+        savedLanguage = "en";
+      }
+      applyLanguage(savedLanguage === "ar" ? "ar" : "en");
+    }());
+  </script>
+  <script src="../../local-links.js"></script>
+</body>
+</html>

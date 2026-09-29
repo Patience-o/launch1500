@@ -1,0 +1,27 @@
+{
+  "name": "launch1500",
+  "version": "1.0.0",
+  "description": "Launch1500 - Independent Business Website & Guided Lead Assistant",
+  "main": "server.js",
+  "scripts": {
+    "start": "./start.sh",
+    "serve": "node server.js",
+    "tunnel": "./start.sh",
+    "publish": "./start.sh",
+    "deploy": "surge ./ launch1500.surge.sh",
+    "deploy:netlify": "netlify deploy --prod --dir . --site 3f133d7a-cd58-443b-93ee-a2e8bbee4b05"
+  },
+  "keywords": [
+    "launch1500",
+    "web-design",
+    "bilingual",
+    "arabic",
+    "english",
+    "uae"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

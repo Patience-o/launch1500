@@ -1,0 +1,3 @@
+# Netlify mirror of the static site (no build step); surge ignores this file
+[build]
+  publish = "."

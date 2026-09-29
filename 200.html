@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch1500 | Business websites from AED 1,500</title>
+<meta name="description" content="Compare five website packages from AED 1,500, explore three example websites, and request a quote on WhatsApp. Pay a 30% deposit only after confirming your project in writing.">
+<style>
+:root{
+  --navy:#0A1B33;
+  --navy-800:#0E2547;
+  --navy-700:#16325C;
+  --gold:#C9A227;
+  --gold-2:#E4C465;
+  --gold-text:#8A6D1A;
+  --gold-soft:#F4E8C8;
+  --paper:#FBFAF6;
+  --white:#FFFFFF;
+  --ink:#152238;
+  --muted:#5C6B82;
+  --muted-light:#9FB0C7;
+  --line:#E7E2D6;
+  --green:#25D366;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(10,27,51,.10);
+  --shadow-lg:0 24px 60px rgba(10,27,51,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif}
+img{max-width:100%}
+a{color:inherit}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:14px}
+.hero .eyebrow,.on-dark .eyebrow,.lead .eyebrow{color:var(--gold-2)}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.15;margin-bottom:14px}
+.section-sub{font-size:17px;color:var(--muted);max-width:640px}
+.center{text-align:center}.center .section-sub{margin:0 auto}
+.on-dark .section-title{color:var(--white)}
+.on-dark .section-sub{color:var(--muted-light)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;font-family:'Inter',sans-serif}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);box-shadow:0 8px 24px rgba(201,162,39,.35)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35)}
+.btn-outline:hover{border-color:var(--gold-2);color:var(--gold-2)}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-wa{background:var(--green);color:#062E1A;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-sm{padding:10px 20px;font-size:14px}
+.wa-ico{width:18px;height:18px;flex:none}
+
+/* ---------- Nav ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(10,27,51,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:.01em}
+.logo span{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:#D5DEEC;text-decoration:none;font-size:14.5px;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:.2s}
+
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(1200px 600px at 80% -10%,#1B3A6B 0%,var(--navy) 55%);color:var(--white);padding:96px 0 110px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% -10%;height:60%;background:radial-gradient(600px 300px at 30% 100%,rgba(201,162,39,.14),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:600;line-height:1.12;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold-2)}
+.hero p.lede{font-size:18px;color:#C4D0E2;max-width:520px;margin-bottom:32px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.hero-points{display:flex;flex-direction:column;gap:10px;font-size:15px;color:#C4D0E2}
+.hero-points li{list-style:none;display:flex;gap:10px;align-items:baseline}
+.hero-points .tick{color:var(--gold-2);font-weight:700}
+.hero-card{background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:32px;backdrop-filter:blur(8px)}
+.hero-card .hc-title{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-family:'Inter',sans-serif;font-weight:700;margin-bottom:20px}
+.hc-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:15px}
+.hc-row:last-of-type{border:none}
+.hc-row .amt{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--gold-2)}
+.hc-note{font-size:13px;color:var(--muted-light);margin-top:14px}
+
+/* ---------- Trust strip ---------- */
+.strip{background:var(--navy-800);border-top:1px solid rgba(255,255,255,.06);padding:22px 0}
+.strip-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.strip-item{color:#C4D0E2;font-size:14px;display:flex;align-items:center;gap:10px;font-weight:500}
+.strip-item b{color:var(--gold-2)}
+
+/* ---------- Packages ---------- */
+.packages{background:var(--paper)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:22px;margin-top:48px}
+.pkg{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s}
+.pkg:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.pkg.featured{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.pkg.featured .pkg-for,.pkg.featured .pkg-feat li{color:var(--muted-light)}
+.pkg.featured .pkg-feat li::before{color:var(--gold-2)}
+.pkg-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.pkg-name{font-size:22px;font-weight:600;margin-bottom:4px}
+.pkg-for{font-size:13.5px;color:var(--muted);margin-bottom:18px;min-height:40px}
+.pkg-price{font-family:'Fraunces',serif;font-size:36px;font-weight:600;line-height:1}
+.pkg-price small{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--muted)}
+.pkg.featured .pkg-price small{color:var(--muted-light)}
+.pkg-credits{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--gold-text);background:var(--gold-soft);border-radius:999px;padding:4px 12px;margin:12px 0 6px;width:fit-content}
+.pkg.featured .pkg-credits{background:rgba(201,162,39,.16);color:var(--gold-2)}
+.pkg-start{font-size:13.5px;font-weight:600;color:var(--ink);background:var(--paper);border:1px dashed var(--gold);border-radius:10px;padding:9px 12px;margin:10px 0 18px}
+.pkg.featured .pkg-start{color:var(--gold-2);background:rgba(255,255,255,.05)}
+.pkg-feat{list-style:none;margin-bottom:24px;flex:1}
+.pkg-feat li{font-size:14px;color:#3D4C63;padding:6.5px 0 6.5px 26px;position:relative}
+.pkg-feat li::before{content:"✓";position:absolute;left:0;color:var(--gold-text);font-weight:700}
+.pkg .btn{justify-content:center}
+
+/* ---------- Demos ---------- */
+.demos{background:var(--navy);color:var(--white)}
+.demo-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:40px 0 28px}
+.demo-tab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#C4D0E2;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif}
+.demo-tab:hover{border-color:var(--gold-2)}
+.demo-tab.active{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);border-color:transparent}
+.demo-panel{display:none}
+.demo-panel.active{display:block;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.demo-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.demo-meta h3{font-size:20px}
+.demo-meta .chip{background:rgba(201,162,39,.15);color:var(--gold-2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px}
+.frame{background:#0d1524;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.frame-bar{display:flex;align-items:center;gap:8px;background:#111c30;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#FF5F57}.dot.y{background:#FEBC2E}.dot.g{background:#28C840}
+.frame-url{flex:1;background:rgba(255,255,255,.07);border-radius:6px;font-size:11px;color:#8CA0BE;padding:4px 12px;margin-left:8px;font-family:monospace}
+.frame-body{background:#fff;min-height:380px;color:#1a1a1a;font-size:12px;line-height:1.5}
+
+/* demo shared bits */
+.mini-nav{display:flex;justify-content:space-between;align-items:center;padding:12px 22px;font-size:11px}
+.mini-nav .links{display:flex;gap:14px;opacity:.75}
+.mini-btn{padding:6px 14px;border-radius:999px;font-size:10.5px;font-weight:700;display:inline-block}
+.mini-hero{padding:34px 22px;text-align:center}
+.mini-hero h4{font-family:'Fraunces',serif;font-size:26px;font-weight:600;line-height:1.2;margin-bottom:8px}
+.mini-hero p{font-size:11.5px;opacity:.8;max-width:340px;margin:0 auto 14px}
+.mini-grid{display:grid;gap:10px;padding:0 22px 26px}
+.mini-card{border-radius:10px;padding:14px;font-size:11px}
+.mini-card b{display:block;font-size:12px;margin-bottom:2px}
+.mini-foot{text-align:center;font-size:10px;opacity:.65;padding:12px;border-top:1px solid rgba(0,0,0,.08)}
+
+/* demo 1 salon */
+.d1 .mini-nav{background:#FFF8F5;color:#3E2723}
+.d1 .mini-btn{background:#B76E5A;color:#fff}
+.d1 .mini-hero{background:linear-gradient(180deg,#FFF8F5,#FBEDE7);color:#3E2723}
+.d1 .mini-hero h4 em{color:#B76E5A}
+.d1 .mini-grid{grid-template-columns:repeat(3,1fr);background:#FBEDE7;padding-top:6px}
+.d1 .mini-card{background:#fff;color:#5D4037;box-shadow:0 3px 10px rgba(93,64,55,.08)}
+.d1 .mini-card span{color:#B76E5A;font-weight:700}
+.d1 .mini-foot{background:#FBEDE7;color:#5D4037}
+/* demo 2 restaurant */
+.d2 .mini-nav{background:#1F2A1D;color:#F2EBDD}
+.d2 .mini-btn{background:#D98E32;color:#1F2A1D}
+.d2 .mini-hero{background:linear-gradient(180deg,#26331F,#1F2A1D);color:#F2EBDD}
+.d2 .mini-hero h4 em{color:#D98E32}
+.d2 .mini-grid{grid-template-columns:repeat(4,1fr);background:#F6F1E4;padding-top:20px}
+.d2 .mini-card{background:#fff;color:#33402A;box-shadow:0 3px 10px rgba(31,42,29,.10)}
+.d2 .mini-card span{color:#D98E32;font-weight:700}
+.d2 .mini-foot{background:#F6F1E4;color:#5C6650}
+/* demo 3 clinic */
+.d3 .mini-nav{background:#fff;color:#0B3B5C;border-bottom:1px solid #E5EEF4}
+.d3 .mini-btn{background:#0E7490;color:#fff}
+.d3 .mini-hero{background:linear-gradient(180deg,#F0F8FB,#E2F1F7);color:#0B3B5C;text-align:left;display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}
+.d3 .mini-hero p{margin:0 0 12px}
+.d3 .mini-form{background:#fff;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(11,59,92,.10);font-size:10px}
+.d3 .mini-form b{display:block;font-size:11px;color:#0B3B5C;margin-bottom:8px}
+.d3 .mini-field{background:#F0F6F9;border-radius:6px;padding:7px 10px;color:#6B8CA3;margin-bottom:6px}
+.d3 .mini-grid{grid-template-columns:repeat(3,1fr);background:#fff;padding-top:16px}
+.d3 .mini-card{background:#F0F8FB;color:#28536B}
+.d3 .mini-card span{color:#0E7490;font-weight:700}
+.d3 .mini-foot{color:#6B8CA3}
+/* demo 4 boutique */
+.d4 .mini-nav{background:#2D1B36;color:#F5EDF8}
+.d4 .mini-btn{background:#C98BDB;color:#2D1B36}
+.d4 .mini-hero{background:linear-gradient(180deg,#3A2547,#2D1B36);color:#F5EDF8}
+.d4 .mini-hero h4 em{color:#C98BDB}
+.d4 .mini-grid{grid-template-columns:repeat(4,1fr);background:#FAF6FC;padding-top:20px}
+.d4 .mini-card{background:#fff;color:#4A3554;box-shadow:0 3px 10px rgba(45,27,54,.10);text-align:center}
+.d4 .mini-thumb{height:52px;border-radius:8px;margin-bottom:8px;background:linear-gradient(135deg,#E7D4F0,#C98BDB)}
+.d4 .mini-card i{font-style:normal;display:inline-block;margin-top:6px;background:#25D366;color:#fff;font-size:9px;font-weight:700;border-radius:999px;padding:3px 9px}
+.d4 .mini-card span{color:#8E44AD;font-weight:700}
+.d4 .mini-foot{background:#FAF6FC;color:#7A6685}
+/* demo 5 premium */
+.d5 .frame-body{background:#0B1626;color:#EAF0F9;position:relative}
+.d5 .mini-nav{background:transparent;color:#EAF0F9}
+.d5 .mini-btn{background:linear-gradient(135deg,#C9A227,#E4C465);color:#0B1626}
+.d5 .mini-hero{padding:40px 22px 30px}
+.d5 .mini-hero h4{font-size:30px}
+.d5 .mini-hero h4 em{color:#E4C465}
+.d5 .mini-grid{grid-template-columns:repeat(3,1fr)}
+.d5 .mini-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:#C4D0E2}
+.d5 .mini-card span{color:#E4C465;font-weight:700}
+.d5 .mini-chat{position:absolute;right:16px;bottom:16px;width:190px;background:#fff;color:#152238;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.35);overflow:hidden;font-size:10px}
+.d5 .mini-chat-head{background:#0A1B33;color:#E4C465;padding:8px 12px;font-weight:700;font-size:10px}
+.d5 .mini-chat-body{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.d5 .bubble{border-radius:9px;padding:6px 9px;max-width:88%}
+.d5 .bubble.bot{background:#F0F3F8}
+.d5 .bubble.user{background:#E9F7EE;align-self:flex-end}
+.d5 .mini-foot{color:#8CA0BE;border-top:1px solid rgba(255,255,255,.08)}
+.demo-note{margin-top:22px;font-size:14px;color:var(--muted-light)}
+.demo-note a{color:var(--gold-2)}
+
+/* ---------- Credits ---------- */
+.credits{background:var(--white)}
+.credit-flex{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+.credit-coin{display:flex;align-items:center;gap:18px;background:var(--navy);color:var(--white);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px}
+.coin{width:64px;height:64px;flex:none;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold-2),var(--gold) 60%,#9A7A16);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:var(--navy);font-size:22px;box-shadow:inset 0 2px 6px rgba(255,255,255,.5),0 6px 16px rgba(201,162,39,.4)}
+.credit-coin b{font-family:'Fraunces',serif;font-size:22px;display:block}
+.credit-coin small{color:var(--muted-light);font-size:14px}
+.credit-copy p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+.credit-table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.credit-table caption{caption-side:top;text-align:left;font-weight:700;font-size:15px;padding-bottom:12px}
+.credit-table th,.credit-table td{padding:13px 18px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line)}
+.credit-table th{background:var(--navy);color:var(--white);font-weight:600;font-size:13px;letter-spacing:.04em}
+.credit-table tr:last-child td{border-bottom:none}
+.credit-table td:last-child,.credit-table th:last-child{text-align:right;white-space:nowrap}
+.credit-table td:last-child{font-weight:700;color:var(--gold-text);font-family:'Fraunces',serif}
+.table-scroll{overflow-x:auto}
+
+/* ---------- Add-ons ---------- */
+.addons{background:var(--paper)}
+.addon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:18px;margin-top:44px}
+.addon{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;transition:box-shadow .2s,transform .2s}
+.addon:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.addon .a-ico{font-size:24px;margin-bottom:10px}
+.addon b{display:block;font-size:15.5px;margin-bottom:4px}
+.addon p{font-size:13px;color:var(--muted);margin-bottom:12px;min-height:38px}
+.addon .a-price{font-family:'Fraunces',serif;font-weight:600;color:var(--gold-text);font-size:17px}
+.addon .a-price small{font-family:'Inter',sans-serif;color:var(--muted);font-weight:500;font-size:12px}
+
+/* ---------- AI section ---------- */
+.ai{background:linear-gradient(160deg,var(--navy) 0%,#122B52 100%);color:var(--white);position:relative;overflow:hidden}
+.ai::before{content:"";position:absolute;top:-30%;right:-15%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.16),transparent 65%)}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;position:relative;z-index:1}
+.ai-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:32px}
+.ai-card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:linear-gradient(135deg,var(--gold),var(--gold-2));padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.ai-card h3{font-size:24px;margin-bottom:10px}
+.ai-card p{color:var(--muted-light);font-size:15px;margin-bottom:18px}
+.ai-card ul{list-style:none;margin-bottom:22px}
+.ai-card li{font-size:14px;color:#C4D0E2;padding:5px 0 5px 26px;position:relative}
+.ai-card li::before{content:"✦";position:absolute;left:0;color:var(--gold-2)}
+.ai-price{font-family:'Fraunces',serif;font-size:22px;color:var(--gold-2)}
+.ai-price small{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted-light)}
+.ai-note{position:relative;z-index:1;margin-top:26px;font-size:14px;color:var(--muted-light);background:rgba(255,255,255,.04);border:1px dashed rgba(228,196,101,.4);border-radius:12px;padding:16px 20px}
+.ai-note b{color:var(--gold-2)}
+
+/* ---------- Estimator ---------- */
+.estimator{background:var(--white)}
+.est-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;margin-top:44px;align-items:start}
+.est-block{margin-bottom:34px}
+.est-block>h3{font-size:19px;margin-bottom:16px}
+.est-pkgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.est-pkg{position:relative}
+.est-pkg input{position:absolute;opacity:0;pointer-events:none}
+.est-pkg label{display:block;border:1.5px solid var(--line);border-radius:12px;padding:16px 18px;cursor:pointer;transition:.15s;background:var(--paper)}
+.est-pkg label:hover{border-color:var(--gold)}
+.est-pkg input:checked+label{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.est-pkg input:focus-visible+label{outline:2px solid var(--navy);outline-offset:2px}
+.est-pkg b{display:block;font-size:15px}
+.est-pkg span{font-size:13px;color:var(--muted)}
+.est-pkg .p{float:right;font-family:'Fraunces',serif;font-weight:600;color:var(--gold-text);font-size:16px}
+.est-addons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.est-addon{position:relative}
+.est-addon input{position:absolute;opacity:0;pointer-events:none}
+.est-addon label{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:10px;padding:12px 15px;cursor:pointer;font-size:13.5px;transition:.15s;background:var(--paper)}
+.est-addon label:hover{border-color:var(--gold)}
+.est-addon input:checked+label{border-color:var(--gold);background:var(--gold-soft)}
+.est-addon input:focus-visible+label{outline:2px solid var(--navy);outline-offset:2px}
+.est-addon .p{font-weight:700;color:var(--gold-text);white-space:nowrap;font-size:13px}
+.est-addon.included label{border-style:dashed;border-color:var(--gold);background:var(--gold-soft);opacity:.7;cursor:default}
+.est-addon.included .p{color:var(--muted)}
+.est-summary{background:var(--navy);color:var(--white);border-radius:var(--radius);padding:30px;position:sticky;top:96px;box-shadow:var(--shadow-lg)}
+.est-summary h3{font-size:20px;margin-bottom:20px;color:var(--gold-2)}
+.sum-row{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.sum-row .lbl{color:var(--muted-light)}
+.sum-row.total{border-bottom:none;padding-top:16px;font-size:16px;font-weight:700}
+.sum-row.total .val{font-family:'Fraunces',serif;font-size:26px;color:var(--gold-2)}
+.sum-credits{font-size:13px;color:var(--muted-light);text-align:right;margin-bottom:16px}
+.sum-split{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 18px;margin:14px 0 20px}
+.sum-split .sum-row{border-bottom:1px dashed rgba(255,255,255,.12);font-size:14px}
+.sum-split .sum-row:last-child{border-bottom:none}
+.sum-split .val{font-weight:700;color:var(--gold-2)}
+.sum-monthly{display:none;font-size:13.5px;color:var(--muted-light);margin-bottom:16px}
+.sum-monthly b{color:var(--gold-2)}
+.est-summary .btn{width:100%;justify-content:center}
+.est-fineprint{font-size:12px;color:var(--muted-light);margin-top:14px;text-align:center}
+
+/* ---------- Payment ---------- */
+.payment{background:var(--paper)}
+.pay-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pay-step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;position:relative}
+.pay-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold-2);font-family:'Fraunces',serif;font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pay-step h3{font-size:19px;margin-bottom:8px}
+.pay-step p{font-size:14.5px;color:var(--muted)}
+.pay-step .hl{color:var(--gold);font-weight:700}
+.pay-example{margin-top:30px;background:var(--navy);color:var(--white);border-radius:var(--radius);padding:26px 30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.pay-example .ex{font-size:15px}
+.pay-example .ex b{color:var(--gold-2);font-family:'Fraunces',serif;font-size:19px}
+
+/* ---------- Exclusions ---------- */
+.exclusions{background:var(--white)}
+.excl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px}
+.excl{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:20px 22px;background:var(--paper)}
+.excl b{display:block;font-size:15px;margin-bottom:5px}
+.excl p{font-size:13.5px;color:var(--muted)}
+.excl-note{margin-top:26px;font-size:14px;color:var(--muted);background:var(--gold-soft);border-radius:12px;padding:16px 20px}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--paper)}
+.faq-list{max-width:780px;margin:40px auto 0}
+.faq-item{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{padding:19px 22px;font-weight:600;font-size:15.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:'Fraunces',serif;font-size:22px;color:var(--gold-text);transition:transform .2s;flex:none}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-a{padding:0 22px 20px;font-size:14.5px;color:var(--muted)}
+
+/* ---------- Lead form ---------- */
+.lead{background:var(--navy);color:var(--white)}
+.lead-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;margin-top:8px}
+.lead-left h2{font-size:clamp(26px,3.5vw,38px);margin-bottom:16px}
+.lead-left p{color:var(--muted-light);font-size:16px;margin-bottom:26px}
+.lead-alt{margin-top:26px;font-size:14px;color:var(--muted-light)}
+.lead-alt a{color:var(--gold-2)}
+.lead-form{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow-lg)}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lf-field{margin-bottom:16px}
+.lf-field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.lf-field input,.lf-field select,.lf-field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px;font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink)}
+.lf-field input:focus,.lf-field select:focus,.lf-field textarea:focus{outline:2px solid var(--navy);border-color:var(--gold)}
+.lead-form .btn{width:100%;justify-content:center;margin-top:6px}
+.lf-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px}
+
+/* ---------- Footer ---------- */
+footer{background:#071224;color:var(--muted-light);padding:44px 0;font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+.foot-links a{text-decoration:none;color:var(--muted-light)}
+.foot-links a:hover{color:var(--gold-2)}
+
+/* ---------- Floating WhatsApp ---------- */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:200;width:58px;height:58px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(37,211,102,.45);transition:transform .15s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .credit-flex,.ai-grid,.est-grid,.lead-grid{grid-template-columns:1fr}
+  .pay-steps{grid-template-columns:1fr}
+  .est-summary{position:static}
+  .d2 .mini-grid,.d4 .mini-grid{grid-template-columns:repeat(2,1fr)}
+  .d5 .mini-chat{display:none}
+}
+@media(max-width:860px){
+  .nav-links{position:fixed;inset:72px 0 auto 0;background:var(--navy);flex-direction:column;padding:24px;gap:18px;display:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+}
+/* ---------- Terms ---------- */
+.terms{background:var(--white)}
+.pay-terms{margin-top:20px;font-size:13.5px;color:var(--muted);text-align:center}
+.pay-terms a{color:var(--gold);font-weight:600}
+
+/* ---------- Language toggle & RTL (Arabic) ---------- */
+.lang-toggle{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13.5px;cursor:pointer;font-family:'Cairo','Inter',sans-serif;transition:border-color .15s,color .15s}
+.lang-toggle:hover{border-color:var(--gold-2);color:var(--gold-2)}
+#sumFree{color:var(--gold-2)}
+html[dir="rtl"] body{font-family:'Cairo','Inter',system-ui,sans-serif}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .serif{font-family:'Cairo',system-ui,sans-serif}
+html[dir="rtl"] .btn,html[dir="rtl"] .lf-field input,html[dir="rtl"] .lf-field select,html[dir="rtl"] .lf-field textarea,html[dir="rtl"] .demo-tab{font-family:'Cairo','Inter',sans-serif}
+html[dir="rtl"] .pkg-price,html[dir="rtl"] .hc-row .amt,html[dir="rtl"] .sum-row.total .val,html[dir="rtl"] .credit-table td:last-child,html[dir="rtl"] .a-price,html[dir="rtl"] .ai-price,html[dir="rtl"] .est-pkg .p,html[dir="rtl"] .pay-example .ex b,html[dir="rtl"] .credit-coin b{font-family:'Cairo',sans-serif}
+html[dir="rtl"] em{font-style:normal}
+html[dir="rtl"] .eyebrow{letter-spacing:0}
+html[dir="rtl"] .pkg-feat li{padding:6.5px 26px 6.5px 0}
+html[dir="rtl"] .pkg-feat li::before{left:auto;right:0}
+html[dir="rtl"] .ai-card li{padding:5px 26px 5px 0}
+html[dir="rtl"] .ai-card li::before{left:auto;right:0}
+html[dir="rtl"] .excl{border-left:1px solid var(--line);border-right:4px solid var(--gold)}
+html[dir="rtl"] .est-pkg .p{float:left}
+html[dir="rtl"] .credit-table th,html[dir="rtl"] .credit-table td{text-align:right}
+html[dir="rtl"] .credit-table th:last-child,html[dir="rtl"] .credit-table td:last-child{text-align:left}
+html[dir="rtl"] .credit-table caption{text-align:right}
+html[dir="rtl"] .frame{direction:ltr;text-align:left}
+html[dir="rtl"] .frame-url{margin-left:0;margin-right:8px}
+
+@media(max-width:720px){
+  section{padding:64px 0}
+  .nav-cta .btn{display:none}
+  .est-pkgs,.est-addons,.lf-row{grid-template-columns:1fr}
+  .d1 .mini-grid,.d3 .mini-grid,.d5 .mini-grid{grid-template-columns:1fr 1fr}
+  .d3 .mini-hero{grid-template-columns:1fr}
+  .strip-grid{justify-content:flex-start}
+  .credit-table th,.credit-table td{padding:10px 12px}
+  .credit-table td:last-child,.credit-table th:last-child{white-space:normal}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* ============================================================
+   Launch1500 v2 — three flagship demo journeys
+============================================================ */
+:focus-visible{outline:3px solid var(--gold-2);outline-offset:4px}
+.skip-link{position:fixed;z-index:1000;top:10px;left:10px;transform:translateY(-160%);background:#fff;color:var(--navy);padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
+.skip-link:focus{transform:none}
+.lang-ar{display:none}
+html[lang="ar"] .lang-en{display:none}
+html[lang="ar"] .lang-ar{display:inline}
+html[lang="ar"] .lang-ar.block{display:block}
+
+.hero::before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(228,196,101,.12);border-radius:50%;right:-120px;top:-180px;box-shadow:0 0 0 80px rgba(228,196,101,.025),0 0 0 160px rgba(228,196,101,.018)}
+.hero .lede strong{color:#fff}
+.hero-kicker{display:flex;align-items:center;gap:10px;width:fit-content;margin:0 0 18px;padding:7px 12px 7px 8px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(255,255,255,.05);color:#dce6f4;font-size:13px;font-weight:700}
+.hero-kicker::before{content:"";width:9px;height:9px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 0 5px rgba(110,231,183,.12)}
+
+.flagship{position:relative;overflow:hidden;background:#f4efe4;padding:104px 0}
+.flagship::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 8% 0%,rgba(14,116,144,.11),transparent 70%),radial-gradient(700px 430px at 92% 100%,rgba(201,162,39,.12),transparent 70%);pointer-events:none}
+.flagship .container{position:relative}
+.flagship-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:48px;align-items:end}
+.flagship-intro{font-size:18px;color:var(--muted);max-width:520px}
+.launch-line{display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(10,27,51,.10);border-radius:16px;background:rgba(255,255,255,.65);box-shadow:0 14px 36px rgba(10,27,51,.07)}
+.launch-line-step{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:50%;background:var(--navy);color:var(--gold-2);font-family:'Fraunces',serif;font-weight:700}
+.launch-line div:last-child{font-size:14px;color:var(--muted)}
+.launch-line strong{display:block;color:var(--ink);font-size:15px}
+.flagship-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px}
+.flagship-card{position:relative;min-height:540px;overflow:hidden;border-radius:24px;background:#10233f;color:#fff;box-shadow:0 22px 56px rgba(10,27,51,.16);isolation:isolate}
+.flagship-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,12,24,.04) 5%,rgba(4,12,24,.38) 48%,rgba(4,12,24,.96) 100%)}
+.flagship-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.flagship-card:hover .flagship-photo{transform:scale(1.035)}
+.flagship-card.tier-1500 .flagship-photo{object-position:0% center}
+.flagship-card.tier-3000 .flagship-photo{object-position:50% center}
+.flagship-card.tier-5000 .flagship-photo{object-position:100% center}
+.flagship-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:22px}
+.concept-pill,.tier-pill{display:inline-flex;align-items:center;min-height:34px;padding:6px 12px;border-radius:999px;background:rgba(5,17,33,.68);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(12px);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.tier-pill{background:#f3d77c;color:#10233f;border:0;letter-spacing:0}
+.flagship-body{position:absolute;inset:auto 0 0;padding:28px}
+.flagship-body h3{font-size:32px;line-height:1.08;margin-bottom:9px}
+.flagship-body p{color:#d6e0ed;font-size:14.5px;margin-bottom:18px;max-width:36ch}
+.flagship-meta{display:flex;gap:16px;flex-wrap:wrap;padding:13px 0 20px;border-top:1px solid rgba(255,255,255,.14);color:#d6e0ed;font-size:12.5px}
+.flagship-meta strong{display:block;color:#fff;font-size:14px}
+.flagship-actions{display:flex;gap:10px;flex-wrap:wrap}
+.flagship-actions .btn{min-height:48px;justify-content:center;flex:1;padding:11px 16px}
+.btn-cream{background:#fff;color:var(--navy)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.24)}
+
+.how-start{background:#fff;padding:94px 0}
+.start-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:64px;align-items:start}
+.start-sticky{position:sticky;top:112px}
+.start-sticky p{color:var(--muted);font-size:17px;margin:16px 0 24px}
+.start-sticky .btn{min-height:50px}
+.journey-steps{counter-reset:journey;display:grid;gap:12px}
+.journey-step{counter-increment:journey;display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--paper);transition:transform .2s ease,border-color .2s ease}
+.journey-step:hover{transform:translateX(5px);border-color:#d5bd72}
+.journey-step::before{content:counter(journey,decimal-leading-zero);display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--gold-2);font-family:'Fraunces',serif;font-size:20px;font-weight:700}
+.journey-step h3{font-size:20px;margin:2px 0 4px}
+.journey-step p{font-size:14.5px;color:var(--muted)}
+.scope-note{display:flex;gap:12px;margin-top:18px;padding:16px 18px;border-radius:14px;background:#edf8f6;color:#275f5a;font-size:13.5px}
+.scope-note::before{content:"i";display:grid;place-items:center;flex:none;width:24px;height:24px;border:1px solid #6aaea6;border-radius:50%;font-family:'Fraunces',serif;font-weight:700}
+
+.packages{background:#fbfaf6}
+.packages .center{max-width:760px;margin:0 auto}
+.pkg{border-radius:20px}
+.pkg.featured{box-shadow:0 24px 58px rgba(10,27,51,.17)}
+.demos{background:radial-gradient(900px 520px at 88% -10%,#1c426f 0%,var(--navy) 58%)}
+.demo-tab{min-height:46px}
+.demo-note{font-size:15px}
+.lead{background:radial-gradient(800px 420px at 0% 100%,rgba(201,162,39,.18),transparent 70%),var(--navy)}
+
+.v2-demo-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--gold-2);font-weight:700;text-underline-offset:4px}
+.v2-demo-link::after{content:"↗";font-size:18px}
+html[dir="rtl"] .v2-demo-link::after{content:"↖"}
+
+@media(max-width:980px){
+  .flagship-head,.start-grid{grid-template-columns:1fr}
+  .flagship-grid{grid-template-columns:1fr}
+  .flagship-card{min-height:500px}
+  .flagship-card.tier-1500 .flagship-photo{object-position:0% center}
+  .flagship-card.tier-3000 .flagship-photo{object-position:50% center}
+  .flagship-card.tier-5000 .flagship-photo{object-position:100% center}
+  .start-sticky{position:static}
+}
+@media(max-width:720px){
+  .flagship,.how-start{padding:72px 0}
+  .flagship-head{gap:28px}
+  .flagship-grid{margin-top:28px}
+  .flagship-card{min-height:520px}
+  .flagship-body{padding:22px}
+  .flagship-body h3{font-size:29px}
+  .flagship-actions{flex-direction:column}
+  .journey-step{grid-template-columns:46px 1fr;padding:18px}
+  .journey-step::before{width:44px;height:44px}
+}
+html[dir="rtl"] .journey-step:hover{transform:translateX(-5px)}
+html[dir="rtl"] .skip-link{left:auto;right:10px}
+</style>
+<link rel="stylesheet" href="polish.css">
+<link rel="stylesheet" href="assistant.css">
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="lang-en">Skip to the main content</span><span class="lang-ar">انتقل إلى المحتوى الرئيسي</span></a>
+
+<!-- ================= NAV ================= -->
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top">Launch<span>1500</span></a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#packages"><span class="lang-en">Packages</span><span class="lang-ar">الباقات</span></a></li>
+        <li><a href="#flagship-demos"><span class="lang-en">Examples</span><span class="lang-ar">نماذج المواقع</span></a></li>
+        <li><a href="#how-to-start"><span class="lang-en">How to start</span><span class="lang-ar">كيف تبدأ</span></a></li>
+        <li><a href="#estimator"><span class="lang-en">Estimate</span><span class="lang-ar">حاسبة التكلفة</span></a></li>
+        <li><a href="#faq"><span class="lang-en">FAQ</span><span class="lang-ar">الأسئلة</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="lang-toggle" id="langToggle" aria-label="التبديل إلى العربية">العربية</button>
+      <a class="btn btn-gold btn-sm" id="navWa" data-wa="Hi! I want a website for my business. Can we talk?" href="#">Contact us</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<main id="main">
+<div class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-kicker">
+        <span class="lang-en">Atelier Web Architecture · UAE</span>
+        <span class="lang-ar">تصميم مواقع فاخر للشركات في الإمارات</span>
+      </span>
+      <h1>Launch<span>1500</span></h1>
+      <p class="hero-offer">
+        <span class="lang-en">Agency-grade web presence, from <span class="price-keep">AED 1,500.</span></span>
+        <span class="lang-ar block">حضور رقمي بمستوى الوكالات الكبرى، يبدأ من <span class="price-keep">1,500 درهم.</span></span>
+      </p>
+      <p class="lede">
+        <span class="lang-en">Calm elegance, rapid delivery, and transparent milestones. No retainers, no bureaucracy.</span>
+        <span class="lang-ar block">تصميم هادئ راقٍ، تسليم استراتيجي سريع، ومراحل عمل شفافة ومحمية. بدون عقود معقدة وبدون أعباء إدارية.</span>
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#flagship-demos">
+          <span class="lang-en">Explore Examples</span>
+          <span class="lang-ar">استكشف النماذج</span>
+        </a>
+        <a class="btn btn-outline" href="#packages">
+          <span class="lang-en">Compare Packages</span>
+          <span class="lang-ar">قارن الباقات</span>
+        </a>
+      </div>
+      <ul class="hero-points">
+        <li><span class="tick">✓</span> <span class="lang-en">30% (AED 450) deposit to commence on written quote</span><span class="lang-ar">دفعة أولى 30% (450 درهم) بعد موافقتك على العرض المكتوب</span></li>
+        <li><span class="tick">✓</span> <span class="lang-en">70% balance upon final review before launch</span><span class="lang-ar">المتبقي 70% فقط بعد المراجعة الكاملة والرضا قبل الإطلاق</span></li>
+      </ul>
+      <p class="hero-note">
+        <span class="lang-en">Direct WhatsApp partnership. Transparent pricing.</span>
+        <span class="lang-ar">شراكة مباشرة عبر واتساب. أسعار واضحة ومحددة مسبقاً.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TRUST STRIP ================= -->
+<div class="strip">
+  <div class="container strip-grid">
+    <div class="strip-item">
+      <b><span class="lang-en">5 Packages</span><span class="lang-ar">5 باقات</span></b>
+      <span><span class="lang-en">AED 1,500 to AED 5,000</span><span class="lang-ar">من 1,500 إلى 5,000 درهم</span></span>
+    </div>
+    <div class="strip-item">
+      <b><span class="lang-en">3 Flagship Demos</span><span class="lang-ar">3 نماذج حية</span></b>
+      <span><span class="lang-en">Live Mobile &amp; Desktop</span><span class="lang-ar">معاينة تفاعلية كاملة</span></span>
+    </div>
+    <div class="strip-item">
+      <b><span class="lang-en">30% Milestone Start</span><span class="lang-ar">30% للبدء</span></b>
+      <span><span class="lang-en">Only AED 450 to begin</span><span class="lang-ar">450 درهم فقط بعد التأكيد الكتابي</span></span>
+    </div>
+    <div class="strip-item">
+      <b><span class="lang-en">Direct WhatsApp</span><span class="lang-ar">تواصل مباشر</span></b>
+      <span><span class="lang-en">Fast designer line</span><span class="lang-ar">تواصل فوري مع المصمم</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= THREE FLAGSHIP DEMOS ================= -->
+<section class="flagship" id="flagship-demos" aria-labelledby="flagship-title">
+  <div class="container">
+    <div class="flagship-head">
+      <div>
+        <span class="eyebrow">
+          <span class="lang-en">Website examples</span>
+          <span class="lang-ar">نماذج المواقع</span>
+        </span>
+        <h2 class="section-title" id="flagship-title">
+          <span class="lang-en">Bespoke Design Blueprints</span>
+          <span class="lang-ar block">نماذج معمارية راقية</span>
+        </h2>
+        <p class="flagship-intro">
+          <span class="lang-en">Three live architectural blueprints. Your actual website is custom tailored to your exact brand and services.</span>
+          <span class="lang-ar block">ثلاثة اتجاهات تصميمية حية. موقعك النهائي يُصمَّم خصيصاً لهوية مشروعك وخدماتك.</span>
+        </p>
+      </div>
+      <div class="launch-line">
+        <span class="launch-line-step">3</span>
+        <div>
+          <strong>
+            <span class="lang-en">Live Interactive Blueprints</span>
+            <span class="lang-ar">نماذج تفاعلية حيّة</span>
+          </strong>
+          <span class="lang-en">Experience live mobile &amp; desktop navigation.</span>
+          <span class="lang-ar">عاين تجربة التصفح الفعلي على الهاتف والكمبيوتر.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flagship-grid">
+      <article class="flagship-card tier-1500">
+        <img class="flagship-photo" src="assets/demo-1500-preview.png" data-src-en="assets/demo-1500-preview.png" data-src-ar="assets/demo-1500-preview-ar.png" alt="" width="1200" height="900" loading="lazy">
+        <div class="flagship-top">
+          <span class="concept-pill">
+            <span class="lang-en">One-page studio</span>
+            <span class="lang-ar">استوديو بصفحة واحدة</span>
+          </span>
+          <span class="tier-pill">AED 1,500</span>
+        </div>
+        <div class="flagship-body">
+          <h3><span class="lang-en">Luma Studio</span><span class="lang-ar">استوديو لوما</span></h3>
+          <p>
+            <span class="lang-en">A one-page studio website with services, opening hours, location and an enquiry example.</span>
+            <span class="lang-ar block">موقع دافئ لخدمة محلية، يشمل الخدمات وساعات العمل والموقع ومسار استفسار بسيط.</span>
+          </p>
+          <div class="flagship-meta">
+            <span><strong>AED 450</strong><span class="lang-en">30% start</span><span class="lang-ar">دفعة البدء 30%</span></span>
+            <span><strong><span class="lang-en">1 page</span><span class="lang-ar">صفحة واحدة</span></strong><span class="lang-en">focused story</span><span class="lang-ar">قصة مركزة</span></span>
+          </div>
+          <div class="flagship-actions">
+            <a class="btn btn-cream" href="/launch1500/demos/aed-1500/index.html"><span class="lang-en">Open live demo</span><span class="lang-ar">افتح النموذج</span></a>
+            <a class="btn btn-ghost" href="/launch1500/start/index.html?package=lite&amp;source=WEB-DEMO-1500"><span class="lang-en">Start this tier</span><span class="lang-ar">ابدأ هذه الباقة</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="flagship-card tier-3000">
+        <img class="flagship-photo" src="assets/demo-3000-preview.png" data-src-en="assets/demo-3000-preview.png" data-src-ar="assets/demo-3000-preview-ar.png" alt="" width="1200" height="900" loading="lazy">
+        <div class="flagship-top">
+          <span class="concept-pill">
+            <span class="lang-en">Appointment-led</span>
+            <span class="lang-ar">موقع للحجوزات</span>
+          </span>
+          <span class="tier-pill">AED 3,000</span>
+        </div>
+        <div class="flagship-body">
+          <h3><span class="lang-en">Noura Wellness</span><span class="lang-ar">نورا للعافية</span></h3>
+          <p>
+            <span class="lang-en">A service website with appointment options and a booking preview. No appointment is submitted.</span>
+            <span class="lang-ar block">تجربة خدمات أوسع مع عدة واجهات ومحتوى ثقة ونموذج حجز تجريبي لا يرسل بيانات.</span>
+          </p>
+          <div class="flagship-meta">
+            <span><strong>AED 900</strong><span class="lang-en">30% start</span><span class="lang-ar">دفعة البدء 30%</span></span>
+            <span><strong><span class="lang-en">Up to 6</span><span class="lang-ar">حتى 6</span></strong><span class="lang-en">pages</span><span class="lang-ar">صفحات</span></span>
+          </div>
+          <div class="flagship-actions">
+            <a class="btn btn-cream" href="/launch1500/demos/aed-3000/index.html"><span class="lang-en">Open live demo</span><span class="lang-ar">افتح النموذج</span></a>
+            <a class="btn btn-ghost" href="/launch1500/start/index.html?package=plus&amp;source=WEB-DEMO-3000"><span class="lang-en">Start this tier</span><span class="lang-ar">ابدأ هذه الباقة</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="flagship-card tier-5000">
+        <img class="flagship-photo" src="assets/demo-5000-preview.png" data-src-en="assets/demo-5000-preview.png" data-src-ar="assets/demo-5000-preview-ar.png" alt="" width="1200" height="900" loading="lazy">
+        <div class="flagship-top">
+          <span class="concept-pill">
+            <span class="lang-en">Premium catalogue</span>
+            <span class="lang-ar">كتالوج فاخر</span>
+          </span>
+          <span class="tier-pill">AED 5,000</span>
+        </div>
+        <div class="flagship-body">
+          <h3><span class="lang-en">Aurum Collection</span><span class="lang-ar">مجموعة أوروم</span></h3>
+          <p>
+            <span class="lang-en">A premium catalogue with product filters and an example concierge conversation. No live orders or AI.</span>
+            <span class="lang-ar block">تجربة سينمائية للعلامة والكتالوج مع حركة راقية وفلاتر ومساعد تجريبي مبرمج.</span>
+          </p>
+          <div class="flagship-meta">
+            <span><strong>AED 1,500</strong><span class="lang-en">30% start</span><span class="lang-ar">دفعة البدء 30%</span></span>
+            <span><strong><span class="lang-en">Up to 10</span><span class="lang-ar">حتى 10</span></strong><span class="lang-en">pages</span><span class="lang-ar">صفحات</span></span>
+          </div>
+          <div class="flagship-actions">
+            <a class="btn btn-cream" href="/launch1500/demos/aed-5000/index.html"><span class="lang-en">Open live demo</span><span class="lang-ar">افتح النموذج</span></a>
+            <a class="btn btn-ghost" href="/launch1500/start/index.html?package=premium&amp;source=WEB-DEMO-5000"><span class="lang-en">Start this tier</span><span class="lang-ar">ابدأ هذه الباقة</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW TO START ================= -->
+<section class="how-start" id="how-to-start" aria-labelledby="how-start-title">
+  <div class="container start-grid">
+    <div class="start-sticky">
+      <span class="eyebrow">
+        <span class="lang-en">Direct Process</span>
+        <span class="lang-ar">مسار العمل</span>
+      </span>
+      <h2 class="section-title" id="how-start-title">
+        <span class="lang-en">Transparent &amp; Pressure-Free</span>
+        <span class="lang-ar block">مسار شفاف ومباشر</span>
+      </h2>
+      <p>
+        <span class="lang-en">We confirm your full specifications and milestone deliverables in writing before any deposit is paid. Zero pressure, zero hidden fees.</span>
+        <span class="lang-ar block">نؤكد متطلباتك وجدول المراحل كتابياً قبل سداد أي عربون. بدون أي ضغوط أو تكاليف خفية.</span>
+      </p>
+      <a class="btn btn-navy" href="/launch1500/start/index.html"><span class="lang-en">Start Your Project</span><span class="lang-ar">ابدأ مشروعك</span></a>
+      <div class="scope-note">
+        <span class="lang-en">Scope, milestones, and timelines are locked in writing prior to kickoff.</span>
+        <span class="lang-ar">يتم تثبيت النطاق والمراحل والمواعيد كتابياً قبل البدء.</span>
+      </div>
+    </div>
+    <div class="journey-steps">
+      <article class="journey-step">
+        <div><h3><span class="lang-en">1 · Preview Blueprints</span><span class="lang-ar">1 · عاين النماذج</span></h3><p><span class="lang-en">Explore live desktop &amp; mobile concepts from AED 1,500.</span><span class="lang-ar">عاين نماذجنا الحية على الهاتف والكمبيوتر بدءاً من 1,500 درهم.</span></p></div>
+      </article>
+      <article class="journey-step">
+        <div><h3><span class="lang-en">2 · Choose Your Tier</span><span class="lang-ar">2 · حدد باقتك</span></h3><p><span class="lang-en">Select the package matching your business goals.</span><span class="lang-ar">اختر الباقة الأنسب لأهداف وحجم نشاطك.</span></p></div>
+      </article>
+      <article class="journey-step">
+        <div><h3><span class="lang-en">3 · Share Details</span><span class="lang-ar">3 · شاركنا تفاصيلك</span></h3><p><span class="lang-en">Provide your business name, services, and optional logo.</span><span class="lang-ar">عرّفنا باسم مشروعك وخدماتك وهوية علامتك.</span></p></div>
+      </article>
+      <article class="journey-step">
+        <div><h3><span class="lang-en">4 · Written Scope</span><span class="lang-ar">4 · تأكيد العرض</span></h3><p><span class="lang-en">Receive a clear written specification and timeline via WhatsApp.</span><span class="lang-ar">استلم عرضاً مكتوباً واضحاً بالمدة والمخرجات عبر واتساب.</span></p></div>
+      </article>
+      <article class="journey-step">
+        <div><h3><span class="lang-en">5 · 30% Milestone Start</span><span class="lang-ar">5 · بدء العمل (30%)</span></h3><p><span class="lang-en">Pay 30% to begin; balance due only upon final approval.</span><span class="lang-ar">سداد 30% فقط كدفعة تعاقد؛ والمتبقي عند الرضا النهائي.</span></p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKAGES ================= -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">
+        <span class="lang-en">Transparent Investment</span>
+        <span class="lang-ar">استثمار واضح وشفاف</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">Curated Website Tiers</span>
+        <span class="lang-ar block">باقات متكاملة ومهيكلة</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-en">One-time flat pricing. 30% milestone deposit to commence; 70% balance upon final review. <a href="#exclusions">View exclusions.</a></span>
+        <span class="lang-ar block">أسعار محددة لمرة واحدة. 30% دفعة بدء تعاقد؛ و70% فقط بعد المراجعة النهائية. <a href="#exclusions">راجع المستثنيات.</a></span>
+      </p>
+    </div>
+    <div class="pkg-grid">
+
+      <article class="pkg">
+        <h3 class="pkg-name">Launch Lite</h3>
+        <p class="pkg-for">A one-page introduction for freelancers and small service businesses.</p>
+        <div class="pkg-price">AED 1,500 <small>one-time</small></div>
+        <span class="pkg-credits">◈ 15 credits</span>
+        <div class="pkg-start">Start with AED 450 (30%)</div>
+        <ul class="pkg-feat">
+          <li>Elegant one-page website</li>
+          <li>WhatsApp contact button</li>
+          <li>Mobile, tablet &amp; desktop design</li>
+          <li>Services, about &amp; location sections</li>
+          <li>Basic SEO setup</li>
+          <li>1 round of revisions</li>
+          <li>3 free credits after launch (AED 300 value)</li>
+          <li>Delivery in ~5 working days</li>
+        </ul>
+        <a class="btn btn-navy btn-sm" data-wa="Hi! I'm interested in the Launch Lite package (AED 1,500 — start with AED 450)." href="#">Start Lite — AED 450</a>
+      </article>
+
+      <article class="pkg">
+        <h3 class="pkg-name">Launch Basic</h3>
+        <p class="pkg-for">A multi-page website for cafés, shops and local services.</p>
+        <div class="pkg-price">AED 2,000 <small>one-time</small></div>
+        <span class="pkg-credits">◈ 20 credits</span>
+        <div class="pkg-start">Start with AED 600 (30%)</div>
+        <ul class="pkg-feat">
+          <li>Everything in Lite</li>
+          <li>Up to 4 pages / sections</li>
+          <li>Photo gallery</li>
+          <li>Google Maps embed</li>
+          <li>Contact / lead form</li>
+          <li>2 rounds of revisions</li>
+          <li>3 free credits after launch (AED 300 value)</li>
+          <li>Delivery in ~7 working days</li>
+        </ul>
+        <a class="btn btn-navy btn-sm" data-wa="Hi! I'm interested in the Launch Basic package (AED 2,000 — start with AED 600)." href="#">Start Basic — AED 600</a>
+      </article>
+
+      <article class="pkg featured">
+        <span class="pkg-badge">For service businesses</span>
+        <h3 class="pkg-name">Launch Plus</h3>
+        <p class="pkg-for">Booking enquiries for clinics, salons and agencies.</p>
+        <div class="pkg-price">AED 3,000 <small>one-time</small></div>
+        <span class="pkg-credits">◈ 30 credits</span>
+        <div class="pkg-start">Start with AED 900 (30%)</div>
+        <ul class="pkg-feat">
+          <li>Everything in Basic</li>
+          <li>Up to 6 pages</li>
+          <li>Booking / enquiry system</li>
+          <li>Testimonials &amp; trust sections</li>
+          <li>On-page SEO</li>
+          <li>Google Business Profile setup</li>
+          <li>3 free credits after launch (AED 300 value)</li>
+          <li>Delivery in ~10 working days</li>
+        </ul>
+        <a class="btn btn-gold btn-sm" data-wa="Hi! I'm interested in the Launch Plus package (AED 3,000 — start with AED 900)." href="#">Start Plus — AED 900</a>
+      </article>
+
+      <article class="pkg">
+        <h3 class="pkg-name">Launch Store</h3>
+        <p class="pkg-for">A product catalogue with order enquiries through WhatsApp.</p>
+        <div class="pkg-price">AED 4,000 <small>one-time</small></div>
+        <span class="pkg-credits">◈ 40 credits</span>
+        <div class="pkg-start">Start with AED 1,200 (30%)</div>
+        <ul class="pkg-feat">
+          <li>Everything in Plus</li>
+          <li>Catalog up to 30 products</li>
+          <li>WhatsApp ordering flow</li>
+          <li>Categories &amp; product search</li>
+          <li>Payment-link ready</li>
+          <li>Order enquiry forms</li>
+          <li>3 free credits after launch (AED 300 value)</li>
+          <li>Delivery in ~14 working days</li>
+        </ul>
+        <a class="btn btn-navy btn-sm" data-wa="Hi! I'm interested in the Launch Store package (AED 4,000 — start with AED 1,200)." href="#">Start Store — AED 1,200</a>
+      </article>
+
+      <article class="pkg">
+        <h3 class="pkg-name">Launch Premium</h3>
+        <p class="pkg-for">A luxury, content-rich showcase with bespoke presentation and priority support.</p>
+        <div class="pkg-price">AED 5,000 <small>one-time</small></div>
+        <span class="pkg-credits">◈ 50 credits</span>
+        <div class="pkg-start">Start with AED 1,500 (30%)</div>
+        <ul class="pkg-feat">
+          <li>Everything in Store</li>
+          <li>Up to 10 pages with bespoke layout</li>
+          <li>Curated catalog or expanded service journey</li>
+          <li>Refined animations &amp; micro-interactions</li>
+          <li>Full SEO &amp; Core Web Vitals speed tuning</li>
+          <li>Interactive concierge enquiry flow</li>
+          <li>3 rounds of revisions</li>
+          <li>30 days priority support</li>
+          <li>3 free credits after launch (AED 300 value)</li>
+          <li>Delivery in ~21 working days</li>
+        </ul>
+        <a class="btn btn-navy btn-sm" data-wa="Hi! I'm interested in the Launch Premium package (AED 5,000 — start with AED 1,500)." href="#">Start Premium — AED 1,500</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEMOS ================= -->
+<section class="demos on-dark" id="demos">
+  <div class="container">
+    <span class="eyebrow">Quick package previews</span>
+    <h2 class="section-title">Five compact previews for the full catalogue</h2>
+    <p class="section-sub">Use these quick previews to compare all five price points. For a full interactive experience, open one of the three flagship demos above.</p>
+    <a class="v2-demo-link" href="#flagship-demos"><span class="lang-en">Return to the three flagship demos</span><span class="lang-ar">عد إلى النماذج الرئيسية الثلاثة</span></a>
+
+    <div class="demo-tabs" role="tablist" aria-label="Demo websites">
+      <button class="demo-tab active" id="tab-demo1" role="tab" aria-selected="true" aria-controls="demo1" data-demo="demo1" tabindex="0">Salon · AED 1,500</button>
+      <button class="demo-tab" id="tab-demo2" role="tab" aria-selected="false" aria-controls="demo2" data-demo="demo2" tabindex="-1">Restaurant · AED 2,000</button>
+      <button class="demo-tab" id="tab-demo3" role="tab" aria-selected="false" aria-controls="demo3" data-demo="demo3" tabindex="-1">Clinic · AED 3,000</button>
+      <button class="demo-tab" id="tab-demo4" role="tab" aria-selected="false" aria-controls="demo4" data-demo="demo4" tabindex="-1">Boutique · AED 4,000</button>
+      <button class="demo-tab" id="tab-demo5" role="tab" aria-selected="false" aria-controls="demo5" data-demo="demo5" tabindex="-1">Showcase · AED 5,000</button>
+    </div>
+
+    <!-- Demo 1 : Salon (Lite) -->
+    <div class="demo-panel active d1" id="demo1" role="tabpanel" aria-labelledby="tab-demo1">
+      <div class="demo-meta">
+        <h3>“Glow Studio” — one-page salon site</h3>
+        <span class="chip">Launch Lite · AED 1,500 · start with AED 450</span>
+      </div>
+      <div class="frame">
+        <div class="frame-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="frame-url">glowstudio.ae</span></div>
+        <div class="frame-body">
+          <div class="mini-nav"><b>GLOW STUDIO</b><div class="links"><span>Services</span><span>About</span><span>Visit</span></div><span class="mini-btn">Book on WhatsApp</span></div>
+          <div class="mini-hero">
+            <h4>Beauty, <em>booked in one tap</em></h4>
+            <p>Ladies salon in Jumeirah. Hair, nails, lashes &amp; bridal — message us on WhatsApp and walk in glowing.</p>
+            <span class="mini-btn">See services ↓</span>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><b>Hair &amp; Styling</b>Cuts, colour, keratin<br><span>from AED 120</span></div>
+            <div class="mini-card"><b>Nails</b>Gel, acrylic, spa mani-pedi<br><span>from AED 80</span></div>
+            <div class="mini-card"><b>Bridal</b>Full bridal packages<br><span>from AED 900</span></div>
+          </div>
+          <div class="mini-foot">Open daily 10am–10pm · Jumeirah 1, Dubai · WhatsApp +971 5x xxx xxxx</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo 2 : Restaurant (Basic) -->
+    <div class="demo-panel d2" id="demo2" role="tabpanel" aria-labelledby="tab-demo2">
+      <div class="demo-meta">
+        <h3>“Zaitoun Kitchen” — restaurant site with menu</h3>
+        <span class="chip">Launch Basic · AED 2,000 · start with AED 600</span>
+      </div>
+      <div class="frame">
+        <div class="frame-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="frame-url">zaitounkitchen.ae</span></div>
+        <div class="frame-body">
+          <div class="mini-nav"><b>ZAITOUN KITCHEN</b><div class="links"><span>Menu</span><span>Gallery</span><span>Location</span></div><span class="mini-btn">Order on WhatsApp</span></div>
+          <div class="mini-hero">
+            <h4>Levant flavours, <em>made fresh daily</em></h4>
+            <p>Family recipes from the Levant — dine in Al Barsha or order straight through WhatsApp.</p>
+            <span class="mini-btn">View full menu</span>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><b>Mixed Grill</b>Lamb, shish tawook, kofta<br><span>AED 68</span></div>
+            <div class="mini-card"><b>Hummus Beiruti</b>With warm saj bread<br><span>AED 24</span></div>
+            <div class="mini-card"><b>Fattoush</b>Crisp, tangy, generous<br><span>AED 22</span></div>
+            <div class="mini-card"><b>Kunafa</b>Cheese, crunch, syrup<br><span>AED 28</span></div>
+          </div>
+          <div class="mini-foot">Al Barsha 1, Dubai · Daily 12pm–1am · Google Maps + gallery + contact form included</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo 3 : Clinic (Plus) -->
+    <div class="demo-panel d3" id="demo3" role="tabpanel" aria-labelledby="tab-demo3">
+      <div class="demo-meta">
+        <h3>“Nova Dental” — clinic site with booking</h3>
+        <span class="chip">Launch Plus · AED 3,000 · start with AED 900</span>
+      </div>
+      <div class="frame">
+        <div class="frame-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="frame-url">novadental.ae</span></div>
+        <div class="frame-body">
+          <div class="mini-nav"><b>NOVA DENTAL</b><div class="links"><span>Treatments</span><span>Doctors</span><span>Reviews</span></div><span class="mini-btn">Book appointment</span></div>
+          <div class="mini-hero">
+            <div>
+              <h4>Smile with confidence</h4>
+              <p>DHA-licensed dentists in Business Bay. Same-week appointments, transparent prices, gentle care.</p>
+              <span class="mini-btn">Call or WhatsApp</span>
+            </div>
+            <div class="mini-form">
+              <b>Book your visit</b>
+              <div class="mini-field">Your name</div>
+              <div class="mini-field">Phone number</div>
+              <div class="mini-field">Treatment · Date</div>
+              <span class="mini-btn" style="display:block;text-align:center">Request booking</span>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><b>Cleaning &amp; Check-up</b><span>AED 199</span></div>
+            <div class="mini-card"><b>Whitening</b><span>AED 799</span></div>
+            <div class="mini-card"><b>Invisible Aligners</b><span>from AED 5,500</span></div>
+          </div>
+          <div class="mini-foot">Booking system · testimonials · Google Business Profile · on-page SEO included</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo 4 : Boutique (Store) -->
+    <div class="demo-panel d4" id="demo4" role="tabpanel" aria-labelledby="tab-demo4">
+      <div class="demo-meta">
+        <h3>“Sanaa Boutique” — catalog with WhatsApp ordering</h3>
+        <span class="chip">Launch Store · AED 4,000 · start with AED 1,200</span>
+      </div>
+      <div class="frame">
+        <div class="frame-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="frame-url">sanaaboutique.ae</span></div>
+        <div class="frame-body">
+          <div class="mini-nav"><b>SANAA</b><div class="links"><span>Abayas</span><span>Kaftans</span><span>New in</span></div><span class="mini-btn">Order on WhatsApp</span></div>
+          <div class="mini-hero">
+            <h4>Modest fashion, <em>modern soul</em></h4>
+            <p>Browse the collection, tap any piece, and order it in one WhatsApp message — size, colour and delivery sorted in chat.</p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="mini-thumb"></div><b>Noor Abaya</b><span>AED 420</span><br><i>Order on WhatsApp</i></div>
+            <div class="mini-card"><div class="mini-thumb"></div><b>Layla Kaftan</b><span>AED 380</span><br><i>Order on WhatsApp</i></div>
+            <div class="mini-card"><div class="mini-thumb"></div><b>Dana Set</b><span>AED 520</span><br><i>Order on WhatsApp</i></div>
+            <div class="mini-card"><div class="mini-thumb"></div><b>Amal Shayla</b><span>AED 150</span><br><i>Order on WhatsApp</i></div>
+          </div>
+          <div class="mini-foot">Up to 30 products · categories &amp; search · payment-link ready · order enquiry forms</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo 5 : Premium Showcase -->
+    <div class="demo-panel d5" id="demo5" role="tabpanel" aria-labelledby="tab-demo5">
+      <div class="demo-meta">
+        <h3>“AURUM Properties” — luxury showcase with curated catalog</h3>
+        <span class="chip">Launch Premium · AED 5,000 · start with AED 1,500</span>
+      </div>
+      <div class="frame">
+        <div class="frame-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="frame-url">aurumproperties.ae</span></div>
+        <div class="frame-body">
+          <div class="mini-nav"><b style="letter-spacing:.2em">AURUM</b><div class="links"><span>Portfolio</span><span>Off-plan</span><span>Advisory</span></div><span class="mini-btn">Private consultation</span></div>
+          <div class="mini-hero">
+            <h4>Real estate, <em>refined</em></h4>
+            <p>Curated residences across Dubai. Explore filtered collections and request bespoke private viewings on WhatsApp.</p>
+            <span class="mini-btn">Explore portfolio</span>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><b>Palm Signature Villa</b>6BR · private beach<br><span>AED 34M</span></div>
+            <div class="mini-card"><b>Downtown Sky Penthouse</b>4BR · full Burj view<br><span>AED 18.5M</span></div>
+            <div class="mini-card"><b>Emirates Hills Estate</b>7BR · lake frontage<br><span>AED 45M</span></div>
+          </div>
+          <div class="mini-foot">Curated catalog · bespoke animations · full SEO · interactive concierge enquiry flow</div>
+          <div class="mini-chat" aria-hidden="true">
+            <div class="mini-chat-head">✦ AURUM Private Concierge</div>
+            <div class="mini-chat-body">
+              <div class="bubble bot">Welcome to Aurum. Are you exploring acquisitions or private investments?</div>
+              <div class="bubble user">Looking for luxury residences near the Marina.</div>
+              <div class="bubble bot">We have 3 off-market residences available. Would you like the private dossiers via WhatsApp?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="demo-note">These are style demos built by us — your website is designed around <em>your</em> brand, photos and services. <a data-wa="Hi! I saw the demos on Launch1500. I like one of them — can we talk about my business?" href="#">Tell us which one feels right →</a></p>
+  </div>
+</section>
+
+<!-- ================= CREDITS ================= -->
+<section class="credits" id="credits">
+  <div class="container">
+    <span class="eyebrow">Simple pricing</span>
+    <h2 class="section-title">One rule: 1 credit = AED 100</h2>
+    <p class="section-sub">No confusing quotes, no hourly billing. Everything we do — packages, add-ons, and future updates — is priced in credits. You always know exactly what anything costs.</p>
+    <div class="credit-flex">
+      <div class="credit-copy">
+        <div class="credit-coin">
+          <div class="coin">1</div>
+          <div><b>1 credit = AED 100</b><small>Buy credits any time. Use them whenever you need us.</small></div>
+        </div>
+        <p>Your package is just credits: Launch Lite is 15 credits, Launch Premium is 50. After launch, your site doesn't freeze in time — need a new page, updated prices, or a Ramadan banner? Send a WhatsApp message, we quote it in credits, you approve, it gets done.</p>
+        <p>Credits keep small jobs small. A tiny text change is 1 credit — AED 100, usually done the same day. You never pay an agency's "minimum engagement fee" for a five-minute fix.</p>
+        <p><strong>Ongoing work starts from just 1 credit (AED 100)</strong> — and you only buy credits when you actually need something. Even better: <strong>every package includes 3 free credits</strong>, so your first few updates after launch are on us.</p>
+      </div>
+      <div class="table-scroll">
+      <table class="credit-table">
+        <caption>What things cost in credits</caption>
+        <thead><tr><th>Ongoing work</th><th>Credits</th><th>AED</th></tr></thead>
+        <tbody>
+          <tr><td>Small text or image update</td><td>1</td><td>AED 100</td></tr>
+          <tr><td>New photo gallery</td><td>2</td><td>AED 200</td></tr>
+          <tr><td>New section on a page</td><td>3</td><td>AED 300</td></tr>
+          <tr><td>Monthly care plan (updates, backups, checks)</td><td>3 / month</td><td>AED 300/mo</td></tr>
+          <tr><td>New full page</td><td>5</td><td>AED 500</td></tr>
+          <tr><td>Bespoke interactive form or calculator</td><td>6</td><td>AED 600</td></tr>
+          <tr><td>Full bilingual Arabic version</td><td>8</td><td>AED 800</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADD-ONS ================= -->
+<section class="addons" id="addons">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Add-ons</span>
+      <h2 class="section-title">Add-ons from AED 100</h2>
+      <p class="section-sub">Bolt these onto any package — now or after launch. Every add-on is priced in credits, so there's never a mystery invoice.</p>
+    </div>
+    <div class="addon-grid">
+      <div class="addon"><div class="a-ico">✏️</div><b>Small update</b><p>Text or image change on an existing page. Same-day when possible.</p><div class="a-price">1 credit <small>· AED 100</small></div></div>
+      <div class="addon"><div class="a-ico">🖼️</div><b>Photo gallery</b><p>A clean, fast gallery for your work, food, products or space.</p><div class="a-price">2 credits <small>· AED 200</small></div></div>
+      <div class="addon"><div class="a-ico">✍️</div><b>Copywriting (per page)</b><p>We write the words that sell — clear, warm, and in your voice.</p><div class="a-price">2 credits <small>· AED 200</small></div></div>
+      <div class="addon"><div class="a-ico">📍</div><b>Maps + Google Business</b><p>Google Maps embed plus Google Business Profile setup so locals find you.</p><div class="a-price">2 credits <small>· AED 200</small></div></div>
+      <div class="addon"><div class="a-ico">⚡</div><b>Speed boost</b><p>Image compression, caching and tune-up for faster loading everywhere.</p><div class="a-price">2 credits <small>· AED 200</small></div></div>
+      <div class="addon"><div class="a-ico">📅</div><b>Booking / enquiry form</b><p>Let customers request appointments or quotes straight from the site.</p><div class="a-price">3 credits <small>· AED 300</small></div></div>
+      <div class="addon"><div class="a-ico">🔎</div><b>SEO boost</b><p>Keyword-tuned titles, descriptions and structure so Google notices you.</p><div class="a-price">3 credits <small>· AED 300</small></div></div>
+      <div class="addon"><div class="a-ico">🛡️</div><b>Monthly care plan</b><p>Updates, backups and health checks — we keep your site fresh monthly.</p><div class="a-price">3 credits <small>· AED 300/month</small></div></div>
+      <div class="addon"><div class="a-ico">📄</div><b>Extra page</b><p>A whole new designed page — menu, team, services, anything.</p><div class="a-price">5 credits <small>· AED 500</small></div></div>
+      <div class="addon"><div class="a-ico">🌙</div><b>Arabic version</b><p>Full right-to-left Arabic version of your site, properly done.</p><div class="a-price">8 credits <small>· AED 800</small></div></div>
+      <div class="addon"><div class="a-ico">✦</div><b>Custom AI &amp; Automations</b><p>Bespoke customer service concierges, automated WhatsApp flows, and CRM integrations. Engineered on demand.</p><div class="a-price">Bespoke <small>· Available upon request</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI ================= -->
+<section class="ai on-dark" id="ai">
+  <div class="container">
+    <span class="eyebrow">Bespoke Solutions · Available Upon Request</span>
+    <h2 class="section-title">Intelligent AI &amp; Workflow Automations — Engineered on Demand</h2>
+    <p class="section-sub">Looking for an intelligent customer service agent, automated WhatsApp concierge, or proprietary business automations? We architect tailored AI integrations upon request following a dedicated technical discovery consultation.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <span class="tag">Bespoke Client Concierge</span>
+        <h3>24/7 Intelligent Customer Service</h3>
+        <p>An intelligent AI customer service concierge custom-trained on your brand's services, pricing, menus, and policies. It answers customer queries gracefully and prepares structured booking briefs.</p>
+        <ul>
+          <li>Instant, context-aware answers day and night</li>
+          <li>Trained specifically on your brand guidelines</li>
+          <li>Fluent in English &amp; Arabic</li>
+          <li>Zero lock-in, private data architecture</li>
+        </ul>
+        <div class="ai-price">Custom Architecture <small>· Available upon request</small></div>
+      </div>
+      <div class="ai-card">
+        <span class="tag">Automated WhatsApp Workflows</span>
+        <h3>Intelligent Lead &amp; Booking Dispatch</h3>
+        <p>Automate your WhatsApp customer inquiries with intelligent triage. Qualify leads, collect booking details, and route high-value inquiries directly to your team with full context.</p>
+        <ul>
+          <li>Qualifies customer inquiries instantly</li>
+          <li>Gathers booking preferences and contact details</li>
+          <li>Seamless human handover for complex requests</li>
+          <li>Tailored to your operational workflow</li>
+        </ul>
+        <div class="ai-price">Tailored Scoping <small>· Available upon request</small></div>
+      </div>
+    </div>
+    <p class="ai-note"><b>How does bespoke AI work?</b> Because enterprise AI requires strict data privacy, uptime reliability, and seamless integration, our engineers evaluate each business individually. <b>Custom AI solutions are quoted upon consultation</b> to ensure your deployment is secure, compliant, and maintainable.</p>
+  </div>
+</section>
+
+<!-- ================= ESTIMATOR ================= -->
+<section class="estimator" id="estimator">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Cost estimator</span>
+      <h2 class="section-title">Build your quote in 30 seconds</h2>
+      <p class="section-sub">Choose a package and optional extras to see your estimated total, deposit and balance. Review the details with the assistant before sending an enquiry.</p>
+    </div>
+    <div class="est-grid">
+      <div>
+        <div class="est-block">
+          <h3>1 · Choose your package</h3>
+          <div class="est-pkgs" id="estPkgs" role="radiogroup" aria-label="Choose your package">
+            <div class="est-pkg">
+              <input type="radio" name="pkg" id="pkg-lite" value="lite" checked>
+              <label for="pkg-lite"><span class="p">AED 1,500</span><b>Launch Lite</b><span>One-page site · 15 credits</span></label>
+            </div>
+            <div class="est-pkg">
+              <input type="radio" name="pkg" id="pkg-basic" value="basic">
+              <label for="pkg-basic"><span class="p">AED 2,000</span><b>Launch Basic</b><span>Up to 4 pages · 20 credits</span></label>
+            </div>
+            <div class="est-pkg">
+              <input type="radio" name="pkg" id="pkg-plus" value="plus">
+              <label for="pkg-plus"><span class="p">AED 3,000</span><b>Launch Plus</b><span>Bookings · 30 credits</span></label>
+            </div>
+            <div class="est-pkg">
+              <input type="radio" name="pkg" id="pkg-store" value="store">
+              <label for="pkg-store"><span class="p">AED 4,000</span><b>Launch Store</b><span>Catalog + WhatsApp orders · 40 credits</span></label>
+            </div>
+            <div class="est-pkg">
+              <input type="radio" name="pkg" id="pkg-premium" value="premium">
+              <label for="pkg-premium"><span class="p">AED 5,000</span><b>Launch Premium</b><span>Luxury showcase · 50 credits</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="est-block">
+          <h3>2 · Add extras (optional)</h3>
+          <div class="est-addons" id="estAddons" role="group" aria-label="Add extras (optional)">
+            <div class="est-addon"><input type="checkbox" id="ad-copy" value="copy"><label for="ad-copy">Copywriting (per page)<span class="p">+AED 200</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-gallery" value="gallery"><label for="ad-gallery">Photo gallery<span class="p">+AED 200</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-maps" value="maps"><label for="ad-maps">Maps + Google Business<span class="p">+AED 200</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-speed" value="speed"><label for="ad-speed">Speed boost<span class="p">+AED 200</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-booking" value="booking"><label for="ad-booking">Booking / enquiry form<span class="p">+AED 300</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-seo" value="seo"><label for="ad-seo">SEO boost<span class="p">+AED 300</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-page" value="page"><label for="ad-page">Extra page<span class="p">+AED 500</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-arabic" value="arabic"><label for="ad-arabic">Arabic version<span class="p">+AED 800</span></label></div>
+            <div class="est-addon"><input type="checkbox" id="ad-care" value="care"><label for="ad-care">Monthly care plan<span class="p">+AED 300/mo</span></label></div>
+          </div>
+        </div>
+      </div>
+      <aside class="est-summary" aria-live="polite">
+        <h3>Your estimate</h3>
+        <div class="sum-row"><span class="lbl">Package</span><span class="val" id="sumPkg">Launch Lite — AED 1,500</span></div>
+        <div class="sum-row"><span class="lbl">Add-ons</span><span class="val" id="sumAddons">None</span></div>
+        <div class="sum-row total"><span>Total</span><span class="val" id="sumTotal">AED 1,500</span></div>
+        <div class="sum-credits" id="sumCredits">= 15 credits (1 credit = AED 100)</div>
+        <div class="sum-credits" id="sumFree">+ 3 free credits (AED 300) for updates after launch 🎁</div>
+        <div class="sum-split">
+          <div class="sum-row"><span class="lbl">Deposit (30%)</span><span class="val" id="sumDeposit">AED 450</span></div>
+          <div class="sum-row"><span class="lbl">Before launch (70%)</span><span class="val" id="sumBalance">AED 1,050</span></div>
+        </div>
+        <p class="sum-monthly" id="sumMonthly">Plus <b>AED 300/month</b> care plan (billed monthly, cancel anytime — not in the totals above).</p>
+        <a class="btn btn-wa" id="sumWhatsApp" href="#" target="_blank" rel="noopener">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Review estimate in WhatsApp
+        </a>
+        <p class="est-fineprint">This is an estimate, not an invoice. Confirm the written quote before paying. You choose when to send the WhatsApp message.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAYMENT ================= -->
+<section class="payment" id="payment">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">How payment works</span>
+      <h2 class="section-title">30% to start. 70% when it's ready. That's it.</h2>
+      <p class="section-sub">Fair for you, fair for us. You never pay the full amount before seeing your website, and we never start work without commitment.</p>
+    </div>
+    <div class="pay-steps">
+      <div class="pay-step">
+        <div class="pay-num">1</div>
+        <h3>Pay 30% — we start</h3>
+        <p>Approve your quote on WhatsApp and pay just <span class="hl">30% upfront</span>. An AED 1,500 website starts with only <span class="hl">AED 450</span>.</p>
+      </div>
+      <div class="pay-step">
+        <div class="pay-num">2</div>
+        <h3>Review your website</h3>
+        <p>We build it and send you a private preview link. You review everything on your phone and request your included revisions.</p>
+      </div>
+      <div class="pay-step">
+        <div class="pay-num">3</div>
+        <h3>Pay 70% — go live</h3>
+        <p>Once you're happy, the remaining <span class="hl">70% is due before launch or file handover</span>. Then your site goes live and every file is yours.</p>
+      </div>
+    </div>
+    <div class="pay-example">
+      <div class="ex">Example: Launch Plus (AED 3,000) → <b>AED 900</b> today, <b>AED 2,100</b> before launch.</div>
+      <a class="btn btn-gold btn-sm" data-wa="Hi! I'd like to start a website project with 30% down. Can you send me the payment details?" href="#">Start with 30%</a>
+    </div>
+    <p class="pay-terms">By paying your deposit you agree to our <a href="#terms">Terms &amp; Conditions</a>.</p>
+  </div>
+</section>
+
+<!-- ================= EXCLUSIONS ================= -->
+<section class="exclusions" id="exclusions">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">
+        <span class="lang-en">Direct Transparency</span>
+        <span class="lang-ar">شفافية كاملة</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">Third-Party Exclusions</span>
+        <span class="lang-ar block">المستثنيات وتكاليف الأطراف الأخرى</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-en">Clear boundaries upfront. These external items are paid directly to your chosen provider or quoted separately.</span>
+        <span class="lang-ar block">وضوح كامل من البداية. هذه الخدمات الخارجية تُدفع مباشرة للمزود الذي تختاره أو تُسعَّر مستقلاً.</span>
+      </p>
+    </div>
+    <div class="excl-grid">
+      <div class="excl"><b>Domain name</b><p>Your .com or .ae address (~AED 50–150/year). Registered in your name; owned 100% by you.</p></div>
+      <div class="excl"><b>Paid hosting</b><p>We deploy on modern zero-cost cloud hosting. Upgrades to paid servers are billed at cost.</p></div>
+      <div class="excl"><b>Third-party tools</b><p>Specialized booking, CRM, or email marketing platforms are billed directly by their creators.</p></div>
+      <div class="excl"><b>Payment gateways</b><p>Stripe, Tabby, and PayTabs merchant accounts are held directly between you and the gateway.</p></div>
+      <div class="excl"><b>Major custom apps</b><p>Complex customer portals or multi-vendor platforms are scoped and quoted separately on demand.</p></div>
+      <div class="excl"><b>Photography &amp; logo</b><p>We polish your provided assets. On-site photoshoots and new brand identity design are separate.</p></div>
+      <div class="excl"><b>Bespoke AI cloud</b><p>Third-party AI inference tokens and official WhatsApp Business APIs are billed directly by cloud providers.</p></div>
+    </div>
+    <p class="excl-note"><strong>Fixed yearly reality:</strong> Most Launch1500 websites run with zero monthly platform fees — your only recurring annual cost is your domain address.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Questions</span>
+      <h2 class="section-title">Asked all the time</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Why only 30% upfront?</summary>
+        <div class="faq-a">To protect your cash flow. The 30% deposit initiates the project; the remaining 70% is due only after you review and approve your finished website before launch.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if I want design changes?</summary>
+        <div class="faq-a">Every package includes dedicated revision rounds. You never pay the remaining 70% balance until you are completely satisfied with the final design.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do credits work?</summary>
+        <div class="faq-a">1 credit = AED 100 flat. Use credits for quick post-launch updates or add-ons. Every package includes 3 complimentary credits (AED 300 value) for post-launch edits.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I pay monthly fees?</summary>
+        <div class="faq-a">Zero mandatory monthly fees. Sites are hosted on modern high-speed infrastructure. Your only recurring expense is your annual domain name (~AED 50–150/year).</div>
+      </details>
+      <details class="faq-item">
+        <summary>How does the WhatsApp integration work?</summary>
+        <div class="faq-a">Clicking any call-to-action opens a pre-formatted enquiry directly in your WhatsApp, delivering qualified customer leads straight to your phone.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does delivery take?</summary>
+        <div class="faq-a">5 to 10 working days for most tiers, up to 21 days for bespoke flagship stores. Exact milestones are locked in writing before commencement.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I own my website?</summary>
+        <div class="faq-a">100% full ownership. All files, custom code, and deployment accounts are completely transferred to you upon final handover. Zero platform locks.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you create my website in Arabic?</summary>
+        <div class="faq-a">Yes. We craft native, typographic right-to-left Arabic versions with tailored typography, not raw machine translation.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer custom AI and WhatsApp automations?</summary>
+        <div class="faq-a">Yes. Bespoke AI concierges and automated WhatsApp dispatch workflows are architected upon consultation with dedicated enterprise data privacy.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TERMS ================= -->
+<section class="terms" id="terms">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">The fine print, in plain words</span>
+      <h2 class="section-title">Terms &amp; Conditions</h2>
+      <p class="section-sub">Short, honest and readable — so we both know exactly where we stand. Paying your deposit means you've read and accepted these terms.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>1 · What we do — and the only thing we do</summary><div class="faq-a">Launch1500 designs, builds and delivers websites as agreed in your written quote on WhatsApp. That is the entire service. We are a website design service — we are not lawyers, accountants, business consultants or a licensing authority, and nothing we say or build constitutes legal or business advice.</div></details>
+      <details class="faq-item"><summary>2 · Permits, licenses &amp; compliance are your responsibility</summary><div class="faq-a">You are solely responsible for obtaining any trade license, e-commerce license, permits, registrations or approvals your business or website activity requires (including UAE federal and emirate-level requirements), and for VAT and any other tax obligations. We create and sell the website as you request it — whether you are permitted to run the business it promotes is entirely between you and the authorities.</div></details>
+      <details class="faq-item"><summary>3 · Your content is your responsibility</summary><div class="faq-a">Texts, photos, logos, menus, prices, offers and claims you give us (or approve) are yours. You confirm you own them or have permission to use them, and that they are accurate and legal. We are not liable for copyright or trademark issues, misleading claims, or fines arising from content you provided or approved.</div></details>
+      <details class="faq-item"><summary>4 · Payments — 30% / 70%</summary><div class="faq-a">Work starts after the 30% deposit. The remaining 70% is due before launch or file handover. If you cancel before work begins, the deposit is refunded in full; once work has begun, the deposit covers work already done. No remaining balance is ever due for a website you haven't approved.</div></details>
+      <details class="faq-item"><summary>5 · Scope, revisions &amp; timelines</summary><div class="faq-a">Each package includes the features and revision rounds listed on this page. Anything extra is quoted in credits (1 credit = AED 100) and only done after your approval. Delivery times are good-faith estimates and start once we've received your deposit and your content.</div></details>
+      <details class="faq-item"><summary>6 · Hosting, domains &amp; third-party services</summary><div class="faq-a">Free hosting platforms, domain registrars, payment gateways, booking tools and similar services belong to third parties and follow their own terms and pricing, which can change at any time. We set things up for you, but we don't control those companies and are not responsible for their outages, policy changes or fees. Domains are registered in your name — renewals are on you.</div></details>
+      <details class="faq-item"><summary>7 · Third-party services &amp; integrations</summary><div class="faq-a">WhatsApp, domain registrars, hosting platforms and external services are operated by independent third parties and follow their respective terms and policies. We configure and integrate them on your website, but we do not control those external platforms and are not liable for their platform changes, updates, or outages.</div></details>
+      <details class="faq-item"><summary>8 · Ownership &amp; portfolio</summary><div class="faq-a">Full ownership of the website files transfers to you once the final payment is made. Until then, all work remains ours. We may show the finished website in our portfolio unless you ask us not to.</div></details>
+      <details class="faq-item"><summary>9 · Limit of liability</summary><div class="faq-a">Our total liability for anything related to a project is limited to the amount you actually paid us for that project. We are never liable for indirect losses — lost profits, lost customers, business interruption, fines or penalties from regulators, or claims by third parties.</div></details>
+      <details class="faq-item"><summary>10 · Bespoke AI &amp; custom automations</summary><div class="faq-a">Bespoke AI architectures, proprietary chatbots, and WhatsApp workflow automations are engineered upon request under a separate statement of work. They operate under the respective data privacy and API terms of the underlying model providers.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEAD FORM ================= -->
+<section class="lead" id="contact">
+  <div class="container lead-grid">
+    <div class="lead-left">
+      <span class="eyebrow">Get started</span>
+      <h2>Tell us about your website.</h2>
+      <p>Share your business name and what you need. We'll help you choose a package and confirm the scope, price and timeline in writing.</p>
+      <ul class="hero-points">
+        <li><span class="tick">✓</span> Free advice on which package fits you</li>
+        <li><span class="tick">✓</span> Honest quote in credits before any payment</li>
+        <li><span class="tick">✓</span> Start with just 30% down</li>
+      </ul>
+      <p class="lead-alt">Prefer to just say hi? <a data-wa="Hi! I found Launch1500 and I have a few questions." href="#">Open WhatsApp directly →</a></p>
+    </div>
+    <form class="lead-form" id="leadForm" novalidate>
+      <div class="lf-row">
+        <div class="lf-field">
+          <label for="lfName">Your name *</label>
+          <input type="text" id="lfName" name="name" placeholder="e.g. Fatima" required>
+        </div>
+        <div class="lf-field">
+          <label for="lfBiz">Business name *</label>
+          <input type="text" id="lfBiz" name="business" placeholder="e.g. Fatima's Bakery" required>
+        </div>
+      </div>
+      <div class="lf-row">
+        <div class="lf-field">
+          <label for="lfPhone">WhatsApp number (optional)</label>
+          <input type="tel" id="lfPhone" name="phone" placeholder="+971 5x xxx xxxx">
+        </div>
+        <div class="lf-field">
+          <label for="lfPkg">Preferred package</label>
+          <select id="lfPkg" name="package">
+            <option value="Not sure yet">Not sure yet — advise me</option>
+            <option value="Launch Lite (AED 1,500)">Launch Lite — AED 1,500</option>
+            <option value="Launch Basic (AED 2,000)">Launch Basic — AED 2,000</option>
+            <option value="Launch Plus (AED 3,000)">Launch Plus — AED 3,000</option>
+            <option value="Launch Store (AED 4,000)">Launch Store — AED 4,000</option>
+            <option value="Launch Premium (AED 5,000)">Launch Premium — AED 5,000</option>
+          </select>
+        </div>
+      </div>
+      <div class="lf-field">
+        <label for="lfMsg">What does your business do?</label>
+        <textarea id="lfMsg" name="message" rows="3" placeholder="e.g. Home bakery in Sharjah, want customers to order custom cakes on WhatsApp…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-wa">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Continue to WhatsApp
+      </button>
+      <p class="lf-note">Your name and business name are required. Review your message in WhatsApp and press Send when ready. This page does not save your enquiry.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+</main>
+<footer>
+  <div class="container foot-grid">
+    <a class="logo" href="#top">Launch<span>1500</span></a>
+    <ul class="foot-links">
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#flagship-demos">3 flagship demos</a></li>
+      <li><a href="#how-to-start">How to start</a></li>
+      <li><a href="#estimator">Estimator</a></li>
+      <li><a href="#exclusions">Not included</a></li>
+      <li><a href="#terms">Terms</a></li>
+      <li><a href="/launch1500/start/index.html">Start your project</a></li>
+    </ul>
+    <div>© <span id="year"></span> Launch1500 · Premium websites from AED 1,500 · UAE</div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" id="waFloat" data-wa="Hi! I'm on the Launch1500 website and I'd like to talk about a website." href="#" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+/* ============================================================
+   Launch1500 — site scripts (bilingual EN / AR)
+============================================================ */
+var WA_NUMBER = '971503923733';
+var LANG = 'en';
+
+function waLink(msg){
+  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+
+var WA_SVG = '<svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>';
+
+/* ---------- Estimator data ---------- */
+var PACKAGES = {
+  lite:    { name: 'Launch Lite',    price: 1500 },
+  basic:   { name: 'Launch Basic',   price: 2000 },
+  plus:    { name: 'Launch Plus',    price: 3000 },
+  store:   { name: 'Launch Store',   price: 4000 },
+  premium: { name: 'Launch Premium', price: 5000 }
+};
+var ADDONS = {
+  copy:     { name: 'Copywriting (per page)', nameAr: 'كتابة المحتوى (لكل صفحة)', price: 200 },
+  gallery:  { name: 'Photo gallery',          nameAr: 'معرض صور',                 price: 200 },
+  maps:     { name: 'Maps + Google Business', nameAr: 'خرائط جوجل + Google Business', price: 200 },
+  speed:    { name: 'Speed boost',            nameAr: 'تسريع الموقع',             price: 200 },
+  booking:  { name: 'Booking / enquiry form', nameAr: 'نموذج حجز / استفسار',      price: 300 },
+  seo:      { name: 'SEO boost',              nameAr: 'تحسين محركات البحث',       price: 300 },
+  page:     { name: 'Extra page',             nameAr: 'صفحة إضافية',              price: 500 },
+  arabic:   { name: 'Arabic version',         nameAr: 'نسخة عربية',               price: 800 }
+};
+
+/* Add-ons already covered by each package — disabled in the estimator so nobody pays twice */
+var INCLUDED = {
+  lite:    [],
+  basic:   ['gallery'],
+  plus:    ['gallery', 'maps', 'booking', 'seo'],
+  store:   ['gallery', 'maps', 'booking', 'seo'],
+  premium: ['gallery', 'maps', 'booking', 'seo', 'speed']
+};
+
+function fmt(n){
+  var s = n.toLocaleString('en-US');
+  return LANG === 'ar' ? s + ' درهم' : 'AED ' + s;
+}
+
+/* ============================================================
+   Arabic translations — innerHTML per container selector
+============================================================ */
+var AR = {};
+
+AR['#navLinks'] =
+  '<li><a href="#packages">الباقات</a></li>' +
+  '<li><a href="#flagship-demos">نماذج المواقع</a></li>' +
+  '<li><a href="#how-to-start">كيف تبدأ</a></li>' +
+  '<li><a href="#estimator">حاسبة التكلفة</a></li>' +
+  '<li><a href="#faq">الأسئلة</a></li>';
+
+AR['.hero-grid'] =
+  '<div>' +
+    '<span class="hero-kicker">تصميم مواقع فاخر للشركات في الإمارات</span>' +
+    '<h1>Launch<span>1500</span></h1>' +
+    '<p class="hero-offer">حضور رقمي بمستوى الوكالات الكبرى، يبدأ من <span class="price-keep">1,500 درهم.</span></p>' +
+    '<p class="lede">تصميم هادئ راقٍ، تسليم استراتيجي سريع، ومراحل عمل شفافة ومحمية. بدون عقود معقدة وبدون أعباء إدارية.</p>' +
+    '<div class="hero-ctas">' +
+      '<a class="btn btn-gold" href="#flagship-demos">استكشف النماذج</a>' +
+      '<a class="btn btn-outline" href="#packages">قارن الباقات</a>' +
+    '</div>' +
+    '<ul class="hero-points">' +
+      '<li><span class="tick">✓</span> دفعة أولى 30% (450 درهم) بعد موافقتك على العرض المكتوب</li>' +
+      '<li><span class="tick">✓</span> المتبقي 70% فقط بعد المراجعة الكاملة والرضا قبل الإطلاق</li>' +
+    '</ul>' +
+    '<p class="hero-note">شراكة مباشرة عبر واتساب. أسعار واضحة ومحددة مسبقاً.</p>' +
+  '</div>';
+
+AR['.strip-grid'] =
+  '<div class="strip-item"><b>5 باقات</b><span>من 1,500 إلى 5,000 درهم</span></div>' +
+  '<div class="strip-item"><b>3 نماذج حية</b><span>معاينة تفاعلية كاملة</span></div>' +
+  '<div class="strip-item"><b>30% للبدء</b><span>450 درهم فقط بعد التأكيد الكتابي</span></div>' +
+  '<div class="strip-item"><b>تواصل مباشر</b><span>تواصل فوري مع المصمم</span></div>';
+
+AR['#packages .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">استثمار واضح وشفاف</span>' +
+    '<h2 class="section-title">باقات متكاملة ومهيكلة</h2>' +
+    '<p class="section-sub">تكلفة استثمارية محددة لمرة واحدة. 30% دفعة بدء تعاقد لحماية سيولتك، و70% فقط بعد المراجعة النهائية. <a href="#exclusions">راجع التكاليف المستثناة.</a></p>' +
+  '</div>' +
+  '<div class="pkg-grid">' +
+
+  '<article class="pkg">' +
+    '<h3 class="pkg-name">Launch Lite</h3>' +
+    '<p class="pkg-for">صفحة تعريفية للمستقلين والمشاريع الخدمية الصغيرة.</p>' +
+    '<div class="pkg-price">1,500 درهم <small>دفعة واحدة</small></div>' +
+    '<span class="pkg-credits">◈ 15 نقطة</span>' +
+    '<div class="pkg-start">ابدأ بـ 450 درهم (30%)</div>' +
+    '<ul class="pkg-feat">' +
+      '<li>موقع أنيق من صفحة واحدة</li>' +
+      '<li>زر تواصل واتساب</li>' +
+      '<li>تصميم متوافق مع الجوال والتابلت والكمبيوتر</li>' +
+      '<li>أقسام الخدمات والتعريف والموقع</li>' +
+      '<li>إعداد SEO أساسي</li>' +
+      '<li>جولة تعديلات واحدة</li>' +
+      '<li>3 نقاط مجانية بعد الإطلاق (بقيمة 300 درهم)</li>' +
+      '<li>التسليم خلال ~5 أيام عمل</li>' +
+    '</ul>' +
+    '<a class="btn btn-navy btn-sm" data-wa="مرحباً! أنا مهتم بباقة Launch Lite (1,500 درهم — أبدأ بـ 450 درهم)." href="#">ابدأ لايت — 450 درهم</a>' +
+  '</article>' +
+
+  '<article class="pkg">' +
+    '<h3 class="pkg-name">Launch Basic</h3>' +
+    '<p class="pkg-for">موقع متعدد الصفحات للمقاهي والمحلات والخدمات المحلية.</p>' +
+    '<div class="pkg-price">2,000 درهم <small>دفعة واحدة</small></div>' +
+    '<span class="pkg-credits">◈ 20 نقطة</span>' +
+    '<div class="pkg-start">ابدأ بـ 600 درهم (30%)</div>' +
+    '<ul class="pkg-feat">' +
+      '<li>كل ما في لايت</li>' +
+      '<li>حتى 4 صفحات أو أقسام</li>' +
+      '<li>معرض صور</li>' +
+      '<li>خريطة جوجل مدمجة</li>' +
+      '<li>نموذج تواصل</li>' +
+      '<li>جولتا تعديلات</li>' +
+      '<li>3 نقاط مجانية بعد الإطلاق (بقيمة 300 درهم)</li>' +
+      '<li>التسليم خلال ~7 أيام عمل</li>' +
+    '</ul>' +
+    '<a class="btn btn-navy btn-sm" data-wa="مرحباً! أنا مهتم بباقة Launch Basic (2,000 درهم — أبدأ بـ 600 درهم)." href="#">ابدأ بيسك — 600 درهم</a>' +
+  '</article>' +
+
+  '<article class="pkg featured">' +
+    '<span class="pkg-badge">للشركات الخدمية</span>' +
+    '<h3 class="pkg-name">Launch Plus</h3>' +
+    '<p class="pkg-for">استفسارات الحجز للعيادات والصالونات والوكالات.</p>' +
+    '<div class="pkg-price">3,000 درهم <small>دفعة واحدة</small></div>' +
+    '<span class="pkg-credits">◈ 30 نقطة</span>' +
+    '<div class="pkg-start">ابدأ بـ 900 درهم (30%)</div>' +
+    '<ul class="pkg-feat">' +
+      '<li>كل ما في بيسك</li>' +
+      '<li>حتى 6 صفحات</li>' +
+      '<li>نظام حجز واستفسارات</li>' +
+      '<li>أقسام آراء العملاء والثقة</li>' +
+      '<li>تحسين SEO للصفحات</li>' +
+      '<li>إعداد Google Business Profile</li>' +
+      '<li>3 نقاط مجانية بعد الإطلاق (بقيمة 300 درهم)</li>' +
+      '<li>التسليم خلال ~10 أيام عمل</li>' +
+    '</ul>' +
+    '<a class="btn btn-gold btn-sm" data-wa="مرحباً! أنا مهتم بباقة Launch Plus (3,000 درهم — أبدأ بـ 900 درهم)." href="#">ابدأ بلس — 900 درهم</a>' +
+  '</article>' +
+
+  '<article class="pkg">' +
+    '<h3 class="pkg-name">Launch Store</h3>' +
+    '<p class="pkg-for">كتالوج منتجات مع استفسارات الطلب عبر واتساب.</p>' +
+    '<div class="pkg-price">4,000 درهم <small>دفعة واحدة</small></div>' +
+    '<span class="pkg-credits">◈ 40 نقطة</span>' +
+    '<div class="pkg-start">ابدأ بـ 1,200 درهم (30%)</div>' +
+    '<ul class="pkg-feat">' +
+      '<li>كل ما في بلس</li>' +
+      '<li>كتالوج حتى 30 منتجاً</li>' +
+      '<li>الطلب عبر واتساب</li>' +
+      '<li>تصنيفات وبحث في المنتجات</li>' +
+      '<li>جاهز لروابط الدفع</li>' +
+      '<li>نماذج طلبات واستفسارات</li>' +
+      '<li>3 نقاط مجانية بعد الإطلاق (بقيمة 300 درهم)</li>' +
+      '<li>التسليم خلال ~14 يوم عمل</li>' +
+    '</ul>' +
+    '<a class="btn btn-navy btn-sm" data-wa="مرحباً! أنا مهتم بباقة Launch Store (4,000 درهم — أبدأ بـ 1,200 درهم)." href="#">ابدأ ستور — 1,200 درهم</a>' +
+  '</article>' +
+
+  '<article class="pkg">' +
+    '<h3 class="pkg-name">Launch Premium</h3>' +
+    '<p class="pkg-for">واجهة فاخرة غنية بالمحتوى مع تقديم مخصص ودعم ذي أولوية.</p>' +
+    '<div class="pkg-price">5,000 درهم <small>دفعة واحدة</small></div>' +
+    '<span class="pkg-credits">◈ 50 نقطة</span>' +
+    '<div class="pkg-start">ابدأ بـ 1,500 درهم (30%)</div>' +
+    '<ul class="pkg-feat">' +
+      '<li>كل ما في ستور</li>' +
+      '<li>حتى 10 صفحات بتصميم مخصص</li>' +
+      '<li>كتالوج منتقى أو مسار خدمات موسع</li>' +
+      '<li>حركات وتفاعلات مخصصة راقية</li>' +
+      '<li>SEO كامل وتحسين سرعة Core Web Vitals</li>' +
+      '<li>مسار استفسار كونسيرج تفاعلي</li>' +
+      '<li>3 جولات تعديلات</li>' +
+      '<li>دعم بأولوية لمدة 30 يوماً</li>' +
+      '<li>3 نقاط مجانية بعد الإطلاق (بقيمة 300 درهم)</li>' +
+      '<li>التسليم خلال ~21 يوم عمل</li>' +
+    '</ul>' +
+    '<a class="btn btn-navy btn-sm" data-wa="مرحباً! أنا مهتم بباقة Launch Premium (5,000 درهم — أبدأ بـ 1,500 درهم)." href="#">ابدأ بريميوم — 1,500 درهم</a>' +
+  '</article>' +
+
+  '</div>';
+
+AR['#demos .eyebrow'] = 'معاينات سريعة للباقات';
+AR['#demos .section-title'] = 'خمس معاينات مختصرة للكتالوج الكامل';
+AR['#demos .section-sub'] = 'استخدم هذه المعاينات السريعة لمقارنة مستويات الأسعار الخمسة. ولتجربة تفاعلية كاملة، افتح أحد النماذج الرئيسية الثلاثة أعلاه.';
+
+var AR_TABS = ['صالون · 1,500 درهم', 'مطعم · 2,000 درهم', 'عيادة · 3,000 درهم', 'بوتيك · 4,000 درهم', 'عرض فاخر · 5,000 درهم'];
+var EN_TABS = [];
+
+AR['#demo1 .demo-meta'] = '<h3>«Glow Studio» — موقع صالون من صفحة واحدة</h3><span class="chip">Launch Lite · 1,500 درهم · ابدأ بـ 450 درهم</span>';
+AR['#demo2 .demo-meta'] = '<h3>«Zaitoun Kitchen» — موقع مطعم مع قائمة طعام</h3><span class="chip">Launch Basic · 2,000 درهم · ابدأ بـ 600 درهم</span>';
+AR['#demo3 .demo-meta'] = '<h3>«Nova Dental» — موقع عيادة مع نظام حجوزات</h3><span class="chip">Launch Plus · 3,000 درهم · ابدأ بـ 900 درهم</span>';
+AR['#demo4 .demo-meta'] = '<h3>«Sanaa Boutique» — كتالوج مع طلب عبر واتساب</h3><span class="chip">Launch Store · 4,000 درهم · ابدأ بـ 1,200 درهم</span>';
+AR['#demo5 .demo-meta'] = '<h3>«AURUM Properties» — واجهة فاخرة مع كتالوج منتقى</h3><span class="chip">Launch Premium · 5,000 درهم · ابدأ بـ 1,500 درهم</span>';
+
+AR['.demo-note'] = 'هذه نماذج توضيحية من تصميمنا — موقعك يُصمَّم حول علامتك وصورك وخدماتك. <a data-wa="مرحباً! شاهدت النماذج في Launch1500 وأعجبني أحدها — هل نتحدث عن مشروعي؟" href="#">أخبرنا أي نموذج يناسبك ←</a>';
+
+AR['#credits .container'] =
+  '<span class="eyebrow">تسعير بسيط</span>' +
+  '<h2 class="section-title">قاعدة واحدة: 1 نقطة = 100 درهم</h2>' +
+  '<p class="section-sub">بدون عروض أسعار معقّدة وبدون فوترة بالساعة. كل ما نقوم به — الباقات والإضافات والتحديثات المستقبلية — مسعّر بالنقاط، فتعرف دائماً تكلفة أي شيء.</p>' +
+  '<div class="credit-flex">' +
+    '<div class="credit-copy">' +
+      '<div class="credit-coin">' +
+        '<div class="coin">1</div>' +
+        '<div><b>1 نقطة = 100 درهم</b><small>اشترِ النقاط متى شئت، واستخدمها عندما تحتاجنا.</small></div>' +
+      '</div>' +
+      '<p>باقتك هي مجرد نقاط: Launch Lite تساوي 15 نقطة، و Launch Premium تساوي 50. وبعد الإطلاق لا يتجمد موقعك في الزمن — تحتاج صفحة جديدة أو تحديث أسعار أو بنر رمضان؟ أرسل رسالة واتساب، نسعّرها بالنقاط، توافق، وتُنجَز.</p>' +
+      '<p>النقاط تُبقي الأعمال الصغيرة صغيرة: تعديل نص بسيط = نقطة واحدة — 100 درهم، وغالباً في نفس اليوم. لن تدفع أبداً «حداً أدنى للتعاقد» من أجل تعديل يستغرق خمس دقائق.</p>' +
+      '<p><strong>الأعمال المستمرة تبدأ من نقطة واحدة فقط (100 درهم)</strong> — ولا تشتري النقاط إلا عند الحاجة. والأفضل: <strong>كل باقة تشمل 3 نقاط مجانية</strong>، فأول تحديثاتك بعد الإطلاق علينا.</p>' +
+    '</div>' +
+    '<table class="credit-table">' +
+      '<caption>أسعار الأعمال بالنقاط</caption>' +
+      '<thead><tr><th>العمل المستمر</th><th>النقاط</th><th>بالدرهم</th></tr></thead>' +
+      '<tbody>' +
+        '<tr><td>تعديل نص أو صورة بسيط</td><td>1</td><td>100 درهم</td></tr>' +
+        '<tr><td>معرض صور جديد</td><td>2</td><td>200 درهم</td></tr>' +
+        '<tr><td>قسم جديد في صفحة</td><td>3</td><td>300 درهم</td></tr>' +
+        '<tr><td>خطة العناية الشهرية (تحديثات ونسخ احتياطي وفحوصات)</td><td>3 شهرياً</td><td>300 درهم شهرياً</td></tr>' +
+        '<tr><td>صفحة كاملة جديدة</td><td>5</td><td>500 درهم</td></tr>' +
+        '<tr><td>نموذج أو حاسبة تفاعلية مخصصة</td><td>6</td><td>600 درهم</td></tr>' +
+        '<tr><td>نسخة عربية كاملة</td><td>8</td><td>800 درهم</td></tr>' +
+      '</tbody>' +
+    '</table>' +
+  '</div>';
+
+AR['#addons .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">الإضافات</span>' +
+    '<h2 class="section-title">إضافات ابتداءً من 100 درهم</h2>' +
+    '<p class="section-sub">أضِفها إلى أي باقة — الآن أو بعد الإطلاق. كل إضافة مسعّرة بالنقاط، فلا فواتير غامضة أبداً.</p>' +
+  '</div>' +
+  '<div class="addon-grid">' +
+    '<div class="addon"><div class="a-ico">✏️</div><b>تحديث بسيط</b><p>تعديل نص أو صورة في صفحة قائمة. غالباً في نفس اليوم.</p><div class="a-price">1 نقطة <small>· 100 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">🖼️</div><b>معرض صور</b><p>معرض أنيق وسريع لأعمالك أو أطباقك أو منتجاتك أو مساحتك.</p><div class="a-price">نقطتان <small>· 200 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">✍️</div><b>كتابة المحتوى (لكل صفحة)</b><p>نكتب الكلمات التي تبيع — واضحة ودافئة وبأسلوبك.</p><div class="a-price">نقطتان <small>· 200 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">📍</div><b>خرائط جوجل + Google Business</b><p>خريطة مدمجة مع إعداد ملف Google Business ليجدك أهل منطقتك.</p><div class="a-price">نقطتان <small>· 200 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">⚡</div><b>تسريع الموقع</b><p>ضغط الصور والتخزين المؤقت وتحسينات لتحميل أسرع في كل مكان.</p><div class="a-price">نقطتان <small>· 200 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">📅</div><b>نموذج حجز / استفسار</b><p>دع عملاءك يطلبون مواعيد أو عروض أسعار من الموقع مباشرة.</p><div class="a-price">3 نقاط <small>· 300 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">🔎</div><b>تحسين محركات البحث</b><p>عناوين ووصف وبنية مضبوطة بالكلمات المفتاحية لتلاحظك جوجل.</p><div class="a-price">3 نقاط <small>· 300 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">🛡️</div><b>خطة العناية الشهرية</b><p>تحديثات ونسخ احتياطي وفحوصات — نبقي موقعك بأفضل حال شهرياً.</p><div class="a-price">3 نقاط <small>· 300 درهم شهرياً</small></div></div>' +
+    '<div class="addon"><div class="a-ico">📄</div><b>صفحة إضافية</b><p>صفحة جديدة كاملة التصميم — قائمة أو فريق أو خدمات، أي شيء.</p><div class="a-price">5 نقاط <small>· 500 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">🌙</div><b>نسخة عربية</b><p>نسخة عربية كاملة من موقعك باتجاه يمين-يسار، مصممة باحتراف.</p><div class="a-price">8 نقاط <small>· 800 درهم</small></div></div>' +
+    '<div class="addon"><div class="a-ico">✦</div><b>حلول الذكاء الاصطناعي والأتمتة</b><p>مساعدات خدمة عملاء ذكية، وأتمتة محادثات واتساب، وربط الأنظمة المخصصة. تنفذ حسب متطلباتك.</p><div class="a-price">مخصص <small>· متاح عند الطلب</small></div></div>' +
+  '</div>';
+
+AR['#ai .container'] =
+  '<span class="eyebrow">حلول مخصصة · متاحة عند الطلب</span>' +
+  '<h2 class="section-title">أنظمة الذكاء الاصطناعي وأتمتة الأعمال — مصممة خصيصاً لمشروعك</h2>' +
+  '<p class="section-sub">هل تبحث عن كونسيرج ذكي لخدمة العملاء، أو أتمتة محادثات واتساب لتنظيم الحجوزات، أو ربط أنظمة مخصص؟ نصمم ونبني حلول الذكاء الاصطناعي المخصصة بالطلب بعد جلسة استشارة فنية دقيقة.</p>' +
+  '<div class="ai-grid">' +
+    '<div class="ai-card">' +
+      '<span class="tag">كونسيرج العملاء الذكي</span>' +
+      '<h3>خدمة عملاء راقية على مدار الساعة</h3>' +
+      '<p>مساعد ذكي يتم تدريبه خصيصاً على خدماتك وأسعارك وسياساتك. يستقبل استفسارات العملاء بلباقة، ويقدم إجابات فورية، ويجهز متطلبات الحجز بدقة.</p>' +
+      '<ul>' +
+        '<li>إجابات ذكية وسريعة ليل نهار</li>' +
+        '<li>مدرب على هوية ونبرة علامتك التجارية</li>' +
+        '<li>يدعم اللغتين العربية والإنجليزية بطلاقة</li>' +
+        '<li>أمان تام لبياناتك وخصوصيتك</li>' +
+      '</ul>' +
+      '<div class="ai-price">تصميم مخصص <small>· متاح عند الطلب</small></div>' +
+    '</div>' +
+    '<div class="ai-card">' +
+      '<span class="tag">أتمتة محادثات واتساب</span>' +
+      '<h3>إدارة الحجوزات والطلبات بذكاء</h3>' +
+      '<p>نظام مؤتمت لاستقبال استفسارات واتساب، وتصنيف العملاء، وجمع بيانات الحجز، وتحويل الطلبات المهمة لفريقك فوراً مع كافة التفاصيل.</p>' +
+      '<ul>' +
+        '<li>فرز وتصنيف استفسارات العملاء لحظياً</li>' +
+        '<li>جمع متطلبات الخدمة والمواعيد تلقائياً</li>' +
+        '<li>تسليم سلس للموظفين عند الحاجة</li>' +
+        '<li>متوافق مع أسلوب وسير عملك</li>' +
+      '</ul>' +
+      '<div class="ai-price">دراسة مخصصة <small>· متاح عند الطلب</small></div>' +
+    '</div>' +
+  '</div>' +
+  '<p class="ai-note"><b>كيف تبدأ مع الذكاء الاصطناعي المخصص؟</b> نظراً لأن أنظمة الذكاء الاصطناعي تتطلب دراسة متأنية لخصوصية البيانات والأداء والاستقرار، يقوم فريقنا بدراسة كل حالة بشكل مستقل. <b>تُقدم عروض الأسعار بعد الاستشارة الفنية</b> لضمان حصولك على نظام آمن وموثوق ومصمم ليدوم.</p>';
+
+AR['#estimator .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">حاسبة التكلفة</span>' +
+    '<h2 class="section-title">اعرف تكلفتك خلال 30 ثانية</h2>' +
+    '<p class="section-sub">اختر الباقة والإضافات لمعرفة التكلفة التقديرية والدفعة الأولى والمتبقي. راجع التفاصيل مع المساعد قبل إرسال استفسارك.</p>' +
+  '</div>' +
+  '<div class="est-grid">' +
+    '<div>' +
+      '<div class="est-block">' +
+        '<h3>1 · اختر باقتك</h3>' +
+        '<div class="est-pkgs" id="estPkgs" role="radiogroup" aria-label="اختر باقتك">' +
+          '<div class="est-pkg"><input type="radio" name="pkg" id="pkg-lite" value="lite" checked><label for="pkg-lite"><span class="p">1,500 درهم</span><b>Launch Lite</b><span>صفحة واحدة · 15 نقطة</span></label></div>' +
+          '<div class="est-pkg"><input type="radio" name="pkg" id="pkg-basic" value="basic"><label for="pkg-basic"><span class="p">2,000 درهم</span><b>Launch Basic</b><span>حتى 4 صفحات · 20 نقطة</span></label></div>' +
+          '<div class="est-pkg"><input type="radio" name="pkg" id="pkg-plus" value="plus"><label for="pkg-plus"><span class="p">3,000 درهم</span><b>Launch Plus</b><span>حجوزات · 30 نقطة</span></label></div>' +
+          '<div class="est-pkg"><input type="radio" name="pkg" id="pkg-store" value="store"><label for="pkg-store"><span class="p">4,000 درهم</span><b>Launch Store</b><span>كتالوج + طلبات واتساب · 40 نقطة</span></label></div>' +
+          '<div class="est-pkg"><input type="radio" name="pkg" id="pkg-premium" value="premium"><label for="pkg-premium"><span class="p">5,000 درهم</span><b>Launch Premium</b><span>واجهة فاخرة · 50 نقطة</span></label></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="est-block">' +
+        '<h3>2 · أضف الإضافات (اختياري)</h3>' +
+        '<div class="est-addons" id="estAddons">' +
+          '<div class="est-addon"><input type="checkbox" id="ad-copy" value="copy"><label for="ad-copy">كتابة المحتوى (لكل صفحة)<span class="p">+200 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-gallery" value="gallery"><label for="ad-gallery">معرض صور<span class="p">+200 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-maps" value="maps"><label for="ad-maps">خرائط جوجل + Google Business<span class="p">+200 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-speed" value="speed"><label for="ad-speed">تسريع الموقع<span class="p">+200 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-booking" value="booking"><label for="ad-booking">نموذج حجز / استفسار<span class="p">+300 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-seo" value="seo"><label for="ad-seo">تحسين محركات البحث<span class="p">+300 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-page" value="page"><label for="ad-page">صفحة إضافية<span class="p">+500 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-arabic" value="arabic"><label for="ad-arabic">نسخة عربية<span class="p">+800 درهم</span></label></div>' +
+          '<div class="est-addon"><input type="checkbox" id="ad-care" value="care"><label for="ad-care">خطة العناية الشهرية<span class="p">+300 درهم شهرياً</span></label></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<aside class="est-summary" aria-live="polite">' +
+      '<h3>تقديرك</h3>' +
+      '<div class="sum-row"><span class="lbl">الباقة</span><span class="val" id="sumPkg">Launch Lite — 1,500 درهم</span></div>' +
+      '<div class="sum-row"><span class="lbl">الإضافات</span><span class="val" id="sumAddons">لا شيء</span></div>' +
+      '<div class="sum-row total"><span>الإجمالي</span><span class="val" id="sumTotal">1,500 درهم</span></div>' +
+      '<div class="sum-credits" id="sumCredits">= 15 نقطة (1 نقطة = 100 درهم)</div>' +
+      '<div class="sum-credits" id="sumFree">+ 3 نقاط مجانية (300 درهم) لتحديثات ما بعد الإطلاق 🎁</div>' +
+      '<div class="sum-split">' +
+        '<div class="sum-row"><span class="lbl">الدفعة الأولى (30%)</span><span class="val" id="sumDeposit">450 درهم</span></div>' +
+        '<div class="sum-row"><span class="lbl">قبل الإطلاق (70%)</span><span class="val" id="sumBalance">1,050 درهم</span></div>' +
+      '</div>' +
+      '<p class="sum-monthly" id="sumMonthly">زائد <b>300 درهم شهرياً</b> لخطة العناية (فوترة شهرية، ألغِ متى شئت — غير مشمولة في الإجمالي أعلاه).</p>' +
+      '<a class="btn btn-wa" id="sumWhatsApp" href="#" target="_blank" rel="noopener">راجع التقدير مع المساعد</a>' +
+      '<p class="est-fineprint">تقدير مبدئي فقط — نؤكد السعر النهائي عبر واتساب قبل أي دفعة.</p>' +
+    '</aside>' +
+  '</div>';
+
+AR['#payment .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">آلية الدفع</span>' +
+    '<h2 class="section-title">30% للبدء. 70% عند الجاهزية. هذا كل شيء.</h2>' +
+    '<p class="section-sub">عدلٌ معك ومعنا: لا تدفع كامل المبلغ قبل رؤية موقعك، ولا نبدأ العمل بدون التزام.</p>' +
+  '</div>' +
+  '<div class="pay-steps">' +
+    '<div class="pay-step"><div class="pay-num">1</div><h3>ادفع 30% — نبدأ</h3><p>وافق على عرضك في واتساب وادفع <span class="hl">30% فقط مقدماً</span>. موقع الـ 1,500 درهم يبدأ بـ <span class="hl">450 درهم</span> فقط.</p></div>' +
+    '<div class="pay-step"><div class="pay-num">2</div><h3>راجع موقعك</h3><p>نبنيه ونرسل لك رابط معاينة خاصاً. تراجع كل شيء من هاتفك وتطلب التعديلات المشمولة في باقتك.</p></div>' +
+    '<div class="pay-step"><div class="pay-num">3</div><h3>ادفع 70% — انطلق</h3><p>عندما ترضى تماماً، تُدفع <span class="hl">الـ 70% المتبقية قبل الإطلاق أو تسليم الملفات</span>. ثم ينطلق موقعك وتصبح كل الملفات ملكك.</p></div>' +
+  '</div>' +
+  '<div class="pay-example">' +
+    '<div class="ex">مثال: باقة Launch Plus (3,000 درهم) ← <b>900 درهم</b> اليوم، و<b>2,100 درهم</b> قبل الإطلاق.</div>' +
+    '<a class="btn btn-gold btn-sm" data-wa="مرحباً! أود بدء مشروع موقع بدفعة 30%. هل ترسلون لي تفاصيل الدفع؟" href="#">ابدأ بـ 30%</a>' +
+  '</div>' +
+  '<p class="pay-terms">بدفعك للعربون فأنت توافق على <a href="#terms">الشروط والأحكام</a>.</p>';
+
+AR['#exclusions .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">شفافية كاملة</span>' +
+    '<h2 class="section-title">المستثنيات وتكاليف الأطراف الأخرى</h2>' +
+    '<p class="section-sub">وضوح كامل من البداية. هذه الخدمات الخارجية تُدفع مباشرة للمزود الذي تختاره أو تُسعَّر مستقلاً.</p>' +
+  '</div>' +
+  '<div class="excl-grid">' +
+    '<div class="excl"><b>اسم النطاق (الدومين)</b><p>عنوانك .com أو .ae (~50–150 درهم سنوياً). مسجل باسمك ومملوك لك 100%.</p></div>' +
+    '<div class="excl"><b>الاستضافة المدفوعة</b><p>نطلق موقعك على منصات سريعة دون اشتراك إجباري. الترقية لخوادم مدفوعة حسب الطلب.</p></div>' +
+    '<div class="excl"><b>برمجيات الطرف الثالث</b><p>اشتراكات أدوات الحجز الخاصة أو البريد تدفعها لمطوريها مباشرة.</p></div>' +
+    '<div class="excl"><b>بوابات الدفع</b><p>حسابات Stripe وTabby وPayTabs تُعتمد مباشرة بينك وبين المزود.</p></div>' +
+    '<div class="excl"><b>البرمجيات المخصصة الكبرى</b><p>المنصات الضخمة المعقدة أو بوابات العملاء المتقدمة تُسعّر وتُنفذ مستقلاً.</p></div>' +
+    '<div class="excl"><b>التصوير وتصميم الشعار</b><p>نعمل بالمواد المتوفرة لديك؛ وتنسيق جلسات التصوير أو الهويات الجديدة مستقلاً.</p></div>' +
+    '<div class="excl"><b>بنية الذكاء الاصطناعي</b><p>استهلاك نماذج الذكاء الاصطناعي وخوادم السحابة يُدفع مباشرة لمزودي الخدمة.</p></div>' +
+  '</div>' +
+  '<p class="excl-note"><strong>الواقع السنوي الثابت:</strong> أغلب مواقع Launch1500 تعمل دون أي اشتراك شهري — وتكلفتك السنوية الوحيدة هي تجديد النطاق.</p>';
+
+AR['#faq .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">أسئلة</span>' +
+    '<h2 class="section-title">تتكرر علينا دائماً</h2>' +
+  '</div>' +
+  '<div class="faq-list">' +
+    '<details class="faq-item"><summary>لماذا 30% فقط مقدماً؟</summary><div class="faq-a">لحماية سيولتك النقدية. دفعة 30% لتثبيت المشروع وبدء العمل، والـ 70% المتبقية لا تُدفع إلا بعد معاينة موقعك واعتماده بالكامل قبل الإطلاق.</div></details>' +
+    '<details class="faq-item"><summary>ماذا يحدث إذا احتجت إلى تعديلات في التصميم؟</summary><div class="faq-a">كل باقة تشمل جولات تعديل مخصصة. لا يُستحق أي مبلغ متبقٍ لموقع لم توافق عليه تماماً وتكن راضياً عنه.</div></details>' +
+    '<details class="faq-item"><summary>كيف تعمل النقاط؟</summary><div class="faq-a">1 نقطة = 100 درهم دائماً وبكل بساطة. كل باقة تشمل 3 نقاط مجانية (بقيمة 300 درهم) لتعديلات ما بعد الإطلاق.</div></details>' +
+    '<details class="faq-item"><summary>هل توجد أي رسوم شهرية إجبارية؟</summary><div class="faq-a">لا توجد أي رسوم شهرية إجبارية. يُطلق موقعك على استضافة سريعة موثوقة، وتكلفتك السنوية الوحيدة هي حجز النطاق (الدومين).</div></details>' +
+    '<details class="faq-item"><summary>كيف يعمل الربط المباشر مع واتساب؟</summary><div class="faq-a">عندما يضغط عميلك على أي طلب أو حجز، يُفتح تطبيق واتساب برسالة منظمة، لتصلك استفسارات العملاء المؤهلين مباشرة على هاتفك.</div></details>' +
+    '<details class="faq-item"><summary>كم يستغرق التسليم؟</summary><div class="faq-a">من 5 إلى 10 أيام عمل لأغلب الباقات، وحتى 21 يوماً للواجهات الموسعة، مع تثبيت جدول المواعيد كتابياً قبل البدء.</div></details>' +
+    '<details class="faq-item"><summary>هل أملك الموقع بنسبة 100%؟</summary><div class="faq-a">نعم بالكامل. تُسلّم جميع الملفات والأكواد والحسابات إليك فور الاستلام النهائي دون أي قيود أو اشتراكات احتكارية.</div></details>' +
+    '<details class="faq-item"><summary>هل تصممون باللغة العربية؟</summary><div class="faq-a">نعم، بتصميم عربي أصيل من اليمين إلى اليسار وبخطوط عربية راقية ومدروسة، وليس بمجرد ترجمة آلية.</div></details>' +
+    '<details class="faq-item"><summary>هل تقدمون حلول الذكاء الاصطناعي وأتمتة واتساب؟</summary><div class="faq-a">نعم. نبتكر كونسيرج خدمة عملاء ذكياً ومسارات حجز مؤتمتة عبر واتساب بعد استشارة فنية مخصصة لضمان أمان وخصوصية بياناتك.</div></details>' +
+  '</div>';
+
+AR['#terms .container'] =
+  '<div class="center">' +
+    '<span class="eyebrow">الشروط بلغة بسيطة</span>' +
+    '<h2 class="section-title">الشروط والأحكام</h2>' +
+    '<p class="section-sub">مختصرة وواضحة وصادقة — ليعرف كل منا موقعه تماماً. دفعك للعربون يعني أنك قرأت هذه الشروط ووافقت عليها.</p>' +
+  '</div>' +
+  '<div class="faq-list">' +
+    '<details class="faq-item"><summary>1 · ماذا نقدم — وهذا كل ما نقدمه</summary><div class="faq-a">تصمم Launch1500 وتبني وتسلّم المواقع حسب المتفق عليه في عرض السعر المكتوب عبر واتساب. هذه هي الخدمة كاملة. نحن خدمة تصميم مواقع — لسنا محامين ولا محاسبين ولا مستشارين تجاريين ولا جهة ترخيص، ولا يُعد أي شيء نقوله أو نبنيه استشارة قانونية أو تجارية.</div></details>' +
+    '<details class="faq-item"><summary>2 · التصاريح والتراخيص والامتثال مسؤوليتك</summary><div class="faq-a">أنت وحدك المسؤول عن الحصول على أي رخصة تجارية أو رخصة تجارة إلكترونية أو تصاريح أو تسجيلات أو موافقات يتطلبها نشاطك أو موقعك (بما فيها المتطلبات الاتحادية والمحلية في دولة الإمارات)، وعن ضريبة القيمة المضافة وأي التزامات ضريبية أخرى. نحن ننشئ الموقع ونبيعه لك كما طلبته — أما أحقيتك في مزاولة النشاط الذي يروّج له فأمر بينك وبين الجهات المختصة.</div></details>' +
+    '<details class="faq-item"><summary>3 · محتواك مسؤوليتك</summary><div class="faq-a">النصوص والصور والشعارات والقوائم والأسعار والعروض التي تزودنا بها (أو توافق عليها) ملكك أنت. وأنت تؤكد أنك تملكها أو مرخص لك باستخدامها وأنها دقيقة وقانونية. لسنا مسؤولين عن قضايا حقوق النشر أو العلامات التجارية أو الادعاءات المضللة أو الغرامات الناتجة عن محتوى قدمته أو وافقت عليه.</div></details>' +
+    '<details class="faq-item"><summary>4 · الدفع — 30% / 70%</summary><div class="faq-a">يبدأ العمل بعد دفعة الـ 30%. وتُدفع الـ 70% المتبقية قبل الإطلاق أو تسليم الملفات. إذا ألغيت قبل بدء العمل تُسترد دفعتك كاملة؛ وبعد بدء العمل تغطي الدفعة العمل المنجز حتى حينه. ولا يُستحق أي مبلغ متبقٍ عن موقع لم توافق عليه.</div></details>' +
+    '<details class="faq-item"><summary>5 · النطاق والتعديلات والمدد</summary><div class="faq-a">كل باقة تشمل الميزات وجولات التعديل المذكورة في هذه الصفحة. وأي عمل إضافي يُسعَّر بالنقاط (1 نقطة = 100 درهم) ولا يُنفذ إلا بعد موافقتك. مدد التسليم تقديرات بحسن نية وتبدأ بعد استلام الدفعة والمحتوى.</div></details>' +
+    '<details class="faq-item"><summary>6 · الاستضافة والنطاقات وخدمات الطرف الثالث</summary><div class="faq-a">منصات الاستضافة المجانية ومسجلو النطاقات وبوابات الدفع وأدوات الحجز خدمات لأطراف ثالثة تخضع لشروطها وأسعارها القابلة للتغيير في أي وقت. نقوم بالإعداد لك، لكننا لا نتحكم بتلك الشركات ولسنا مسؤولين عن أعطالها أو تغيير سياساتها أو رسومها. النطاق يُسجَّل باسمك — والتجديد مسؤوليتك.</div></details>' +
+    '<details class="faq-item"><summary>7 · خدمات وتكاملات الطرف الثالث</summary><div class="faq-a">واتساب ومسجلو النطاقات ومنصات الاستضافة وأدوات الحجز خدمات لأطراف ثالثة مستقلة تخضع لشروطها. نحن نضبط تكاملها مع موقعك، لكننا لا نتحكم بأنظمتها ولسنا مسؤولين عن أي تغييرات أو أعطال في تلك المنصات.</div></details>' +
+    '<details class="faq-item"><summary>8 · الملكية وعرض الأعمال</summary><div class="faq-a">تنتقل ملكية ملفات الموقع كاملة إليك بعد سداد الدفعة الأخيرة. وقبل ذلك يبقى كل العمل ملكاً لنا. ويحق لنا عرض الموقع المنجز ضمن سابقة أعمالنا ما لم تطلب خلاف ذلك.</div></details>' +
+    '<details class="faq-item"><summary>9 · حدود المسؤولية</summary><div class="faq-a">مسؤوليتنا الإجمالية عن أي أمر يتعلق بالمشروع محدودة بالمبلغ الذي دفعته لنا فعلياً عن ذلك المشروع. ولسنا مسؤولين بأي حال عن الخسائر غير المباشرة — كفوات الأرباح أو فقدان العملاء أو توقف الأعمال أو الغرامات التنظيمية أو مطالبات الغير.</div></details>' +
+    '<details class="faq-item"><summary>10 · حلول الذكاء الاصطناعي والتكاملات المخصصة</summary><div class="faq-a">تُنفذ حلول الذكاء الاصطناعي وأتمتة واتساب والتكاملات البرمجية الخاصة عند الطلب وبموجب نطاق عمل مكتوب، وتخضع للشروط وسياسات الخصوصية الخاصة بالمنصات والخدمات المزودة لها.</div></details>' +
+  '</div>';
+
+AR['.lead-grid'] =
+  '<div class="lead-left">' +
+    '<span class="eyebrow">ابدأ الآن</span>' +
+    '<h2>أخبرنا عن الموقع الذي تحتاجه.</h2>' +
+    '<p>شارك اسم مشروعك وما تحتاجه. نساعدك في اختيار الباقة وتأكيد النطاق والسعر والمدة كتابياً.</p>' +
+    '<ul class="hero-points">' +
+      '<li><span class="tick">✓</span> نصيحة مجانية بالباقة الأنسب لك</li>' +
+      '<li><span class="tick">✓</span> عرض سعر صادق بالنقاط قبل أي دفعة</li>' +
+      '<li><span class="tick">✓</span> ابدأ بدفعة 30% فقط</li>' +
+    '</ul>' +
+    '<p class="lead-alt">تفضّل أن تقول مرحباً فقط؟ <a data-wa="مرحباً! وجدت Launch1500 ولدي بعض الأسئلة." href="#">افتح واتساب مباشرة ←</a></p>' +
+  '</div>' +
+  '<form class="lead-form" id="leadForm" novalidate>' +
+    '<div class="lf-row">' +
+      '<div class="lf-field"><label for="lfName">اسمك *</label><input type="text" id="lfName" name="name" placeholder="مثال: فاطمة" required></div>' +
+      '<div class="lf-field"><label for="lfBiz">اسم المشروع *</label><input type="text" id="lfBiz" name="business" placeholder="مثال: مخبز فاطمة" required></div>' +
+    '</div>' +
+    '<div class="lf-row">' +
+      '<div class="lf-field"><label for="lfPhone">رقم واتساب (اختياري)</label><input type="tel" id="lfPhone" name="phone" placeholder="+971 5x xxx xxxx"></div>' +
+      '<div class="lf-field"><label for="lfPkg">الباقة المفضلة</label><select id="lfPkg" name="package">' +
+        '<option value="Not sure yet">لست متأكداً بعد — انصحوني</option>' +
+        '<option value="Launch Lite (AED 1,500)">Launch Lite — 1,500 درهم</option>' +
+        '<option value="Launch Basic (AED 2,000)">Launch Basic — 2,000 درهم</option>' +
+        '<option value="Launch Plus (AED 3,000)">Launch Plus — 3,000 درهم</option>' +
+        '<option value="Launch Store (AED 4,000)">Launch Store — 4,000 درهم</option>' +
+        '<option value="Launch Premium (AED 5,000)">Launch Premium — 5,000 درهم</option>' +
+      '</select></div>' +
+    '</div>' +
+    '<div class="lf-field"><label for="lfMsg">ماذا يقدم مشروعك؟</label><textarea id="lfMsg" name="message" rows="3" placeholder="مثال: مخبز منزلي في الشارقة، أريد أن يطلب العملاء كيكات مخصصة عبر واتساب…"></textarea></div>' +
+    '<button type="submit" class="btn btn-wa">راجع مع المساعد</button>' +
+    '<p class="lf-note">الاسم واسم المشروع مطلوبان. يراجع المساعد التفاصيل معك قبل واتساب. لا تحفظ هذه الصفحة استفسارك.</p>' +
+  '</form>';
+
+AR['footer .foot-grid'] =
+  '<a class="logo" href="#top">Launch<span>1500</span></a>' +
+  '<ul class="foot-links">' +
+    '<li><a href="#packages">الباقات</a></li>' +
+    '<li><a href="#flagship-demos">3 نماذج رئيسية</a></li>' +
+    '<li><a href="#how-to-start">كيف تبدأ</a></li>' +
+    '<li><a href="#estimator">حاسبة التكلفة</a></li>' +
+    '<li><a href="#exclusions">غير المشمول</a></li>' +
+    '<li><a href="#terms">الشروط والأحكام</a></li>' +
+    '<li><a href="/launch1500/start/index.html">ابدأ مشروعك</a></li>' +
+  '</ul>' +
+  '<div>© <span id="year"></span> Launch1500 · مواقع فاخرة ابتداءً من 1,500 درهم · الإمارات</div>';
+
+var EN = {}; // captured from the DOM on load
+
+/* ============================================================
+   Wiring — re-run after every language switch
+============================================================ */
+function wireWa(){
+  document.querySelectorAll('[data-wa]').forEach(function(el){
+    el.setAttribute('href', waLink(el.getAttribute('data-wa')));
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
+  });
+}
+
+function wireNavClose(){
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+function wireEstimator(){
+  document.querySelectorAll('#estPkgs input, #estAddons input').forEach(function(el){
+    el.addEventListener('change', calc);
+  });
+}
+
+function wireForm(){
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('lfName').value.trim();
+    var biz = document.getElementById('lfBiz').value.trim();
+    var phone = document.getElementById('lfPhone').value.trim();
+    var pkg = document.getElementById('lfPkg').value;
+    var msg = document.getElementById('lfMsg').value.trim();
+
+    var error = form.querySelector('.lf-error');
+    if (!error) {
+      error = document.createElement('p');
+      error.className = 'lf-error';
+      error.id = 'leadError';
+      error.setAttribute('role', 'alert');
+      form.prepend(error);
+    }
+    error.hidden = Boolean(name && biz);
+    ['lfName', 'lfBiz'].forEach(function(id){
+      var field = document.getElementById(id);
+      field.setAttribute('aria-invalid', String(!field.value.trim()));
+      field.setAttribute('aria-describedby', 'leadError');
+    });
+    if (!name || !biz){
+      error.textContent = LANG === 'ar' ? 'أضف اسمك واسم مشروعك للمتابعة.' : 'Enter your name and business name to continue.';
+      document.getElementById(!name ? 'lfName' : 'lfBiz').focus();
+      return;
+    }
+    if (window.LaunchAssistant) {
+      window.LaunchAssistant.open({ name: name, business: biz, phone: phone, notes: msg,
+        package: Object.keys(PACKAGES).find(function(key){ return pkg.indexOf(PACKAGES[key].name) === 0; }) });
+      return;
+    }
+    var lines;
+    if (LANG === 'ar'){
+      lines = ['مرحباً! استفسار جديد من موقع Launch1500:', '', 'الاسم: ' + name, 'المشروع: ' + biz];
+      if (phone) lines.push('واتساب: ' + phone);
+      lines.push('الباقة: ' + pkg);
+      if (msg) lines.push('عن المشروع: ' + msg);
+    } else {
+      lines = ['Hi! New enquiry from the Launch1500 website:', '', 'Name: ' + name, 'Business: ' + biz];
+      if (phone) lines.push('WhatsApp: ' + phone);
+      lines.push('Interested in: ' + pkg);
+      if (msg) lines.push('About the business: ' + msg);
+    }
+    var url = waLink(lines.join('\n'));
+    var win = window.open(url, '_blank');
+    if (!win) window.location.href = url; // in-app browsers (Instagram etc.) block popups
+  });
+}
+
+function setYear(){
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+/* ---------- Estimator ---------- */
+function calc(){
+  var checkedPkg = document.querySelector('input[name="pkg"]:checked');
+  if (!checkedPkg) return;
+  var pkgKey = checkedPkg.value;
+  var pkg = PACKAGES[pkgKey];
+  var included = INCLUDED[pkgKey];
+  var ar = LANG === 'ar';
+
+  document.querySelectorAll('#estAddons input[type="checkbox"]').forEach(function(cb){
+    var isIncluded = included.indexOf(cb.value) !== -1;
+    cb.disabled = isIncluded;
+    if (isIncluded) cb.checked = false;
+    var wrap = cb.closest('.est-addon');
+    wrap.classList.toggle('included', isIncluded);
+    var priceEl = wrap.querySelector('.p');
+    if (!priceEl.dataset.price) priceEl.dataset.price = priceEl.textContent;
+    priceEl.textContent = isIncluded ? (ar ? 'مشمولة ✓' : 'Included ✓') : priceEl.dataset.price;
+  });
+
+  var addonKeys = [];
+  document.querySelectorAll('#estAddons input[type="checkbox"]:checked').forEach(function(cb){
+    addonKeys.push(cb.value);
+  });
+
+  var careSelected = addonKeys.indexOf('care') !== -1;
+  var oneTimeKeys = addonKeys.filter(function(k){ return k !== 'care'; });
+
+  var addonsTotal = oneTimeKeys.reduce(function(sum, k){ return sum + ADDONS[k].price; }, 0);
+  var total = pkg.price + addonsTotal;
+  var deposit = Math.round(total * 0.3);
+  var balance = total - deposit;
+  var creditsTotal = total / 100;
+
+  document.getElementById('sumPkg').textContent = pkg.name + ' — ' + fmt(pkg.price);
+  var n = oneTimeKeys.length;
+  document.getElementById('sumAddons').textContent = n === 0
+    ? (ar ? 'لا شيء' : 'None')
+    : (ar
+        ? (n === 1 ? 'إضافة واحدة — ' : n === 2 ? 'إضافتان — ' : n + ' إضافات — ') + fmt(addonsTotal)
+        : n + ' selected — ' + fmt(addonsTotal));
+  document.getElementById('sumTotal').textContent = fmt(total);
+  document.getElementById('sumCredits').textContent = ar
+    ? '= ' + creditsTotal + ' نقطة (1 نقطة = 100 درهم)'
+    : '= ' + creditsTotal + ' credits (1 credit = AED 100)';
+  document.getElementById('sumDeposit').textContent = fmt(deposit);
+  document.getElementById('sumBalance').textContent = fmt(balance);
+  document.getElementById('sumMonthly').style.display = careSelected ? 'block' : 'none';
+
+  var lines;
+  if (ar){
+    lines = ['مرحباً! هذا عرضي من Launch1500:', '', 'الباقة: ' + pkg.name + ' — ' + fmt(pkg.price)];
+    oneTimeKeys.forEach(function(k){ lines.push('إضافة: ' + ADDONS[k].nameAr + ' — ' + fmt(ADDONS[k].price)); });
+    lines.push('');
+    lines.push('الإجمالي: ' + fmt(total) + ' (' + creditsTotal + ' نقطة)');
+    lines.push('الدفعة الأولى بعد التأكيد (30%): ' + fmt(deposit));
+    lines.push('قبل الإطلاق (70%): ' + fmt(balance));
+    lines.push('يشمل: 3 نقاط مجانية بعد الإطلاق');
+    if (careSelected) lines.push('زائد: خطة العناية الشهرية — 300 درهم شهرياً');
+    lines.push('');
+    lines.push('هل نبدأ؟');
+  } else {
+    lines = ['Hi! Here is my Launch1500 estimate:', '', 'Package: ' + pkg.name + ' — ' + fmt(pkg.price)];
+    oneTimeKeys.forEach(function(k){ lines.push('Add-on: ' + ADDONS[k].name + ' — ' + fmt(ADDONS[k].price)); });
+    lines.push('');
+    lines.push('Total: ' + fmt(total) + ' (' + creditsTotal + ' credits)');
+    lines.push('Includes: 3 free credits after launch');
+    lines.push('Deposit after confirmation (30%): ' + fmt(deposit));
+    lines.push('Before launch (70%): ' + fmt(balance));
+    if (careSelected) lines.push('Plus: Monthly care plan — AED 300/month');
+    lines.push('');
+    lines.push('Can we get started?');
+  }
+  document.getElementById('sumWhatsApp').setAttribute('href', waLink(lines.join('\n')));
+}
+
+/* ============================================================
+   Language switching
+============================================================ */
+function captureEN(){
+  Object.keys(AR).forEach(function(sel){
+    var el = document.querySelector(sel);
+    if (el) EN[sel] = el.innerHTML;
+  });
+  EN_TABS = [];
+  document.querySelectorAll('.demo-tab').forEach(function(t){ EN_TABS.push(t.textContent); });
+}
+
+function setLang(lang){
+  // Translation replaces form markup; retain the user's unsent work in this tab.
+  var values = Array.from(document.querySelectorAll('#estPkgs input, #estAddons input, #leadForm input, #leadForm select, #leadForm textarea')).map(function(el){
+    return { id: el.id, value: el.value, checked: el.checked };
+  });
+  LANG = lang;
+  var ar = lang === 'ar';
+  document.documentElement.lang = ar ? 'ar' : 'en';
+  document.documentElement.dir = ar ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('img[data-src-ar]').forEach(function(img){
+    img.src = ar ? img.getAttribute('data-src-ar') : img.getAttribute('data-src-en');
+  });
+
+  Object.keys(AR).forEach(function(sel){
+    var el = document.querySelector(sel);
+    if (el) el.innerHTML = ar ? AR[sel] : EN[sel];
+  });
+  document.querySelectorAll('.demo-tab').forEach(function(t, i){
+    t.textContent = ar ? AR_TABS[i] : EN_TABS[i];
+  });
+  values.forEach(function(saved){
+    var field = document.getElementById(saved.id);
+    if (field) { field.value = saved.value; field.checked = saved.checked; }
+  });
+
+  var navWa = document.getElementById('navWa');
+  navWa.textContent = ar ? 'تحدث مع المساعد' : 'Plan my website';
+  navWa.setAttribute('data-wa', ar ? 'مرحباً! أريد موقعاً لمشروعي. هل نتحدث؟' : 'Hi! I want a website for my business. Can we talk?');
+
+  var waFloat = document.getElementById('waFloat');
+  waFloat.setAttribute('data-wa', ar ? 'مرحباً! أنا في موقع Launch1500 وأود التحدث عن موقع لمشروعي.' : 'Hi! I\'m on the Launch1500 website and I\'d like to talk about a website.');
+  waFloat.setAttribute('aria-label', ar ? 'تواصل عبر واتساب' : 'Chat on WhatsApp');
+
+  var toggle = document.getElementById('langToggle');
+  toggle.textContent = ar ? 'English' : 'العربية';
+  toggle.setAttribute('aria-label', ar ? 'Switch to English' : 'التبديل إلى العربية');
+
+  try { localStorage.setItem('l1500-lang', lang); } catch(e){}
+
+  wireWa();
+  wireNavClose();
+  wireEstimator();
+  wireForm();
+  setYear();
+  calc();
+  document.dispatchEvent(new Event('launch:language'));
+}
+
+/* ============================================================
+   One-time wiring (elements that survive language switches)
+============================================================ */
+document.getElementById('hamburger').addEventListener('click', function(){
+  var open = document.getElementById('navLinks').classList.toggle('open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+document.addEventListener('keydown', function(event){
+  if (event.key === 'Escape' && document.getElementById('navLinks').classList.contains('open')) {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    document.getElementById('hamburger').focus();
+  }
+});
+
+var demoTabs = document.querySelectorAll('.demo-tab');
+demoTabs.forEach(function(tab){
+  tab.addEventListener('click', function(){
+    demoTabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    document.getElementById(tab.getAttribute('data-demo')).classList.add('active');
+  });
+});
+
+document.getElementById('langToggle').addEventListener('click', function(){
+  setLang(LANG === 'ar' ? 'en' : 'ar');
+});
+
+/* ---------- Boot ---------- */
+captureEN();
+wireWa();
+wireNavClose();
+wireEstimator();
+wireForm();
+setYear();
+calc();
+
+var savedLang = 'en';
+try { savedLang = localStorage.getItem('l1500-lang') || 'en'; } catch(e){}
+if (savedLang === 'ar') setLang('ar');
+
+</script>
+    <script src="local-links.js"></script>
+    <script src="assistant-core.js"></script>
+    <script src="assistant.js"></script>
+  </body>
+</html>

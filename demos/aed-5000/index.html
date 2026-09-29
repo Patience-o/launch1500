@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, interactive AED 5,000 Launch1500 premium website concept demo.">
+  <title>Launch Premium Demo · AED 5,000 · Launch1500</title>
+  <style>
+    :root{
+      --ink:#07111f;
+      --navy:#0a1b33;
+      --navy-soft:#112947;
+      --paper:#f7f1e7;
+      --white:#fffdf8;
+      --gold:#d8b86a;
+      --gold-dark:#80601d;
+      --teal:#74b9ad;
+      --muted:#667286;
+      --line:rgba(216,184,106,.28);
+      --green:#25d366;
+      --shadow:0 24px 70px rgba(2,10,22,.28);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ink);color:#f6f2e9;font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(216,184,106,.08) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 72%);z-index:-1}
+    button,a{font:inherit}
+    a{color:inherit}
+    button{cursor:pointer}
+    :focus-visible{outline:3px solid #ffe39b;outline-offset:4px}
+    .skip{position:fixed;inset-block-start:10px;inset-inline-start:10px;z-index:1000;background:var(--white);color:var(--navy);padding:12px 18px;border-radius:999px;transform:translateY(-160%)}
+    .skip:focus{transform:none}
+    .shell{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+    .disclosure{background:#f6e8bd;color:#382b0e;text-align:center;padding:10px 18px;font-size:14px;font-weight:700}
+    header{position:sticky;top:0;z-index:30;background:rgba(7,17,31,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-family:"Fraunces",Georgia,serif;font-size:22px;text-decoration:none;font-weight:600}
+    .brand span{color:var(--gold)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .control,.button{min-height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.22);display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;text-decoration:none;font-weight:700;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+    .control{background:transparent;color:#fff}
+    .control:hover,.button.secondary:hover{border-color:var(--gold);background:rgba(216,184,106,.08)}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--gold);border-color:var(--gold);color:#182139}
+    .button.secondary{background:transparent;color:#fff}
+    .hero{padding:56px 0 84px}
+    .hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:center}
+    .kicker{display:inline-flex;align-items:center;min-height:36px;padding:6px 13px;border:1px solid var(--line);border-radius:999px;color:#f4d99b;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.08;margin:0}
+    h1{font-size:clamp(44px,7vw,82px);margin-block:22px 20px;max-width:11ch}
+    .hero-copy>p{color:#b9c4d2;font-size:18px;max-width:58ch;margin:0 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .price-note{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+    .price-note div{display:grid;gap:2px}
+    .price-note strong{font-family:"Fraunces",serif;font-size:23px;color:var(--gold)}
+    .price-note small{color:#9facbd}
+    .hero-visual{min-height:590px;border-radius:34px;background-image:linear-gradient(180deg,transparent 42%,rgba(3,8,17,.82)),url("../../assets/launch1500-triptych.png");background-size:auto 100%;background-position:right center;background-repeat:no-repeat;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.13)}
+    .hero-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(216,184,106,.18),transparent 38%)}
+    .visual-caption{position:absolute;inset-inline:28px;inset-block-end:26px;padding:22px;border:1px solid rgba(255,255,255,.18);background:rgba(7,17,31,.72);backdrop-filter:blur(12px);border-radius:20px}
+    .visual-caption strong{display:block;font-family:"Fraunces",serif;font-size:25px}
+    .visual-caption span{color:#c3cbd5}
+    .section{padding:88px 0}
+    .paper{background:var(--paper);color:var(--navy)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:32px}
+    .section-head h2{font-size:clamp(34px,5vw,56px);max-width:13ch}
+    .section-head p{max-width:54ch;color:var(--muted);margin:0}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+    .filter{min-height:48px;border:1px solid #d3c8b6;background:#fff;color:var(--navy);border-radius:999px;padding:10px 18px;font-weight:700}
+    .filter[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .result-note{color:var(--muted);font-size:14px;margin:0 0 20px}
+    .catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);border:1px solid #e6dccd;border-radius:22px;overflow:hidden;box-shadow:0 15px 40px rgba(23,31,46,.08);transition:transform .28s ease,box-shadow .28s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(23,31,46,.14)}
+    .card[hidden]{display:none}
+    .card-art{height:210px;position:relative;background:linear-gradient(135deg,#14304b,#081524)}
+    .card:nth-child(2n) .card-art{background:linear-gradient(135deg,#d8c7a5,#6b846f)}
+    .card:nth-child(3n) .card-art{background:linear-gradient(135deg,#8d694f,#1a2737)}
+    .card-art::before,.card-art::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.28);border-radius:50%}
+    .card-art::before{width:160px;height:160px;inset-block-start:-35px;inset-inline-end:-28px}
+    .card-art::after{width:90px;height:90px;inset-block-end:18px;inset-inline-start:22px;background:rgba(255,255,255,.06)}
+    .card-index{position:absolute;inset:18px;color:#fff;font-size:13px;font-weight:700;letter-spacing:.12em}
+    .card-copy{padding:23px}
+    .card-copy small{color:var(--gold-dark);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .card-copy h3{font-size:25px;margin:8px 0}
+    .card-copy p{color:var(--muted);margin:0}
+    .concierge-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:28px;align-items:start}
+    .concierge-copy h2{font-size:clamp(34px,5vw,56px);margin:16px 0}
+    .concierge-copy p{color:#b7c2d1}
+    .script-label{display:inline-flex;min-height:36px;align-items:center;border:1px solid #d6ba73;color:#f1d38e;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em}
+    .chat{background:#fff;color:var(--navy);border-radius:26px;padding:22px;box-shadow:var(--shadow)}
+    .chat-head{display:flex;justify-content:space-between;gap:14px;align-items:center;padding-bottom:18px;border-bottom:1px solid #e5e0d7}
+    .chat-head strong{font-size:18px}
+    .chat-head span{font-size:12px;color:#697486}
+    .chat-log{min-height:184px;max-height:300px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:20px 2px}
+    .bubble{max-width:88%;padding:11px 14px;border-radius:15px;background:#edf1f5}
+    .bubble.user{align-self:flex-end;background:#e1f5eb}
+    .quick-prompts{display:grid;gap:9px}
+    .prompt{min-height:48px;text-align:start;border:1px solid #d8dfe6;background:#fff;border-radius:14px;padding:11px 14px;color:var(--navy);font-weight:700}
+    .prompt:hover{border-color:#8da69f;background:#f4faf7}
+    .privacy{font-size:12px;color:#6c7685;margin:14px 0 0}
+    .cta-band{padding:70px 0;background:linear-gradient(130deg,#102b49,#0a1b33);border-top:1px solid rgba(255,255,255,.09)}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .cta-inner h2{font-size:clamp(32px,5vw,52px);max-width:13ch}
+    .cta-inner p{color:#b9c4d2;max-width:55ch}
+    footer{padding:30px 0;color:#9aa7b7;font-size:14px}
+    footer .shell{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    html[dir="rtl"] body{font-family:"Cairo","DM Sans",system-ui,sans-serif}
+    html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .brand{font-family:"Cairo",system-ui,sans-serif}
+    html[dir="rtl"] .kicker,html[dir="rtl"] .script-label,html[dir="rtl"] .card-copy small{letter-spacing:0}
+    @media(max-width:900px){
+      .hero-grid,.concierge-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:520px}
+      .catalog{grid-template-columns:repeat(2,1fr)}
+      .section-head,.cta-inner{align-items:start;flex-direction:column}
+    }
+    @media(max-width:620px){
+      .shell{width:min(100% - 24px,1180px)}
+      .disclosure{font-size:12px}
+      .nav{min-height:68px}
+      .brand{font-size:19px}
+      .nav-actions .return-text{display:none}
+      .control{padding-inline:14px}
+      .hero{padding:40px 0 62px}
+      h1{font-size:43px}
+      .hero-visual{min-height:440px}
+      .catalog{grid-template-columns:1fr}
+      .section{padding:66px 0}
+      .button{width:100%}
+      .hero-actions{display:grid}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to content" data-ar="انتقل إلى المحتوى">Skip to content</a>
+  <div class="disclosure" role="note" data-en="Concept demo — all business names, services and content are fictional. No order, booking or payment is processed here." data-ar="نموذج توضيحي — جميع أسماء المشاريع والخدمات والمحتوى افتراضية. لا يتم تنفيذ أي طلب أو حجز أو دفع هنا.">
+    Concept demo — all business names, services and content are fictional. No order, booking or payment is processed here.
+  </div>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="/launch1500/index.html" aria-label="Launch1500 home">Launch<span>1500</span></a>
+      <div class="nav-actions">
+        <a class="control" href="/launch1500/index.html#demos">
+          <span aria-hidden="true">←</span>
+          <span class="return-text" data-en="Return to demos" data-ar="العودة إلى النماذج">Return to demos</span>
+        </a>
+        <button class="control" id="languageToggle" type="button" aria-label="التبديل إلى العربية">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <span class="kicker" data-en="Launch Premium · AED 5,000" data-ar="Launch Premium · 5,000 درهم">Launch Premium · AED 5,000</span>
+          <h1 data-en="A richer digital experience, without the clutter." data-ar="تجربة رقمية أغنى، بدون تعقيد.">A richer digital experience, without the clutter.</h1>
+          <p data-en="This fictional hospitality and property concept demonstrates a content-rich catalog, elegant motion, bilingual presentation and a guided enquiry path." data-ar="يعرض هذا النموذج الافتراضي للضيافة والعقارات كتالوجاً غنياً بالمحتوى، وحركة أنيقة، وعرضاً ثنائي اللغة، ومسار استفسار واضحاً.">
+            This fictional hospitality and property concept demonstrates a content-rich catalog, elegant motion, bilingual presentation and a guided enquiry path.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/launch1500/start/index.html?package=premium&amp;source=WEB-DEMO-5000" data-en="Use this structure for my business" data-ar="استخدم هذا التصميم لمشروعي">Use this structure for my business</a>
+            <a class="button secondary" href="#collection" data-en="Explore the fictional collection" data-ar="استكشف المجموعة الافتراضية">Explore the fictional collection</a>
+          </div>
+          <div class="price-note" aria-label="Example payment split">
+            <div><strong data-en="AED 1,500" data-ar="1,500 درهم">AED 1,500</strong><small data-en="30% after written confirmation" data-ar="30% بعد التأكيد الكتابي">30% after written confirmation</small></div>
+            <div><strong data-en="AED 3,500" data-ar="3,500 درهم">AED 3,500</strong><small data-en="before launch or handover" data-ar="قبل الإطلاق أو التسليم">before launch or handover</small></div>
+          </div>
+        </div>
+        <div class="hero-visual" role="img" data-aria-en="A fictional premium residence interior shown as concept imagery" data-aria-ar="تصميم داخلي فاخر افتراضي معروض كصورة توضيحية" aria-label="A fictional premium residence interior shown as concept imagery">
+          <div class="visual-caption">
+            <strong data-en="Nocturne Residence" data-ar="مسكن نوكتورن">Nocturne Residence</strong>
+            <span data-en="Fictional content for presentation only" data-ar="محتوى افتراضي للعرض فقط">Fictional content for presentation only</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section paper" id="collection">
+      <div class="shell">
+        <div class="section-head">
+          <h2 data-en="A catalog that feels curated." data-ar="كتالوج بتجربة منتقاة.">A catalog that feels curated.</h2>
+          <p data-en="Filter this fictional collection to see how a premium package can organise a larger service, property or hospitality offering without becoming difficult to use." data-ar="صفِّ هذه المجموعة الافتراضية لترى كيف يمكن للباقة المميزة تنظيم عرض أكبر للخدمات أو العقارات أو الضيافة بطريقة سهلة الاستخدام.">
+            Filter this fictional collection to see how a premium package can organise a larger service, property or hospitality offering without becoming difficult to use.
+          </p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter fictional collection" data-aria-en="Filter fictional collection" data-aria-ar="تصفية المجموعة الافتراضية">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true" data-en="All concepts" data-ar="جميع النماذج">All concepts</button>
+          <button class="filter" type="button" data-filter="city" aria-pressed="false" data-en="City stays" data-ar="إقامات المدينة">City stays</button>
+          <button class="filter" type="button" data-filter="retreat" aria-pressed="false" data-en="Quiet retreats" data-ar="ملاذات هادئة">Quiet retreats</button>
+          <button class="filter" type="button" data-filter="residence" aria-pressed="false" data-en="Residences" data-ar="مساكن">Residences</button>
+        </div>
+        <p class="result-note" id="resultNote" aria-live="polite">6 fictional concepts shown.</p>
+        <div class="catalog">
+          <article class="card" data-category="city">
+            <div class="card-art"><span class="card-index">01 · CITY</span></div>
+            <div class="card-copy"><small data-en="City stay" data-ar="إقامة مدينة">City stay</small><h3 data-en="Nocturne Suite" data-ar="جناح نوكتورن">Nocturne Suite</h3><p data-en="An editorial showcase for a design-led urban stay." data-ar="عرض تحريري لإقامة حضرية تهتم بالتصميم.">An editorial showcase for a design-led urban stay.</p></div>
+          </article>
+          <article class="card" data-category="retreat">
+            <div class="card-art"><span class="card-index">02 · RETREAT</span></div>
+            <div class="card-copy"><small data-en="Quiet retreat" data-ar="ملاذ هادئ">Quiet retreat</small><h3 data-en="Olive Courtyard" data-ar="فناء الزيتون">Olive Courtyard</h3><p data-en="A calm service story centred on space, rhythm and privacy." data-ar="قصة خدمة هادئة تركز على المساحة والإيقاع والخصوصية.">A calm service story centred on space, rhythm and privacy.</p></div>
+          </article>
+          <article class="card" data-category="residence">
+            <div class="card-art"><span class="card-index">03 · RESIDENCE</span></div>
+            <div class="card-copy"><small data-en="Residence" data-ar="مسكن">Residence</small><h3 data-en="The Lantern House" data-ar="بيت الفانوس">The Lantern House</h3><p data-en="A content-rich presentation with details grouped for quick review." data-ar="عرض غني بالمحتوى مع تنظيم التفاصيل للمراجعة السريعة.">A content-rich presentation with details grouped for quick review.</p></div>
+          </article>
+          <article class="card" data-category="city">
+            <div class="card-art"><span class="card-index">04 · CITY</span></div>
+            <div class="card-copy"><small data-en="City stay" data-ar="إقامة مدينة">City stay</small><h3 data-en="Gallery Loft" data-ar="لوفت المعرض">Gallery Loft</h3><p data-en="A bold portfolio treatment for a compact premium offer." data-ar="عرض جريء لمحفظة مميزة ومركزة.">A bold portfolio treatment for a compact premium offer.</p></div>
+          </article>
+          <article class="card" data-category="retreat">
+            <div class="card-art"><span class="card-index">05 · RETREAT</span></div>
+            <div class="card-copy"><small data-en="Quiet retreat" data-ar="ملاذ هادئ">Quiet retreat</small><h3 data-en="Dune Pavilion" data-ar="جناح الكثبان">Dune Pavilion</h3><p data-en="A spacious narrative for hospitality, wellness or private events." data-ar="سرد واسع يناسب الضيافة أو العافية أو الفعاليات الخاصة.">A spacious narrative for hospitality, wellness or private events.</p></div>
+          </article>
+          <article class="card" data-category="residence">
+            <div class="card-art"><span class="card-index">06 · RESIDENCE</span></div>
+            <div class="card-copy"><small data-en="Residence" data-ar="مسكن">Residence</small><h3 data-en="Sage Residence" data-ar="مسكن سيج">Sage Residence</h3><p data-en="A refined catalog path from discovery to a private enquiry." data-ar="مسار كتالوج راقٍ من الاستكشاف إلى الاستفسار الخاص.">A refined catalog path from discovery to a private enquiry.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell concierge-grid">
+        <div class="concierge-copy">
+          <span class="script-label" data-en="Scripted local demo · No real AI" data-ar="نموذج محلي مبرمج · لا يوجد ذكاء اصطناعي حقيقي">Scripted local demo · No real AI</span>
+          <h2 data-en="A concierge preview that stays honest." data-ar="معاينة لخدمة الكونسيرج بوضوح وصدق.">A concierge preview that stays honest.</h2>
+          <p data-en="Choose a prepared question to see a scripted example reply. It demonstrates an interaction style only; it does not understand free text, contact a service or make a recommendation." data-ar="اختر سؤالاً جاهزاً لرؤية رد مبرمج كمثال. يعرض هذا أسلوب التفاعل فقط؛ ولا يفهم النص الحر، ولا يتصل بأي خدمة، ولا يقدم توصية حقيقية.">
+            Choose a prepared question to see a scripted example reply. It demonstrates an interaction style only; it does not understand free text, contact a service or make a recommendation.
+          </p>
+        </div>
+        <div class="chat" aria-label="Scripted concierge demonstration" data-aria-en="Scripted concierge demonstration" data-aria-ar="عرض توضيحي مبرمج للكونسيرج">
+          <div class="chat-head">
+            <strong data-en="Concept concierge" data-ar="كونسيرج النموذج">Concept concierge</strong>
+            <span data-en="LOCAL SCRIPT · DEMO ONLY" data-ar="نص محلي · للعرض فقط">LOCAL SCRIPT · DEMO ONLY</span>
+          </div>
+          <div class="chat-log" id="chatLog" aria-live="polite">
+            <div class="bubble" data-en="Welcome. Select one of the prepared questions below to preview a scripted response." data-ar="مرحباً. اختر أحد الأسئلة الجاهزة أدناه لمعاينة رد مبرمج.">Welcome. Select one of the prepared questions below to preview a scripted response.</div>
+          </div>
+          <div class="quick-prompts">
+            <button class="prompt" type="button" data-question="family" data-en="Which concept suits a family enquiry?" data-ar="أي نموذج يناسب استفسار عائلة؟">Which concept suits a family enquiry?</button>
+            <button class="prompt" type="button" data-question="quiet" data-en="Show me a quieter concept." data-ar="اعرض لي نموذجاً أكثر هدوءاً.">Show me a quieter concept.</button>
+            <button class="prompt" type="button" data-question="city" data-en="Which concept has an urban character?" data-ar="أي نموذج يتميز بطابع حضري؟">Which concept has an urban character?</button>
+          </div>
+          <p class="privacy" data-en="This scripted demonstration runs only in your browser. It sends and stores nothing." data-ar="يعمل هذا النموذج المبرمج داخل متصفحك فقط. لا يرسل ولا يخزن أي شيء.">This scripted demonstration runs only in your browser. It sends and stores nothing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="shell cta-inner">
+        <div>
+          <h2 data-en="Turn this structure into your own brand." data-ar="حوّل هذا التصميم إلى تجربة تخص علامتك.">Turn this structure into your own brand.</h2>
+          <p data-en="Start a project enquiry for Launch Premium. No account is created and no payment is taken on the next page." data-ar="ابدأ طلب مشروع لباقة Launch Premium. لا يتم إنشاء حساب ولا تحصيل أي دفعة في الصفحة التالية.">Start a project enquiry for Launch Premium. No account is created and no payment is taken on the next page.</p>
+        </div>
+        <a class="button primary" href="/launch1500/start/index.html?package=premium&amp;source=WEB-DEMO-5000" data-en="Start my project enquiry" data-ar="ابدأ طلب مشروعي">Start my project enquiry</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <span data-en="Launch1500 · Fictional AED 5,000 package demonstration" data-ar="Launch1500 · نموذج افتراضي لباقة 5,000 درهم">Launch1500 · Fictional AED 5,000 package demonstration</span>
+      <a href="/launch1500/index.html#terms" data-en="Package terms" data-ar="شروط الباقة">Package terms</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+
+      var language = "en";
+      var filters = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+      var resultNote = document.getElementById("resultNote");
+      var chatLog = document.getElementById("chatLog");
+
+      var responses = {
+        family: {
+          en: ["Which concept suits a family enquiry?", "Scripted example: The Lantern House is presented with grouped details and a residence-style layout. A real recommendation would require your dates, needs and confirmed availability."],
+          ar: ["أي نموذج يناسب استفسار عائلة؟", "مثال مبرمج: يُعرض بيت الفانوس بتفاصيل منظمة وتصميم سكني. تتطلب أي توصية حقيقية معرفة التواريخ والاحتياجات والتوفر المؤكد."]
+        },
+        quiet: {
+          en: ["Show me a quieter concept.", "Scripted example: Olive Courtyard and Dune Pavilion use a calmer visual direction. These are fictional concepts, not available properties."],
+          ar: ["اعرض لي نموذجاً أكثر هدوءاً.", "مثال مبرمج: يستخدم فناء الزيتون وجناح الكثبان توجهاً بصرياً أكثر هدوءاً. هذه نماذج افتراضية وليست عقارات متاحة."]
+        },
+        city: {
+          en: ["Which concept has an urban character?", "Scripted example: Nocturne Suite and Gallery Loft are the urban-style concepts in this demonstration. No location or availability is implied."],
+          ar: ["أي نموذج يتميز بطابع حضري؟", "مثال مبرمج: جناح نوكتورن ولوفت المعرض هما النموذجان بطابع حضري في هذا العرض. لا يعني ذلك وجود موقع أو توفر فعلي."]
+        }
+      };
+
+      function setLanguage(nextLanguage){
+        language = nextLanguage;
+        var isArabic = language === "ar";
+        document.documentElement.lang = language;
+        document.documentElement.dir = isArabic ? "rtl" : "ltr";
+        document.querySelectorAll("[data-en][data-ar]").forEach(function(element){
+          element.textContent = element.getAttribute(isArabic ? "data-ar" : "data-en");
+        });
+        document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(function(element){
+          element.setAttribute("aria-label", element.getAttribute(isArabic ? "data-aria-ar" : "data-aria-en"));
+        });
+        while (chatLog.children.length > 1) chatLog.removeChild(chatLog.lastElementChild);
+        var toggle = document.getElementById("languageToggle");
+        toggle.textContent = isArabic ? "English" : "العربية";
+        toggle.setAttribute("aria-label", isArabic ? "Switch to English" : "التبديل إلى العربية");
+        updateResultNote();
+      }
+
+      function updateResultNote(){
+        var count = cards.filter(function(card){ return !card.hidden; }).length;
+        resultNote.textContent = language === "ar"
+          ? "يتم عرض " + count + " نماذج افتراضية."
+          : count + " fictional concept" + (count === 1 ? "" : "s") + " shown.";
+      }
+
+      filters.forEach(function(button){
+        button.addEventListener("click", function(){
+          var selected = button.getAttribute("data-filter");
+          filters.forEach(function(item){
+            item.setAttribute("aria-pressed", item === button ? "true" : "false");
+          });
+          cards.forEach(function(card){
+            card.hidden = selected !== "all" && card.getAttribute("data-category") !== selected;
+          });
+          updateResultNote();
+        });
+      });
+
+      document.querySelectorAll(".prompt").forEach(function(button){
+        button.addEventListener("click", function(){
+          var content = responses[button.getAttribute("data-question")][language];
+          var question = document.createElement("div");
+          var answer = document.createElement("div");
+          question.className = "bubble user";
+          answer.className = "bubble";
+          question.textContent = content[0];
+          answer.textContent = content[1];
+          chatLog.appendChild(question);
+          chatLog.appendChild(answer);
+          chatLog.scrollTop = chatLog.scrollHeight;
+        });
+      });
+
+      document.getElementById("languageToggle").addEventListener("click", function(){
+        setLanguage(language === "en" ? "ar" : "en");
+      });
+    }());
+  </script>
+  <script src="../../local-links.js"></script>
+</body>
+</html>

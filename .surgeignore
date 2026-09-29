@@ -1,0 +1,6 @@
+worker/
+node_modules/
+.netlify/
+__pycache__/
+.claude/
+.git/

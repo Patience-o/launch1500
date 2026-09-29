@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, interactive Launch1500 AED 3,000 appointment-led wellness website demo.">
+  <title>Noura Wellness — Launch1500 AED 3,000 Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16352f;
+      --muted: #567069;
+      --paper: #f7fbf8;
+      --white: #ffffff;
+      --mist: #e8f1ec;
+      --mist-deep: #dcebe2;
+      --green: #2e6e5d;
+      --green-dark: #174b40;
+      --green-soft: #bcd8c9;
+      --cream: #f6f1e8;
+      --line: rgba(21, 69, 58, 0.16);
+      --danger: #9a3f32;
+      --shadow: 0 26px 72px rgba(30, 78, 66, 0.16);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --content: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 148px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] body {
+      font-family: "Geeza Pro", Tahoma, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    .button,
+    .nav-link,
+    .language-toggle,
+    .menu-toggle,
+    .view-tab {
+      min-height: 48px;
+    }
+
+    :focus-visible {
+      outline: 3px solid #d08843;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: 8px;
+      inset-inline-start: 8px;
+      z-index: 999;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--green-dark);
+      color: var(--white);
+      transform: translateY(-160%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content));
+      margin-inline: auto;
+    }
+
+    .demo-band {
+      background: #113b32;
+      color: #edf8f2;
+      font-size: 0.83rem;
+      letter-spacing: 0.025em;
+    }
+
+    .demo-band .container {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-block: 7px;
+    }
+
+    .demo-band a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      color: #cde9da;
+      font-weight: 750;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      white-space: nowrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 251, 248, 0.93);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-row {
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1.12rem;
+      font-weight: 850;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px 50% 50%;
+      background: var(--green-dark);
+      color: var(--white);
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+      transform: rotate(-8deg);
+    }
+
+    html[dir="rtl"] .brand-mark {
+      transform: rotate(8deg);
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      padding-inline: 15px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      background: var(--mist);
+      color: var(--green-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-toggle,
+    .menu-toggle {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      padding-inline: 17px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      min-width: 48px;
+      padding-inline: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--green-dark);
+      color: var(--white);
+      box-shadow: 0 13px 30px rgba(23, 75, 64, 0.24);
+    }
+
+    .button-primary:hover {
+      background: #0f3c33;
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(46, 110, 93, 0.42);
+      background: var(--mist);
+    }
+
+    .hero {
+      padding: 54px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      margin-bottom: 18px;
+      padding: 5px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--mist);
+      color: var(--green-dark);
+      font-size: 0.77rem;
+      font-weight: 850;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    html[dir="rtl"] h1,
+    html[dir="rtl"] h2 {
+      font-family: "Geeza Pro", Tahoma, Arial, sans-serif;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(2.75rem, 6vw, 5.4rem);
+      line-height: 1;
+    }
+
+    .hero-copy > p {
+      max-width: 640px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .package-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .proof {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .proof strong,
+    .proof span {
+      display: block;
+    }
+
+    .proof strong {
+      color: var(--green-dark);
+      font-size: 1.02rem;
+    }
+
+    .proof span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 640px;
+      overflow: hidden;
+      border-radius: min(4vw, 42px);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .triptych-crop {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .triptych-crop img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -100%;
+      width: 300%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(15, 59, 50, 0.37), transparent 46%);
+      pointer-events: none;
+    }
+
+    .art-note {
+      position: absolute;
+      inset-inline: 22px;
+      inset-block-end: 22px;
+      z-index: 2;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 18px;
+      background: rgba(247, 251, 248, 0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .art-note strong,
+    .art-note span {
+      display: block;
+    }
+
+    .art-note span {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .experience {
+      padding: 86px 0;
+      background: var(--mist);
+    }
+
+    .section-heading {
+      max-width: 740px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .experience-shell {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .view-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .view-tab {
+      flex: 1 0 auto;
+      padding: 10px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .view-tab[aria-selected="true"] {
+      border-color: var(--line);
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .view-panel {
+      min-height: 380px;
+      padding: clamp(26px, 5vw, 52px);
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+      gap: 44px;
+    }
+
+    .panel-copy h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      line-height: 1.12;
+    }
+
+    .panel-copy p {
+      color: var(--muted);
+    }
+
+    .feature-list,
+    .profile-grid,
+    .visit-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-card,
+    .profile-card,
+    .visit-item {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+    }
+
+    .feature-card strong,
+    .profile-card strong,
+    .visit-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green-dark);
+    }
+
+    .feature-card span,
+    .profile-card span,
+    .visit-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .profile-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .profile-card {
+      min-height: 170px;
+    }
+
+    .profile-initial {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 850;
+    }
+
+    .visit-list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .booking {
+      padding: 90px 0;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      align-items: start;
+      gap: 44px;
+    }
+
+    .booking-copy {
+      position: sticky;
+      top: 150px;
+    }
+
+    .booking-copy h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.25rem, 4vw, 4rem);
+      line-height: 1.04;
+    }
+
+    .booking-copy p {
+      color: var(--muted);
+    }
+
+    .safety-note {
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid rgba(154, 63, 50, 0.24);
+      border-radius: 16px;
+      background: #fff4f1;
+      color: #71362d;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .booking-card {
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 12px 14px;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .preview {
+      margin-top: 28px;
+      padding: 26px;
+      border: 1px solid rgba(46, 110, 93, 0.25);
+      border-radius: 20px;
+      background: var(--mist);
+    }
+
+    .preview h3 {
+      margin-bottom: 6px;
+      font-size: 1.35rem;
+    }
+
+    .preview > p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .preview-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+
+    .preview-list div {
+      padding: 14px;
+      border-radius: 13px;
+      background: var(--white);
+    }
+
+    .preview-list dt {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .preview-list dd {
+      margin: 4px 0 0;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .package-cta {
+      padding: 0 0 88px;
+    }
+
+    .cta-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: clamp(30px, 5vw, 54px);
+      border-radius: var(--radius-lg);
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .cta-card h2 {
+      margin-bottom: 10px;
+      font-size: clamp(2.1rem, 4vw, 3.7rem);
+      line-height: 1.05;
+    }
+
+    .cta-card p {
+      max-width: 700px;
+      margin-bottom: 0;
+      color: #cde1d9;
+    }
+
+    .cta-card .button {
+      background: #d8eee2;
+      color: var(--green-dark);
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    @media (max-width: 920px) {
+      .header-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main-nav {
+        position: absolute;
+        inset-block-start: 100%;
+        inset-inline: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .nav-link {
+        justify-content: center;
+      }
+
+      .hero-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 560px;
+      }
+
+      .booking-copy {
+        position: static;
+      }
+
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-card {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-card .button {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      html {
+        scroll-padding-top: 124px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--content));
+      }
+
+      .demo-band .container {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1px;
+      }
+
+      .header-row {
+        min-height: 74px;
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .language-toggle {
+        padding-inline: 14px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 15vw, 4.15rem);
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .hero-art {
+        min-height: 470px;
+      }
+
+      .package-proof,
+      .feature-list,
+      .profile-grid,
+      .visit-list,
+      .form-grid,
+      .preview-list {
+        grid-template-columns: 1fr;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .hero-actions,
+      .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button,
+      .form-actions .button {
+        width: 100%;
+      }
+
+      .experience,
+      .booking {
+        padding: 68px 0;
+      }
+
+      .view-panel {
+        padding: 24px 18px;
+      }
+
+      .cta-card .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .button:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+
+  <div class="demo-band" role="note">
+    <div class="container">
+      <span data-en="Fictional Launch1500 demo — no enquiry, appointment, payment or message is submitted." data-ar="نموذج خيالي من Launch1500 — لا يتم إرسال أي استفسار أو موعد أو دفعة أو رسالة.">Fictional Launch1500 demo — no enquiry, appointment, payment or message is submitted.</span>
+      <a href="/launch1500/index.html" data-en="Return to Launch1500" data-ar="العودة إلى Launch1500">Return to Launch1500</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#top" aria-label="Noura Wellness home" data-aria-en="Noura Wellness home" data-aria-ar="الصفحة الرئيسية لنورا للعافية">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span data-en="Noura Wellness" data-ar="نورا للعافية">Noura Wellness</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary" data-aria-en="Primary" data-aria-ar="التنقل الرئيسي">
+        <a class="nav-link" href="#experience" data-en="Explore" data-ar="استكشف">Explore</a>
+        <a class="nav-link" href="#booking-demo" data-en="Appointment demo" data-ar="نموذج الموعد">Appointment demo</a>
+        <a class="nav-link" href="#package" data-en="Package" data-ar="الباقة">Package</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Arabic">العربية</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" data-aria-en="Open menu" data-aria-ar="فتح القائمة">
+          <span data-en="Menu" data-ar="القائمة">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-en="Appointment-led wellness demo" data-ar="نموذج عافية يركّز على المواعيد">Appointment-led wellness demo</span>
+          <h1 data-en="A calmer path from interest to appointment." data-ar="طريق أكثر هدوءاً من الاهتمام إلى الموعد.">A calmer path from interest to appointment.</h1>
+          <p data-en="A fictional UAE wellness studio concept with clear service views, team introductions and a safe booking-request preview. It makes no medical claims and submits no data." data-ar="تصور خيالي لاستوديو عافية في الإمارات، مع عرض واضح للخدمات والفريق ومعاينة آمنة لطلب الموعد. لا يتضمن ادعاءات طبية ولا يرسل أي بيانات.">A fictional UAE wellness studio concept with clear service views, team introductions and a safe booking-request preview. It makes no medical claims and submits no data.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="openBooking" type="button" data-en="Try the appointment flow" data-ar="جرّب مسار الموعد">Try the appointment flow</button>
+            <a class="button button-secondary" href="#experience" data-en="Explore the concept" data-ar="استكشف التصور">Explore the concept</a>
+          </div>
+          <div class="package-proof" aria-label="Demo package highlights">
+            <div class="proof">
+              <strong data-en="AED 3,000" data-ar="3,000 درهم">AED 3,000</strong>
+              <span data-en="One-time demo package" data-ar="باقة تجريبية بدفعة واحدة">One-time demo package</span>
+            </div>
+            <div class="proof">
+              <strong data-en="AED 900" data-ar="900 درهم">AED 900</strong>
+              <span data-en="Example 30% start" data-ar="مثال لدفعة البدء 30%">Example 30% start</span>
+            </div>
+            <div class="proof">
+              <strong data-en="~10 days" data-ar="نحو 10 أيام">~10 days</strong>
+              <span data-en="Illustrative delivery target" data-ar="مدة تسليم توضيحية">Illustrative delivery target</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="triptych-crop">
+            <img src="../../assets/launch1500-triptych.png" alt="Calm green and cream fictional wellness studio reception" data-alt-en="Calm green and cream fictional wellness studio reception" data-alt-ar="استقبال خيالي هادئ لاستوديو عافية بدرجات الأخضر والكريمي">
+          </div>
+          <div class="art-note">
+            <strong data-en="Calm structure, confident next steps" data-ar="تنظيم هادئ وخطوات تالية واضحة">Calm structure, confident next steps</strong>
+            <span data-en="Center artwork crop for the AED 3,000 direction" data-ar="الجزء الأوسط من العمل الفني لاتجاه باقة 3,000 درهم">Center artwork crop for the AED 3,000 direction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow" data-en="Interactive multi-view demo" data-ar="نموذج تفاعلي متعدد العروض">Interactive multi-view demo</span>
+          <h2 data-en="Let each customer find what matters to them." data-ar="دع كل عميل يصل إلى ما يهمه.">Let each customer find what matters to them.</h2>
+          <p data-en="Use the tabs to explore how a richer Launch Plus website could organise a wellness business without sending visitors through a maze." data-ar="استخدم علامات التبويب لاستكشاف كيفية تنظيم موقع Launch Plus الأكثر ثراءً لمشروع عافية دون إرباك الزوار.">Use the tabs to explore how a richer Launch Plus website could organise a wellness business without sending visitors through a maze.</p>
+        </div>
+
+        <div class="experience-shell">
+          <div class="view-tabs" role="tablist" aria-label="Website views" id="viewTabs">
+            <button class="view-tab" id="tab-overview" type="button" role="tab" aria-selected="true" aria-controls="panel-overview" tabindex="0" data-en="Overview" data-ar="نظرة عامة">Overview</button>
+            <button class="view-tab" id="tab-services" type="button" role="tab" aria-selected="false" aria-controls="panel-services" tabindex="-1" data-en="Sessions" data-ar="الجلسات">Sessions</button>
+            <button class="view-tab" id="tab-team" type="button" role="tab" aria-selected="false" aria-controls="panel-team" tabindex="-1" data-en="Team" data-ar="الفريق">Team</button>
+            <button class="view-tab" id="tab-visit" type="button" role="tab" aria-selected="false" aria-controls="panel-visit" tabindex="-1" data-en="Visit" data-ar="الزيارة">Visit</button>
+          </div>
+
+          <section class="view-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+            <div class="panel-grid">
+              <div class="panel-copy">
+                <span class="eyebrow" data-en="Overview" data-ar="نظرة عامة">Overview</span>
+                <h3 data-en="A welcoming first view with one useful decision." data-ar="واجهة ترحيبية تساعد على اتخاذ قرار واحد مفيد.">A welcoming first view with one useful decision.</h3>
+                <p data-en="The concept leads with atmosphere, explains what the studio offers and makes the appointment path obvious—while keeping every claim appropriately modest." data-ar="يبدأ التصور بالأجواء، ويشرح ما يقدمه الاستوديو، ويوضح مسار الموعد، مع إبقاء جميع العبارات واقعية ومعتدلة.">The concept leads with atmosphere, explains what the studio offers and makes the appointment path obvious—while keeping every claim appropriately modest.</p>
+              </div>
+              <ul class="feature-list">
+                <li class="feature-card"><strong data-en="Clear sessions" data-ar="جلسات واضحة">Clear sessions</strong><span data-en="Plain-language descriptions" data-ar="وصف بلغة بسيطة">Plain-language descriptions</span></li>
+                <li class="feature-card"><strong data-en="Bilingual path" data-ar="مسار ثنائي اللغة">Bilingual path</strong><span data-en="English and Arabic-ready" data-ar="جاهز للعربية والإنجليزية">English and Arabic-ready</span></li>
+                <li class="feature-card"><strong data-en="Trustful team view" data-ar="عرض موثوق للفريق">Trustful team view</strong><span data-en="Roles without inflated claims" data-ar="أدوار بلا ادعاءات مبالغ فيها">Roles without inflated claims</span></li>
+                <li class="feature-card"><strong data-en="Appointment focus" data-ar="تركيز على الموعد">Appointment focus</strong><span data-en="A clear, low-friction request" data-ar="طلب واضح وسهل">A clear, low-friction request</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="view-panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services" hidden>
+            <div class="panel-grid">
+              <div class="panel-copy">
+                <span class="eyebrow" data-en="Fictional sessions" data-ar="جلسات خيالية">Fictional sessions</span>
+                <h3 data-en="Three approachable ways to reset your day." data-ar="ثلاث طرق بسيطة لاستعادة هدوء يومك.">Three approachable ways to reset your day.</h3>
+                <p data-en="These are wellness examples only. They do not diagnose, treat or promise a health outcome." data-ar="هذه أمثلة للعافية فقط. لا تشخّص ولا تعالج ولا تعد بنتيجة صحية.">These are wellness examples only. They do not diagnose, treat or promise a health outcome.</p>
+              </div>
+              <ul class="feature-list">
+                <li class="feature-card"><strong data-en="Guided stretch" data-ar="تمدد موجّه">Guided stretch</strong><span data-en="Gentle movement in a calm studio setting" data-ar="حركة لطيفة في أجواء استوديو هادئة">Gentle movement in a calm studio setting</span></li>
+                <li class="feature-card"><strong data-en="Rest and reset" data-ar="راحة واستعادة النشاط">Rest and reset</strong><span data-en="A quiet, non-clinical relaxation session" data-ar="جلسة استرخاء هادئة وغير طبية">A quiet, non-clinical relaxation session</span></li>
+                <li class="feature-card"><strong data-en="Movement planning" data-ar="تخطيط الحركة">Movement planning</strong><span data-en="A general routine conversation, not medical advice" data-ar="محادثة عامة عن الروتين وليست نصيحة طبية">A general routine conversation, not medical advice</span></li>
+                <li class="feature-card"><strong data-en="Small-group class" data-ar="جلسة لمجموعة صغيرة">Small-group class</strong><span data-en="An easy social format for beginners" data-ar="صيغة اجتماعية سهلة للمبتدئين">An easy social format for beginners</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="view-panel" id="panel-team" role="tabpanel" aria-labelledby="tab-team" hidden>
+            <div class="panel-copy">
+              <span class="eyebrow" data-en="Fictional team" data-ar="فريق خيالي">Fictional team</span>
+              <h3 data-en="Introduce the people before asking for a booking." data-ar="عرّف بالأشخاص قبل طلب الحجز.">Introduce the people before asking for a booking.</h3>
+              <p data-en="Simple role descriptions help visitors choose without presenting invented credentials or regulated qualifications." data-ar="تساعد الأوصاف البسيطة للأدوار الزوار على الاختيار دون عرض مؤهلات مختلقة أو تراخيص منظمة.">Simple role descriptions help visitors choose without presenting invented credentials or regulated qualifications.</p>
+            </div>
+            <div class="profile-grid">
+              <article class="profile-card"><span class="profile-initial" aria-hidden="true">NA</span><strong data-en="Noura A." data-ar="نورا أ.">Noura A.</strong><span data-en="Studio host · fictional" data-ar="مضيفة الاستوديو · شخصية خيالية">Studio host · fictional</span></article>
+              <article class="profile-card"><span class="profile-initial" aria-hidden="true">SM</span><strong data-en="Sara M." data-ar="سارة م.">Sara M.</strong><span data-en="Movement guide · fictional" data-ar="مرشدة حركة · شخصية خيالية">Movement guide · fictional</span></article>
+              <article class="profile-card"><span class="profile-initial" aria-hidden="true">LY</span><strong data-en="Layla Y." data-ar="ليلى ي.">Layla Y.</strong><span data-en="Guest care · fictional" data-ar="عناية بالضيوف · شخصية خيالية">Guest care · fictional</span></article>
+            </div>
+          </section>
+
+          <section class="view-panel" id="panel-visit" role="tabpanel" aria-labelledby="tab-visit" hidden>
+            <div class="panel-grid">
+              <div class="panel-copy">
+                <span class="eyebrow" data-en="Fictional visit" data-ar="زيارة خيالية">Fictional visit</span>
+                <h3 data-en="Set expectations before someone arrives." data-ar="وضّح التوقعات قبل وصول الزائر.">Set expectations before someone arrives.</h3>
+                <p data-en="A useful visit page can answer practical questions about location, access and what to bring." data-ar="يمكن لصفحة الزيارة المفيدة الإجابة عن الأسئلة العملية حول الموقع والوصول وما ينبغي إحضاره.">A useful visit page can answer practical questions about location, access and what to bring.</p>
+              </div>
+              <ul class="visit-list">
+                <li class="visit-item"><strong data-en="Sample location" data-ar="موقع توضيحي">Sample location</strong><span data-en="Aljada, Sharjah — fictional for this demo" data-ar="الجادة، الشارقة — موقع خيالي لهذا النموذج">Aljada, Sharjah — fictional for this demo</span></li>
+                <li class="visit-item"><strong data-en="Sample hours" data-ar="ساعات توضيحية">Sample hours</strong><span data-en="Daily, 09:00–20:00" data-ar="يومياً، 09:00–20:00">Daily, 09:00–20:00</span></li>
+                <li class="visit-item"><strong data-en="Arrival" data-ar="الوصول">Arrival</strong><span data-en="Example: arrive 10 minutes early" data-ar="مثال: الوصول قبل الموعد بعشر دقائق">Example: arrive 10 minutes early</span></li>
+                <li class="visit-item"><strong data-en="Access" data-ar="سهولة الوصول">Access</strong><span data-en="Example accessible entrance and lift" data-ar="مثال: مدخل ومصعد مهيآن للوصول">Example accessible entrance and lift</span></li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking-demo">
+      <div class="container booking-grid">
+        <div class="booking-copy">
+          <span class="eyebrow" data-en="Interactive booking-request demo" data-ar="نموذج تفاعلي لطلب موعد">Interactive booking-request demo</span>
+          <h2 data-en="Build the request. Preview it. Send nothing." data-ar="أنشئ الطلب. عاينه. ولا ترسل شيئاً.">Build the request. Preview it. Send nothing.</h2>
+          <p data-en="This safe interaction shows what a real appointment request could feel like. It only renders a preview on this page." data-ar="يوضح هذا التفاعل الآمن شكل طلب الموعد الحقيقي. وهو يعرض معاينة داخل هذه الصفحة فقط.">This safe interaction shows what a real appointment request could feel like. It only renders a preview on this page.</p>
+          <div class="safety-note" role="note" data-en="Demo safety: no account is created, no appointment is held, no message opens, and no personal information leaves this page." data-ar="أمان النموذج: لا يتم إنشاء حساب أو حجز موعد أو فتح رسالة، ولا تغادر أي معلومات شخصية هذه الصفحة.">Demo safety: no account is created, no appointment is held, no message opens, and no personal information leaves this page.</div>
+        </div>
+
+        <div class="booking-card">
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="guestName" data-en="Your name" data-ar="اسمك">Your name</label>
+                <input id="guestName" name="guestName" type="text" autocomplete="off" required maxlength="80" data-placeholder-en="Example: Fatima" data-placeholder-ar="مثال: فاطمة" placeholder="Example: Fatima">
+              </div>
+              <div class="field">
+                <label for="sessionType" data-en="Session" data-ar="الجلسة">Session</label>
+                <select id="sessionType" name="sessionType" required>
+                  <option value="" data-en="Choose a fictional session" data-ar="اختر جلسة خيالية">Choose a fictional session</option>
+                  <option value="stretch" data-en="Guided stretch" data-ar="تمدد موجّه">Guided stretch</option>
+                  <option value="reset" data-en="Rest and reset" data-ar="راحة واستعادة النشاط">Rest and reset</option>
+                  <option value="planning" data-en="Movement planning" data-ar="تخطيط الحركة">Movement planning</option>
+                  <option value="group" data-en="Small-group class" data-ar="جلسة لمجموعة صغيرة">Small-group class</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="preferredDate" data-en="Preferred date" data-ar="التاريخ المفضل">Preferred date</label>
+                <input id="preferredDate" name="preferredDate" type="date" required>
+              </div>
+              <div class="field">
+                <label for="preferredTime" data-en="Preferred time" data-ar="الوقت المفضل">Preferred time</label>
+                <select id="preferredTime" name="preferredTime" required>
+                  <option value="" data-en="Choose a time" data-ar="اختر الوقت">Choose a time</option>
+                  <option value="09:30">09:30</option>
+                  <option value="12:00">12:00</option>
+                  <option value="16:30">16:30</option>
+                  <option value="19:00">19:00</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label for="guestNote" data-en="Optional note" data-ar="ملاحظة اختيارية">Optional note</label>
+                <textarea id="guestNote" name="guestNote" maxlength="240" data-placeholder-en="Anything the fictional studio should know?" data-placeholder-ar="هل هناك ما ينبغي أن يعرفه الاستوديو الخيالي؟" placeholder="Anything the fictional studio should know?"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" data-en="Preview request" data-ar="معاينة الطلب">Preview request</button>
+              <button class="button button-secondary" id="clearRequest" type="button" data-en="Clear" data-ar="مسح">Clear</button>
+            </div>
+          </form>
+
+          <section class="preview" id="requestPreview" aria-live="polite" tabindex="-1" hidden>
+            <h3 data-en="Fictional request preview" data-ar="معاينة طلب خيالي">Fictional request preview</h3>
+            <p data-en="Nothing was submitted or stored. This preview exists only in the current page." data-ar="لم يتم إرسال أو تخزين أي شيء. تظهر هذه المعاينة في الصفحة الحالية فقط.">Nothing was submitted or stored. This preview exists only in the current page.</p>
+            <dl class="preview-list">
+              <div><dt data-en="Guest" data-ar="الضيف">Guest</dt><dd id="previewName">—</dd></div>
+              <div><dt data-en="Session" data-ar="الجلسة">Session</dt><dd id="previewSession">—</dd></div>
+              <div><dt data-en="Date" data-ar="التاريخ">Date</dt><dd id="previewDate">—</dd></div>
+              <div><dt data-en="Time" data-ar="الوقت">Time</dt><dd id="previewTime">—</dd></div>
+              <div class="field-full"><dt data-en="Note" data-ar="الملاحظة">Note</dt><dd id="previewNote">—</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="package-cta" id="package">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <span class="eyebrow" data-en="Launch Plus" data-ar="باقة Launch Plus">Launch Plus</span>
+            <h2 data-en="Build an appointment journey around your real business." data-ar="ابنِ مسار مواعيد يناسب مشروعك الحقيقي.">Build an appointment journey around your real business.</h2>
+            <p data-en="Continue to the project-start demo with the AED 3,000 package selected. It is not a checkout and collects no payment." data-ar="تابع إلى نموذج بدء المشروع مع اختيار باقة 3,000 درهم. هذه ليست صفحة دفع ولا يتم تحصيل أي مبلغ.">Continue to the project-start demo with the AED 3,000 package selected. It is not a checkout and collects no payment.</p>
+          </div>
+          <a class="button" href="/launch1500/start/index.html?package=plus&amp;source=WEB-DEMO-3000" data-en="Start with the AED 3,000 package" data-ar="ابدأ بباقة 3,000 درهم">Start with the AED 3,000 package</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <strong data-en="Noura Wellness — fictional Launch1500 demo" data-ar="نورا للعافية — نموذج خيالي من Launch1500">Noura Wellness — fictional Launch1500 demo</strong>
+      <a href="/launch1500/index.html" data-en="Back to packages and pricing" data-ar="العودة إلى الباقات والأسعار">Back to packages and pricing</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var languageToggle = document.getElementById("languageToggle");
+      var menuToggle = document.getElementById("menuToggle");
+      var mainNav = document.getElementById("mainNav");
+      var openBooking = document.getElementById("openBooking");
+      var bookingForm = document.getElementById("bookingForm");
+      var clearRequest = document.getElementById("clearRequest");
+      var requestPreview = document.getElementById("requestPreview");
+      var preferredDate = document.getElementById("preferredDate");
+      var tabList = document.getElementById("viewTabs");
+      var tabs = Array.prototype.slice.call(tabList.querySelectorAll('[role="tab"]'));
+      var lastPreview = null;
+
+      function currentLanguage() {
+        return document.documentElement.lang === "ar" ? "ar" : "en";
+      }
+
+      function applyLanguage(language) {
+        var isArabic = language === "ar";
+        document.documentElement.lang = isArabic ? "ar" : "en";
+        document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+        document.querySelectorAll("[data-en][data-ar]").forEach(function (element) {
+          element.textContent = isArabic ? element.dataset.ar : element.dataset.en;
+        });
+
+        document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(function (element) {
+          element.setAttribute("aria-label", isArabic ? element.dataset.ariaAr : element.dataset.ariaEn);
+        });
+
+        document.querySelectorAll("[data-alt-en][data-alt-ar]").forEach(function (element) {
+          element.setAttribute("alt", isArabic ? element.dataset.altAr : element.dataset.altEn);
+        });
+
+        document.querySelectorAll("[data-placeholder-en][data-placeholder-ar]").forEach(function (element) {
+          element.setAttribute("placeholder", isArabic ? element.dataset.placeholderAr : element.dataset.placeholderEn);
+        });
+
+        languageToggle.textContent = isArabic ? "English" : "العربية";
+        languageToggle.setAttribute("aria-label", isArabic ? "Switch to English" : "التبديل إلى العربية");
+
+        try {
+          localStorage.setItem("launch1500-demo-language", isArabic ? "ar" : "en");
+        } catch (error) {
+          // Language still works when storage is unavailable.
+        }
+
+        if (lastPreview) {
+          renderPreview(lastPreview);
+        }
+      }
+
+      function activateTab(tab, moveFocus) {
+        tabs.forEach(function (candidate) {
+          var selected = candidate === tab;
+          candidate.setAttribute("aria-selected", selected ? "true" : "false");
+          candidate.setAttribute("tabindex", selected ? "0" : "-1");
+          document.getElementById(candidate.getAttribute("aria-controls")).hidden = !selected;
+        });
+        if (moveFocus) {
+          tab.focus();
+        }
+      }
+
+      function formatDate(dateValue) {
+        var parts = dateValue.split("-");
+        var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        return new Intl.DateTimeFormat(currentLanguage() === "ar" ? "ar-AE" : "en-AE", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }).format(date);
+      }
+
+      function selectedLabel(selectElement) {
+        var option = selectElement.options[selectElement.selectedIndex];
+        return currentLanguage() === "ar" ? option.dataset.ar : option.dataset.en;
+      }
+
+      function renderPreview(data) {
+        document.getElementById("previewName").textContent = data.name;
+        document.getElementById("previewSession").textContent = selectedLabel(document.getElementById("sessionType"));
+        document.getElementById("previewDate").textContent = formatDate(data.date);
+        document.getElementById("previewTime").textContent = data.time;
+        document.getElementById("previewNote").textContent = data.note || (currentLanguage() === "ar" ? "لا توجد ملاحظة" : "No note added");
+        requestPreview.hidden = false;
+      }
+
+      languageToggle.addEventListener("click", function () {
+        applyLanguage(currentLanguage() === "ar" ? "en" : "ar");
+      });
+
+      menuToggle.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mainNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          activateTab(tab, false);
+        });
+      });
+
+      tabList.addEventListener("keydown", function (event) {
+        var activeIndex = tabs.indexOf(document.activeElement);
+        if (activeIndex < 0) {
+          return;
+        }
+
+        var nextIndex = activeIndex;
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (activeIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (activeIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+
+      openBooking.addEventListener("click", function () {
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.getElementById("booking-demo").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        window.setTimeout(function () {
+          document.getElementById("guestName").focus();
+        }, reduceMotion ? 0 : 320);
+      });
+
+      bookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!bookingForm.checkValidity()) {
+          bookingForm.reportValidity();
+          return;
+        }
+
+        lastPreview = {
+          name: document.getElementById("guestName").value.trim(),
+          session: document.getElementById("sessionType").value,
+          date: preferredDate.value,
+          time: document.getElementById("preferredTime").value,
+          note: document.getElementById("guestNote").value.trim()
+        };
+        renderPreview(lastPreview);
+        requestPreview.focus();
+      });
+
+      clearRequest.addEventListener("click", function () {
+        bookingForm.reset();
+        requestPreview.hidden = true;
+        lastPreview = null;
+        document.getElementById("guestName").focus();
+      });
+
+      var today = new Date();
+      var year = String(today.getFullYear());
+      var month = String(today.getMonth() + 1).padStart(2, "0");
+      var day = String(today.getDate()).padStart(2, "0");
+      preferredDate.min = year + "-" + month + "-" + day;
+
+      var savedLanguage = "en";
+      try {
+        savedLanguage = localStorage.getItem("launch1500-demo-language") || "en";
+      } catch (error) {
+        savedLanguage = "en";
+      }
+      applyLanguage(savedLanguage === "ar" ? "ar" : "en");
+    }());
+  </script>
+  <script src="../../local-links.js"></script>
+</body>
+</html>

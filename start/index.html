@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Start a Launch1500 website project enquiry through a clear four-step WhatsApp flow.">
+  <title>Start Your Project · Launch1500</title>
+  <style>
+    :root{
+      --navy:#0a1b33;
+      --navy-2:#112a49;
+      --paper:#f8f3e9;
+      --white:#fffdf9;
+      --ink:#142137;
+      --muted:#617086;
+      --line:#ded7ca;
+      --gold:#d7b45f;
+      --gold-dark:#765710;
+      --gold-soft:#f5e8c5;
+      --green:#21c863;
+      --red:#b42318;
+      --red-soft:#fff0ee;
+      --teal:#197c72;
+      --shadow:0 22px 60px rgba(10,27,51,.14);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit}
+    :focus-visible{outline:3px solid #0d8076;outline-offset:3px}
+    .skip{position:fixed;inset-block-start:10px;inset-inline-start:10px;z-index:1000;background:#fff;color:var(--navy);padding:12px 18px;border-radius:999px;transform:translateY(-160%)}
+    .skip:focus{transform:none}
+    .shell{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+    header{background:var(--navy);color:#fff}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-family:"Fraunces",Georgia,serif;font-size:22px;font-weight:600;text-decoration:none}
+    .brand span{color:var(--gold)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .nav-link,.lang{min-height:48px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:transparent;color:#fff;padding:9px 17px;text-decoration:none;font-weight:700}
+    .nav-link:hover,.lang:hover{border-color:var(--gold);background:rgba(215,180,95,.08)}
+    .intro{background:linear-gradient(90deg,rgba(7,17,31,.96),rgba(10,27,51,.76)),url("../assets/launch1500-triptych.png") center/cover;color:#fff;padding:54px 0}
+    .intro-copy{max-width:760px}
+    .eyebrow{color:#f1d485;font-size:13px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.12;margin:0}
+    h1{font-size:clamp(38px,6vw,68px);margin:14px 0}
+    .intro p{font-size:18px;color:#d1d9e3;max-width:65ch;margin:0}
+    .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .trust-row span{display:inline-flex;min-height:38px;align-items:center;padding:6px 13px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#f5ead1;font-size:13px;font-weight:700}
+    main{padding:46px 0 84px}
+    .progress{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .progress li{min-height:64px;border:1px solid var(--line);background:rgba(255,255,255,.68);border-radius:16px;padding:10px 12px;display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;font-weight:700}
+    .progress .number{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:50%;background:#e8e4dc;color:var(--navy)}
+    .progress li.active{border-color:var(--gold);background:var(--gold-soft);color:var(--navy)}
+    .progress li.active .number{background:var(--navy);color:#fff}
+    .progress li.done .number{background:var(--teal);color:#fff}
+    .panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(22px,5vw,42px)}
+    .step[hidden]{display:none}
+    .step-heading{display:flex;align-items:start;justify-content:space-between;gap:24px;margin-bottom:30px}
+    .step-heading h2{font-size:clamp(30px,4vw,44px)}
+    .step-heading p{max-width:55ch;color:var(--muted);margin:7px 0 0}
+    .step-count{flex:none;color:var(--gold-dark);font-weight:800}
+    .package-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .package{position:relative}
+    .package input{position:absolute;opacity:0;pointer-events:none}
+    .package label{height:100%;min-height:208px;display:flex;flex-direction:column;border:2px solid var(--line);border-radius:18px;padding:18px;background:#fff;cursor:pointer;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+    .package.spotlight label{background:linear-gradient(180deg,#fff,#fffaf0)}
+    .package input:checked+label{border-color:var(--navy);box-shadow:0 0 0 4px rgba(10,27,51,.11);transform:translateY(-3px)}
+    .package input:focus-visible+label{outline:3px solid var(--teal);outline-offset:3px}
+    .package-name{font-weight:800}
+    .package-price{font-family:"Fraunces",serif;font-size:25px;margin:7px 0}
+    .package small{color:var(--muted);line-height:1.4}
+    .package .radio-mark{width:26px;height:26px;border:2px solid #aeb7c2;border-radius:50%;display:grid;place-items:center;margin-top:auto;align-self:flex-end}
+    .package input:checked+label .radio-mark{border-color:var(--navy);background:var(--navy);box-shadow:inset 0 0 0 6px #fff}
+    .spot-badge{display:inline-flex;width:max-content;margin-bottom:8px;padding:3px 8px;border-radius:999px;background:var(--gold-soft);color:var(--gold-dark);font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    label,.label{font-weight:750;font-size:14px}
+    .required{color:var(--red)}
+    input,select,textarea{width:100%;min-height:50px;border:1.5px solid #bfc7d1;border-radius:12px;background:#fff;color:var(--ink);padding:12px 14px}
+    textarea{min-height:124px;resize:vertical}
+    input:hover,select:hover,textarea:hover{border-color:#8391a2}
+    input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--red);background:var(--red-soft)}
+    .hint{font-size:12px;color:var(--muted)}
+    .error{font-size:13px;color:var(--red);font-weight:700;min-height:20px}
+    .actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+    .button{min-height:50px;border-radius:999px;border:1.5px solid var(--navy);padding:11px 22px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;text-decoration:none}
+    .button.primary{background:var(--navy);color:#fff}
+    .button.primary:hover{background:var(--navy-2)}
+    .button.secondary{background:#fff;color:var(--navy)}
+    .button.secondary:hover{background:#f5f2eb}
+    .button.whatsapp{background:var(--green);color:#062b18;border-color:var(--green);box-shadow:0 10px 24px rgba(33,200,99,.24)}
+    .button:disabled{opacity:.5;cursor:not-allowed}
+    .review-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
+    .summary-card,.scope-card{border:1px solid var(--line);border-radius:18px;padding:24px}
+    .summary-card{background:var(--navy);color:#fff}
+    .summary-card h3,.scope-card h3{font-size:23px;margin-bottom:16px}
+    .summary-row{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.2)}
+    .summary-row:last-child{border-bottom:0}
+    .summary-row span{color:#b9c4d2}
+    .summary-row strong{text-align:end}
+    .payment-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:14px;margin-top:18px;padding:14px}
+    .payment-box .summary-row strong{color:#f3d886}
+    .scope-columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .scope-columns h4{margin:0 0 10px;font-size:14px}
+    .scope-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:var(--muted);font-size:14px}
+    .scope-list li{padding-inline-start:22px;position:relative}
+    .scope-list li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--teal);font-weight:900}
+    .scope-list.excluded li::before{content:"—";color:var(--gold-dark)}
+    .notice{background:#fff8e5;border:1px solid #e3c774;border-radius:14px;padding:15px 17px;color:#574313;margin-top:22px}
+    .check-row{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;margin-top:22px}
+    .check-row input{width:24px;height:24px;min-height:24px;margin-top:2px}
+    .check-row label{font-weight:600}
+    .final-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px}
+    .final-copy h3{font-size:30px;margin-bottom:12px}
+    .final-copy p{color:var(--muted)}
+    .privacy{border:1px solid #bad4cb;background:#edf9f5;border-radius:15px;padding:16px;color:#164d46}
+    .message-box{border:1px solid var(--line);background:#fff;border-radius:18px;padding:20px}
+    .message-box textarea{background:#f7f8fa;min-height:260px;font-size:13px}
+    .message-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px}
+    .status{min-height:28px;margin-top:14px;font-weight:700;color:var(--teal)}
+    .status.error-state{color:var(--red)}
+    .no-script{margin:20px auto;padding:16px;max-width:760px;background:#fff0ee;border:1px solid #e8a9a4;color:#64150f;border-radius:12px}
+    footer{background:var(--navy);color:#aeb8c6;padding:30px 0;font-size:14px}
+    footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    html[dir="rtl"] body{font-family:"Cairo","DM Sans",system-ui,sans-serif}
+    html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .brand,html[dir="rtl"] .package-price{font-family:"Cairo",system-ui,sans-serif}
+    html[dir="rtl"] .eyebrow,html[dir="rtl"] .spot-badge{letter-spacing:0}
+    @media(max-width:980px){
+      .package-grid{grid-template-columns:repeat(2,1fr)}
+      .package:last-child{grid-column:1/-1}
+      .review-grid,.final-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:700px){
+      .shell{width:min(100% - 24px,1120px)}
+      .nav{min-height:66px}
+      .nav-link .wide{display:none}
+      .intro{padding:42px 0}
+      .progress{grid-template-columns:repeat(4,1fr)}
+      .progress li{min-height:50px;justify-content:center;padding:8px}
+      .progress .step-label{display:none}
+      .progress .number{width:32px;height:32px}
+      main{padding:28px 0 64px}
+      .panel{padding:22px 16px}
+      .step-heading{display:block}
+      .step-count{display:inline-block;margin-bottom:8px}
+      .field-grid,.scope-columns{grid-template-columns:1fr}
+      .package-grid{grid-template-columns:1fr}
+      .package:last-child{grid-column:auto}
+      .package label{min-height:150px}
+      .actions{display:grid;grid-template-columns:1fr}
+      .actions .button{width:100%}
+      .actions .primary{order:-1}
+      .message-actions{display:grid}
+      .message-actions .button{width:100%}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to project enquiry" data-ar="انتقل إلى طلب المشروع">Skip to project enquiry</a>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="/launch1500/index.html" aria-label="Launch1500 home">Launch<span>1500</span></a>
+      <div class="nav-actions">
+        <a class="nav-link" href="/launch1500/index.html#packages"><span aria-hidden="true">←</span>&nbsp;<span class="wide" data-en="Back to packages" data-ar="العودة إلى الباقات">Back to packages</span></a>
+        <button class="lang" id="languageToggle" type="button" aria-label="التبديل إلى العربية">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="shell intro-copy">
+      <span class="eyebrow" data-en="Project enquiry · No account required" data-ar="طلب مشروع · لا يتطلب حساباً">Project enquiry · No account required</span>
+      <h1 data-en="Start your project in four clear steps." data-ar="ابدأ مشروعك في أربع خطوات واضحة.">Start your project in four clear steps.</h1>
+      <p data-en="Choose a package, tell us about your business, review the scope and prepare a WhatsApp message. Nothing is sent until you explicitly open WhatsApp and press Send there." data-ar="اختر باقة، وعرّفنا بمشروعك، وراجع النطاق، ثم جهّز رسالة واتساب. لا يتم إرسال أي شيء حتى تفتح واتساب بنفسك وتضغط إرسال هناك.">
+        Choose a package, tell us about your business, review the scope and prepare a WhatsApp message. Nothing is sent until you explicitly open WhatsApp and press Send there.
+      </p>
+      <div class="trust-row">
+        <span data-en="No account" data-ar="بدون حساب">No account</span>
+        <span data-en="No payment here" data-ar="لا يوجد دفع هنا">No payment here</span>
+        <span data-en="Nothing stored" data-ar="لا يتم التخزين">Nothing stored</span>
+        <span data-en="You decide whether to send" data-ar="أنت تقرر ما إذا كنت سترسل">You decide whether to send</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <div class="shell">
+      <ol class="progress" aria-label="Project enquiry progress" data-aria-en="Project enquiry progress" data-aria-ar="تقدم طلب المشروع">
+        <li class="active" data-progress="1" aria-current="step"><span class="number">1</span><span class="step-label" data-en="Package" data-ar="الباقة">Package</span></li>
+        <li data-progress="2"><span class="number">2</span><span class="step-label" data-en="Business" data-ar="المشروع">Business</span></li>
+        <li data-progress="3"><span class="number">3</span><span class="step-label" data-en="Review" data-ar="المراجعة">Review</span></li>
+        <li data-progress="4"><span class="number">4</span><span class="step-label" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span></li>
+      </ol>
+
+      <form class="panel" id="projectForm" novalidate>
+        <section class="step" data-step="1" aria-labelledby="step1Title">
+          <div class="step-heading">
+            <div><span class="step-count" data-en="Step 1 of 4" data-ar="الخطوة 1 من 4">Step 1 of 4</span><h2 id="step1Title" tabindex="-1" data-en="Choose a package." data-ar="اختر باقة.">Choose a package.</h2><p data-en="All five packages remain available. The AED 1,500, AED 3,000 and AED 5,000 paths are highlighted for quick comparison." data-ar="جميع الباقات الخمس متاحة. تم إبراز مسارات 1,500 و3,000 و5,000 درهم لتسهيل المقارنة.">All five packages remain available. The AED 1,500, AED 3,000 and AED 5,000 paths are highlighted for quick comparison.</p></div>
+          </div>
+
+          <div class="package-grid" role="radiogroup" aria-label="Choose a website package" data-aria-en="Choose a website package" data-aria-ar="اختر باقة الموقع">
+            <div class="package spotlight">
+              <input type="radio" id="packageLite" name="package" value="lite">
+              <label for="packageLite"><span class="spot-badge" data-en="Demo spotlight" data-ar="باقة مميزة في النماذج">Demo spotlight</span><span class="package-name">Launch Lite</span><span class="package-price" data-en="AED 1,500" data-ar="1,500 درهم">AED 1,500</span><small data-en="Focused one-page presence" data-ar="حضور مركز من صفحة واحدة">Focused one-page presence</small><span class="radio-mark" aria-hidden="true"></span></label>
+            </div>
+            <div class="package">
+              <input type="radio" id="packageBasic" name="package" value="basic">
+              <label for="packageBasic"><span class="package-name">Launch Basic</span><span class="package-price" data-en="AED 2,000" data-ar="2,000 درهم">AED 2,000</span><small data-en="Up to four pages" data-ar="حتى أربع صفحات">Up to four pages</small><span class="radio-mark" aria-hidden="true"></span></label>
+            </div>
+            <div class="package spotlight">
+              <input type="radio" id="packagePlus" name="package" value="plus">
+              <label for="packagePlus"><span class="spot-badge" data-en="Demo spotlight" data-ar="باقة مميزة في النماذج">Demo spotlight</span><span class="package-name">Launch Plus</span><span class="package-price" data-en="AED 3,000" data-ar="3,000 درهم">AED 3,000</span><small data-en="Structured enquiry or booking path" data-ar="مسار منظم للاستفسار أو طلب الحجز">Structured enquiry or booking path</small><span class="radio-mark" aria-hidden="true"></span></label>
+            </div>
+            <div class="package">
+              <input type="radio" id="packageStore" name="package" value="store">
+              <label for="packageStore"><span class="package-name">Launch Store</span><span class="package-price" data-en="AED 4,000" data-ar="4,000 درهم">AED 4,000</span><small data-en="Catalog and WhatsApp orders" data-ar="كتالوج وطلبات عبر واتساب">Catalog and WhatsApp orders</small><span class="radio-mark" aria-hidden="true"></span></label>
+            </div>
+            <div class="package spotlight">
+              <input type="radio" id="packagePremium" name="package" value="premium">
+              <label for="packagePremium"><span class="spot-badge" data-en="Demo spotlight" data-ar="باقة مميزة في النماذج">Demo spotlight</span><span class="package-name">Launch Premium</span><span class="package-price" data-en="AED 5,000" data-ar="5,000 درهم">AED 5,000</span><small data-en="Content-rich premium experience" data-ar="تجربة مميزة وغنية بالمحتوى">Content-rich premium experience</small><span class="radio-mark" aria-hidden="true"></span></label>
+            </div>
+          </div>
+          <p class="error" id="packageError" aria-live="polite"></p>
+          <div class="actions">
+            <a class="button secondary" href="/launch1500/index.html#packages" data-en="Cancel and compare packages" data-ar="إلغاء ومقارنة الباقات">Cancel and compare packages</a>
+            <button class="button primary" type="button" data-next="2" data-en="Continue to business details" data-ar="متابعة إلى تفاصيل المشروع">Continue to business details</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="2" aria-labelledby="step2Title" hidden>
+          <div class="step-heading">
+            <div><span class="step-count" data-en="Step 2 of 4" data-ar="الخطوة 2 من 4">Step 2 of 4</span><h2 id="step2Title" tabindex="-1" data-en="Tell us about your business." data-ar="عرّفنا بمشروعك.">Tell us about your business.</h2><p data-en="Only the information needed to prepare your WhatsApp enquiry. It stays in this browser page until you leave or refresh." data-ar="نطلب فقط المعلومات اللازمة لإعداد استفسارك عبر واتساب. تبقى داخل صفحة المتصفح حتى تغادر أو تعيد تحميل الصفحة.">Only the information needed to prepare your WhatsApp enquiry. It stays in this browser page until you leave or refresh.</p></div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="fullName"><span data-en="Your name" data-ar="اسمك">Your name</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required aria-describedby="fullNameError">
+              <span class="error" id="fullNameError"></span>
+            </div>
+            <div class="field">
+              <label for="businessName"><span data-en="Business name" data-ar="اسم المشروع">Business name</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="businessName" name="businessName" type="text" autocomplete="organization" required aria-describedby="businessNameError">
+              <span class="error" id="businessNameError"></span>
+            </div>
+            <div class="field">
+              <label for="emirate"><span data-en="Emirate" data-ar="الإمارة">Emirate</span> <span class="required" aria-hidden="true">*</span></label>
+              <select id="emirate" name="emirate" required aria-describedby="emirateError">
+                <option value="" data-en="Choose an emirate" data-ar="اختر الإمارة">Choose an emirate</option>
+                <option value="Abu Dhabi" data-en="Abu Dhabi" data-ar="أبوظبي">Abu Dhabi</option>
+                <option value="Dubai" data-en="Dubai" data-ar="دبي">Dubai</option>
+                <option value="Sharjah" data-en="Sharjah" data-ar="الشارقة">Sharjah</option>
+                <option value="Ajman" data-en="Ajman" data-ar="عجمان">Ajman</option>
+                <option value="Umm Al Quwain" data-en="Umm Al Quwain" data-ar="أم القيوين">Umm Al Quwain</option>
+                <option value="Ras Al Khaimah" data-en="Ras Al Khaimah" data-ar="رأس الخيمة">Ras Al Khaimah</option>
+                <option value="Fujairah" data-en="Fujairah" data-ar="الفجيرة">Fujairah</option>
+                <option value="Outside UAE" data-en="Outside UAE" data-ar="خارج الإمارات">Outside UAE</option>
+              </select>
+              <span class="error" id="emirateError"></span>
+            </div>
+            <div class="field">
+              <label for="businessType"><span data-en="Business type" data-ar="نوع النشاط">Business type</span> <span class="required" aria-hidden="true">*</span></label>
+              <select id="businessType" name="businessType" required aria-describedby="businessTypeError">
+                <option value="" data-en="Choose a business type" data-ar="اختر نوع النشاط">Choose a business type</option>
+                <option value="Professional service" data-en="Professional service" data-ar="خدمة مهنية">Professional service</option>
+                <option value="Beauty or wellness" data-en="Beauty or wellness" data-ar="جمال أو عافية">Beauty or wellness</option>
+                <option value="Food or hospitality" data-en="Food or hospitality" data-ar="طعام أو ضيافة">Food or hospitality</option>
+                <option value="Retail or products" data-en="Retail or products" data-ar="تجزئة أو منتجات">Retail or products</option>
+                <option value="Property or interiors" data-en="Property or interiors" data-ar="عقارات أو تصميم داخلي">Property or interiors</option>
+                <option value="Other" data-en="Other" data-ar="أخرى">Other</option>
+              </select>
+              <span class="error" id="businessTypeError"></span>
+            </div>
+            <div class="field full">
+              <label for="goal"><span data-en="What should the website help customers do?" data-ar="ما الذي تريد أن يساعد الموقع عملاءك على فعله؟">What should the website help customers do?</span> <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="goal" name="goal" required aria-describedby="goalHint goalError" data-placeholder-en="Example: understand my services, view recent work and request a quote on WhatsApp." data-placeholder-ar="مثال: فهم خدماتي، ومشاهدة أعمالي الأخيرة، وطلب عرض سعر عبر واتساب." placeholder="Example: understand my services, view recent work and request a quote on WhatsApp."></textarea>
+              <span class="hint" id="goalHint" data-en="Do not include passwords, payment details or confidential customer information." data-ar="لا تضف كلمات مرور أو بيانات دفع أو معلومات سرية عن العملاء.">Do not include passwords, payment details or confidential customer information.</span>
+              <span class="error" id="goalError"></span>
+            </div>
+            <div class="field full">
+              <label for="currentUrl" data-en="Current website or social page (optional)" data-ar="الموقع أو صفحة التواصل الحالية (اختياري)">Current website or social page (optional)</label>
+              <input id="currentUrl" name="currentUrl" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com" aria-describedby="currentUrlHint currentUrlError">
+              <span class="hint" id="currentUrlHint" data-en="Leave this blank if you do not have one." data-ar="اتركه فارغاً إذا لم يكن لديك رابط.">Leave this blank if you do not have one.</span>
+              <span class="error" id="currentUrlError"></span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="1" data-en="Back to packages" data-ar="العودة إلى الباقات">Back to packages</button>
+            <button class="button primary" type="button" data-next="3" data-en="Review my enquiry" data-ar="مراجعة طلبي">Review my enquiry</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="3" aria-labelledby="step3Title" hidden>
+          <div class="step-heading">
+            <div><span class="step-count" data-en="Step 3 of 4" data-ar="الخطوة 3 من 4">Step 3 of 4</span><h2 id="step3Title" tabindex="-1" data-en="Review before continuing." data-ar="راجع التفاصيل قبل المتابعة.">Review before continuing.</h2><p data-en="This is a starting-scope summary, not a final quote or booking." data-ar="هذا ملخص للنطاق المبدئي، وليس عرض سعر نهائياً أو حجزاً.">This is a starting-scope summary, not a final quote or booking.</p></div>
+          </div>
+
+          <div class="review-grid">
+            <article class="summary-card">
+              <h3 data-en="Your project enquiry" data-ar="طلب مشروعك">Your project enquiry</h3>
+              <div class="summary-row"><span data-en="Name" data-ar="الاسم">Name</span><strong id="reviewName"></strong></div>
+              <div class="summary-row"><span data-en="Business" data-ar="المشروع">Business</span><strong id="reviewBusiness"></strong></div>
+              <div class="summary-row"><span data-en="Emirate" data-ar="الإمارة">Emirate</span><strong id="reviewEmirate"></strong></div>
+              <div class="summary-row"><span data-en="Business type" data-ar="نوع النشاط">Business type</span><strong id="reviewType"></strong></div>
+              <div class="summary-row"><span data-en="Package" data-ar="الباقة">Package</span><strong id="reviewPackage"></strong></div>
+              <div class="payment-box">
+                <div class="summary-row"><span data-en="Package price" data-ar="سعر الباقة">Package price</span><strong id="reviewPrice"></strong></div>
+                <div class="summary-row"><span data-en="30% after written confirmation" data-ar="30% بعد التأكيد الكتابي">30% after written confirmation</span><strong id="reviewDeposit"></strong></div>
+                <div class="summary-row"><span data-en="70% before launch or handover" data-ar="70% قبل الإطلاق أو التسليم">70% before launch or handover</span><strong id="reviewBalance"></strong></div>
+              </div>
+            </article>
+            <article class="scope-card">
+              <h3 data-en="Starting scope" data-ar="النطاق المبدئي">Starting scope</h3>
+              <div class="scope-columns">
+                <div><h4 data-en="Included for discussion" data-ar="مشمول للنقاش">Included for discussion</h4><ul class="scope-list" id="includedList"></ul></div>
+                <div><h4 data-en="Not assumed included" data-ar="غير مشمول تلقائياً">Not assumed included</h4><ul class="scope-list excluded" id="excludedList"></ul></div>
+              </div>
+              <div class="notice" data-en="No account is created and no payment is taken here. Package scope, timing, third-party costs and payment instructions must be confirmed in writing." data-ar="لا يتم إنشاء حساب ولا تحصيل أي دفعة هنا. يجب تأكيد نطاق الباقة والمدة وتكاليف الأطراف الثالثة وتعليمات الدفع كتابياً.">
+                No account is created and no payment is taken here. Package scope, timing, third-party costs and payment instructions must be confirmed in writing.
+              </div>
+            </article>
+          </div>
+
+          <div class="check-row">
+            <input id="consent" type="checkbox" aria-describedby="consentError">
+            <label for="consent" data-en="I understand this is a project enquiry, not a confirmed booking or payment. Final scope, timeline and payment details will be confirmed in writing." data-ar="أفهم أن هذا طلب مشروع وليس حجزاً أو دفعاً مؤكداً. سيتم تأكيد النطاق النهائي والمدة وتفاصيل الدفع كتابياً.">I understand this is a project enquiry, not a confirmed booking or payment. Final scope, timeline and payment details will be confirmed in writing.</label>
+          </div>
+          <p class="error" id="consentError" aria-live="polite"></p>
+
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="2" data-en="Edit business details" data-ar="تعديل تفاصيل المشروع">Edit business details</button>
+            <button class="button primary" type="button" data-next="4" data-en="Prepare WhatsApp message" data-ar="تجهيز رسالة واتساب">Prepare WhatsApp message</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="4" aria-labelledby="step4Title" hidden>
+          <div class="step-heading">
+            <div><span class="step-count" data-en="Step 4 of 4" data-ar="الخطوة 4 من 4">Step 4 of 4</span><h2 id="step4Title" tabindex="-1" data-en="Your message is ready." data-ar="رسالتك جاهزة.">Your message is ready.</h2><p data-en="Review it, then explicitly open WhatsApp. You will still need to press Send there to complete the enquiry." data-ar="راجع الرسالة، ثم افتح واتساب بنفسك. ستحتاج أيضاً إلى الضغط على إرسال هناك لإكمال الطلب.">Review it, then explicitly open WhatsApp. You will still need to press Send there to complete the enquiry.</p></div>
+          </div>
+
+          <div class="final-grid">
+            <div class="final-copy">
+              <h3 data-en="Nothing has been sent." data-ar="لم يتم إرسال أي شيء.">Nothing has been sent.</h3>
+              <p data-en="This page does not create an account, collect payment, submit a form or save your details." data-ar="لا تنشئ هذه الصفحة حساباً، ولا تجمع دفعة، ولا ترسل نموذجاً، ولا تحفظ بياناتك.">This page does not create an account, collect payment, submit a form or save your details.</p>
+              <div class="privacy" data-en="Nothing is submitted or stored by this page. When you continue, WhatsApp opens with your details pre-filled. You decide whether to send them." data-ar="لا يتم إرسال أو تخزين أي شيء بواسطة هذه الصفحة. عند المتابعة، يفتح واتساب وبياناتك معبأة مسبقاً. أنت من يقرر ما إذا كنت سترسلها.">
+                Nothing is submitted or stored by this page. When you continue, WhatsApp opens with your details pre-filled. You decide whether to send them.
+              </div>
+            </div>
+            <div class="message-box">
+              <label for="messagePreview" data-en="Prepared WhatsApp message" data-ar="رسالة واتساب المجهزة">Prepared WhatsApp message</label>
+              <textarea id="messagePreview" readonly></textarea>
+              <div class="message-actions">
+                <button class="button whatsapp" id="openWhatsApp" type="button" data-en="Open WhatsApp to complete enquiry" data-ar="افتح واتساب لإكمال الطلب">Open WhatsApp to complete enquiry</button>
+                <button class="button secondary" id="copyMessage" type="button" data-en="Copy prepared message" data-ar="نسخ الرسالة المجهزة">Copy prepared message</button>
+              </div>
+              <p class="status" id="whatsAppStatus" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="3" data-en="Back to review" data-ar="العودة إلى المراجعة">Back to review</button>
+          </div>
+        </section>
+      </form>
+      <noscript><p class="no-script">JavaScript is required for this local four-step enquiry flow. You can return to the packages page and use its direct WhatsApp contact instead.</p></noscript>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <span data-en="Launch1500 · Project enquiry only · No account or online payment" data-ar="Launch1500 · طلب مشروع فقط · بدون حساب أو دفع إلكتروني">Launch1500 · Project enquiry only · No account or online payment</span>
+      <a href="/launch1500/index.html#terms" data-en="Read package terms" data-ar="اقرأ شروط الباقات">Read package terms</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+
+      var WHATSAPP_NUMBER = "971503923733";
+      var language = "en";
+      var currentStep = 1;
+      var params = new URLSearchParams(window.location.search);
+      var rawSource = (params.get("source") || "WEB-START").toUpperCase();
+      var source = /^[A-Z0-9_-]{1,40}$/.test(rawSource) ? rawSource : "WEB-START";
+
+      var packages = {
+        lite: {
+          name: "Launch Lite", price: 1500,
+          includedEn: ["Responsive one-page website", "Services, about, location and contact sections", "WhatsApp enquiry button", "Basic search setup", "1 review round", "Private preview before launch"],
+          includedAr: ["موقع متجاوب من صفحة واحدة", "أقسام الخدمات والتعريف والموقع والتواصل", "زر استفسار عبر واتساب", "إعداد أساسي للبحث", "جولة مراجعة واحدة", "معاينة خاصة قبل الإطلاق"]
+        },
+        basic: {
+          name: "Launch Basic", price: 2000,
+          includedEn: ["Up to 4 pages or sections", "Lite essentials", "Photo gallery", "Google Map embed", "Contact or lead form", "2 review rounds"],
+          includedAr: ["حتى 4 صفحات أو أقسام", "أساسيات باقة Lite", "معرض صور", "خريطة Google مدمجة", "نموذج تواصل أو استفسار", "جولتا مراجعة"]
+        },
+        plus: {
+          name: "Launch Plus", price: 3000,
+          includedEn: ["Up to 6 pages", "Basic essentials", "Enquiry or booking-request form", "Gallery, trust and FAQ sections", "On-page search setup", "2 review rounds"],
+          includedAr: ["حتى 6 صفحات", "أساسيات باقة Basic", "نموذج استفسار أو طلب حجز", "أقسام المعرض والثقة والأسئلة", "إعداد البحث داخل الصفحات", "جولتا مراجعة"]
+        },
+        store: {
+          name: "Launch Store", price: 4000,
+          includedEn: ["Catalog for up to 30 products", "WhatsApp ordering path", "Categories and product search", "Order enquiry form", "Responsive product presentation", "Private preview before launch"],
+          includedAr: ["كتالوج حتى 30 منتجاً", "مسار طلب عبر واتساب", "تصنيفات وبحث في المنتجات", "نموذج استفسار عن الطلب", "عرض متجاوب للمنتجات", "معاينة خاصة قبل الإطلاق"]
+        },
+        premium: {
+          name: "Launch Premium", price: 5000,
+          includedEn: ["Up to 10 pages", "Content-rich catalog or expanded service journey", "Refined motion and interactive presentation", "Performance and search-readiness pass", "3 review rounds", "30 days of post-launch priority support"],
+          includedAr: ["حتى 10 صفحات", "كتالوج غني بالمحتوى أو مسار خدمات موسع", "حركة محسنة وعرض تفاعلي", "مراجعة الأداء والجاهزية للبحث", "3 جولات مراجعة", "30 يوماً من دعم الأولوية بعد الإطلاق"]
+        }
+      };
+
+      var excluded = {
+        en: ["Domain and paid hosting", "Photography, new branding or unapproved copywriting", "Translation unless listed in the written quote", "Payment gateways and third-party subscriptions", "AI or complex integrations unless listed in the written quote"],
+        ar: ["النطاق والاستضافة المدفوعة", "التصوير أو الهوية الجديدة أو كتابة المحتوى غير المعتمدة", "الترجمة ما لم تُذكر في عرض السعر المكتوب", "بوابات الدفع واشتراكات الأطراف الثالثة", "الذكاء الاصطناعي أو التكاملات المعقدة ما لم تُذكر في عرض السعر المكتوب"]
+      };
+
+      var errors = {
+        package: {en:"Choose a package to continue.",ar:"اختر باقة للمتابعة."},
+        fullName: {en:"Enter your name.",ar:"أدخل اسمك."},
+        businessName: {en:"Enter your business name.",ar:"أدخل اسم مشروعك."},
+        emirate: {en:"Choose an emirate.",ar:"اختر الإمارة."},
+        businessType: {en:"Choose a business type.",ar:"اختر نوع النشاط."},
+        goal: {en:"Tell us what the website should help customers do.",ar:"وضّح ما الذي تريد أن يساعد الموقع عملاءك على فعله."},
+        currentUrl: {en:"Enter a valid website address, such as https://example.com.",ar:"أدخل رابطاً صحيحاً، مثل https://example.com."},
+        consent: {en:"Confirm that you understand this is an enquiry, not a booking or payment.",ar:"أكد أنك تفهم أن هذا طلب وليس حجزاً أو دفعاً."}
+      };
+
+      function formatMoney(amount){
+        var formatted = amount.toLocaleString("en-US");
+        return language === "ar" ? formatted + " درهم" : "AED " + formatted;
+      }
+
+      function selectedPackageKey(){
+        var checked = document.querySelector('input[name="package"]:checked');
+        return checked ? checked.value : "";
+      }
+
+      function setText(id,value){
+        document.getElementById(id).textContent = value;
+      }
+
+      function translatedSelectText(select){
+        var option = select.options[select.selectedIndex];
+        return option ? option.getAttribute(language === "ar" ? "data-ar" : "data-en") || option.textContent : "";
+      }
+
+      function setLanguage(nextLanguage){
+        language = nextLanguage;
+        var isArabic = language === "ar";
+        document.documentElement.lang = language;
+        document.documentElement.dir = isArabic ? "rtl" : "ltr";
+        document.querySelectorAll("[data-en][data-ar]").forEach(function(element){
+          element.textContent = element.getAttribute(isArabic ? "data-ar" : "data-en");
+        });
+        document.querySelectorAll("[data-placeholder-en][data-placeholder-ar]").forEach(function(element){
+          element.setAttribute("placeholder", element.getAttribute(isArabic ? "data-placeholder-ar" : "data-placeholder-en"));
+        });
+        document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(function(element){
+          element.setAttribute("aria-label", element.getAttribute(isArabic ? "data-aria-ar" : "data-aria-en"));
+        });
+        var toggle = document.getElementById("languageToggle");
+        toggle.textContent = isArabic ? "English" : "العربية";
+        toggle.setAttribute("aria-label", isArabic ? "Switch to English" : "التبديل إلى العربية");
+        clearValidationMessages();
+        if (currentStep >= 3) renderReview();
+        if (currentStep === 4) prepareMessage();
+      }
+
+      function showStep(step){
+        currentStep = step;
+        document.querySelectorAll(".step").forEach(function(section){
+          section.hidden = Number(section.getAttribute("data-step")) !== step;
+        });
+        document.querySelectorAll(".progress li").forEach(function(item){
+          var itemStep = Number(item.getAttribute("data-progress"));
+          item.classList.toggle("active", itemStep === step);
+          item.classList.toggle("done", itemStep < step);
+          if (itemStep === step) item.setAttribute("aria-current","step");
+          else item.removeAttribute("aria-current");
+        });
+        if (step === 3) renderReview();
+        if (step === 4) prepareMessage();
+        var title = document.getElementById("step" + step + "Title");
+        window.requestAnimationFrame(function(){
+          title.focus({preventScroll:true});
+          title.scrollIntoView({behavior:"smooth",block:"start"});
+        });
+      }
+
+      function clearFieldError(fieldId){
+        var field = document.getElementById(fieldId);
+        var errorElement = document.getElementById(fieldId + "Error");
+        if (field) field.removeAttribute("aria-invalid");
+        if (errorElement) errorElement.textContent = "";
+      }
+
+      function setFieldError(fieldId,errorKey){
+        var field = document.getElementById(fieldId);
+        var errorElement = document.getElementById(fieldId + "Error");
+        field.setAttribute("aria-invalid","true");
+        errorElement.textContent = errors[errorKey][language];
+      }
+
+      function clearValidationMessages(){
+        ["fullName","businessName","emirate","businessType","goal","currentUrl"].forEach(clearFieldError);
+        setText("packageError","");
+        setText("consentError","");
+      }
+
+      function validateStepOne(){
+        var valid = Boolean(selectedPackageKey());
+        setText("packageError",valid ? "" : errors.package[language]);
+        return valid;
+      }
+
+      function normalizedUrl(value){
+        if (!value) return "";
+        var candidate = /^[a-z][a-z0-9+.-]*:\/\//i.test(value) ? value : "https://" + value;
+        try {
+          var parsed = new URL(candidate);
+          if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return "";
+          return parsed.href;
+        } catch (error) {
+          return "";
+        }
+      }
+
+      function validateStepTwo(){
+        var valid = true;
+        ["fullName","businessName","emirate","businessType","goal","currentUrl"].forEach(clearFieldError);
+        ["fullName","businessName","goal"].forEach(function(fieldId){
+          if (!document.getElementById(fieldId).value.trim()){
+            setFieldError(fieldId,fieldId);
+            valid = false;
+          }
+        });
+        ["emirate","businessType"].forEach(function(fieldId){
+          if (!document.getElementById(fieldId).value){
+            setFieldError(fieldId,fieldId);
+            valid = false;
+          }
+        });
+        var urlField = document.getElementById("currentUrl");
+        if (urlField.value.trim()){
+          var cleanUrl = normalizedUrl(urlField.value.trim());
+          if (!cleanUrl){
+            setFieldError("currentUrl","currentUrl");
+            valid = false;
+          } else {
+            urlField.value = cleanUrl;
+          }
+        }
+        if (!valid){
+          var firstInvalid = document.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+        }
+        return valid;
+      }
+
+      function validateConsent(){
+        var checkbox = document.getElementById("consent");
+        var valid = checkbox.checked;
+        setText("consentError",valid ? "" : errors.consent[language]);
+        if (!valid) checkbox.focus();
+        return valid;
+      }
+
+      function renderList(elementId,items){
+        var list = document.getElementById(elementId);
+        list.textContent = "";
+        items.forEach(function(item){
+          var li = document.createElement("li");
+          li.textContent = item;
+          list.appendChild(li);
+        });
+      }
+
+      function renderReview(){
+        var key = selectedPackageKey();
+        var item = packages[key];
+        var deposit = Math.round(item.price * .3);
+        var balance = item.price - deposit;
+        setText("reviewName",document.getElementById("fullName").value.trim());
+        setText("reviewBusiness",document.getElementById("businessName").value.trim());
+        setText("reviewEmirate",translatedSelectText(document.getElementById("emirate")));
+        setText("reviewType",translatedSelectText(document.getElementById("businessType")));
+        setText("reviewPackage",item.name);
+        setText("reviewPrice",formatMoney(item.price));
+        setText("reviewDeposit",formatMoney(deposit));
+        setText("reviewBalance",formatMoney(balance));
+        renderList("includedList",language === "ar" ? item.includedAr : item.includedEn);
+        renderList("excludedList",excluded[language]);
+      }
+
+      function buildMessage(){
+        var key = selectedPackageKey();
+        var item = packages[key];
+        var deposit = Math.round(item.price * .3);
+        var balance = item.price - deposit;
+        var currentUrl = document.getElementById("currentUrl").value.trim();
+        var lines;
+        if (language === "ar"){
+          lines = [
+            "مرحباً Launch1500،",
+            "",
+            "طلب مشروع جديد",
+            "المصدر: " + source,
+            "اللغة: العربية",
+            "الاسم: " + document.getElementById("fullName").value.trim(),
+            "اسم المشروع: " + document.getElementById("businessName").value.trim(),
+            "الإمارة: " + translatedSelectText(document.getElementById("emirate")),
+            "نوع النشاط: " + translatedSelectText(document.getElementById("businessType")),
+            "الباقة: " + item.name + " — " + formatMoney(item.price),
+            "الدفعة المبدئية بعد التأكيد الكتابي (30%): " + formatMoney(deposit),
+            "الرصيد قبل الإطلاق أو التسليم (70%): " + formatMoney(balance),
+            "الهدف الرئيسي: " + document.getElementById("goal").value.trim()
+          ];
+          if (currentUrl) lines.push("الرابط الحالي: " + currentUrl);
+          lines.push("","أفهم أن هذا طلب مشروع وليس حجزاً أو دفعاً مؤكداً. أرجو تأكيد النطاق النهائي والمدة وتفاصيل الدفع كتابياً.");
+        } else {
+          lines = [
+            "Hello Launch1500,",
+            "",
+            "New project enquiry",
+            "Source: " + source,
+            "Language: English",
+            "Name: " + document.getElementById("fullName").value.trim(),
+            "Business: " + document.getElementById("businessName").value.trim(),
+            "Emirate: " + translatedSelectText(document.getElementById("emirate")),
+            "Business type: " + translatedSelectText(document.getElementById("businessType")),
+            "Package: " + item.name + " — " + formatMoney(item.price),
+            "Starting payment after written confirmation (30%): " + formatMoney(deposit),
+            "Balance before launch or handover (70%): " + formatMoney(balance),
+            "Main goal: " + document.getElementById("goal").value.trim()
+          ];
+          if (currentUrl) lines.push("Current URL: " + currentUrl);
+          lines.push("","I understand this is a project enquiry, not a confirmed booking or payment. Please confirm the final scope, timeline and payment details in writing.");
+        }
+        return lines.join("\n");
+      }
+
+      function prepareMessage(){
+        document.getElementById("messagePreview").value = buildMessage();
+        var status = document.getElementById("whatsAppStatus");
+        status.textContent = "";
+        status.classList.remove("error-state");
+      }
+
+      function openWhatsApp(){
+        var message = document.getElementById("messagePreview").value;
+        var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+        var opened = window.open(url,"_blank");
+        var status = document.getElementById("whatsAppStatus");
+        if (opened){
+          try { opened.opener = null; } catch (error) {}
+          status.classList.remove("error-state");
+          status.textContent = language === "ar"
+            ? "تم فتح واتساب. اضغط إرسال هناك لإكمال الطلب."
+            : "WhatsApp opened. Press Send there to complete your enquiry.";
+        } else {
+          status.classList.add("error-state");
+          status.textContent = language === "ar"
+            ? "لم يفتح واتساب. انسخ الرسالة المجهزة وافتح واتساب يدوياً."
+            : "WhatsApp did not open. Copy the prepared message and open WhatsApp manually.";
+        }
+      }
+
+      function copyMessage(){
+        var preview = document.getElementById("messagePreview");
+        var text = preview.value;
+        var status = document.getElementById("whatsAppStatus");
+        function copied(){
+          status.classList.remove("error-state");
+          status.textContent = language === "ar" ? "تم نسخ الرسالة." : "Prepared message copied.";
+        }
+        function fallback(){
+          preview.focus();
+          preview.select();
+          try {
+            document.execCommand("copy");
+            copied();
+          } catch (error) {
+            status.classList.add("error-state");
+            status.textContent = language === "ar" ? "تعذر النسخ تلقائياً. حدد النص وانسخه يدوياً." : "Automatic copy failed. Select the message and copy it manually.";
+          }
+        }
+        if (navigator.clipboard && window.isSecureContext){
+          navigator.clipboard.writeText(text).then(copied).catch(fallback);
+        } else {
+          fallback();
+        }
+      }
+
+      document.querySelectorAll("[data-next]").forEach(function(button){
+        button.addEventListener("click",function(){
+          var target = Number(button.getAttribute("data-next"));
+          if (currentStep === 1 && !validateStepOne()) return;
+          if (currentStep === 2 && !validateStepTwo()) return;
+          if (currentStep === 3 && !validateConsent()) return;
+          showStep(target);
+        });
+      });
+
+      document.querySelectorAll("[data-back]").forEach(function(button){
+        button.addEventListener("click",function(){
+          showStep(Number(button.getAttribute("data-back")));
+        });
+      });
+
+      ["fullName","businessName","emirate","businessType","goal","currentUrl"].forEach(function(fieldId){
+        document.getElementById(fieldId).addEventListener("input",function(){ clearFieldError(fieldId); });
+        document.getElementById(fieldId).addEventListener("change",function(){ clearFieldError(fieldId); });
+      });
+
+      document.querySelectorAll('input[name="package"]').forEach(function(input){
+        input.addEventListener("change",function(){ setText("packageError",""); });
+      });
+      document.getElementById("consent").addEventListener("change",function(){ setText("consentError",""); });
+      document.getElementById("languageToggle").addEventListener("click",function(){ setLanguage(language === "en" ? "ar" : "en"); });
+      document.getElementById("openWhatsApp").addEventListener("click",openWhatsApp);
+      document.getElementById("copyMessage").addEventListener("click",copyMessage);
+      document.getElementById("projectForm").addEventListener("submit",function(event){ event.preventDefault(); });
+
+      var packageAliases = {
+        "1500":"lite","lite":"lite",
+        "2000":"basic","basic":"basic",
+        "3000":"plus","plus":"plus",
+        "4000":"store","store":"store",
+        "5000":"premium","premium":"premium"
+      };
+      var requestedPackage = (params.get("package") || "lite").toLowerCase();
+      var initialPackage = packageAliases[requestedPackage] || "lite";
+      document.querySelector('input[name="package"][value="' + initialPackage + '"]').checked = true;
+    }());
+  </script>
+  <script src="../local-links.js"></script>
+</body>
+</html>

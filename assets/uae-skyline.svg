@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="skylineGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C5A869" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#DFC995" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#F4E8C8" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#DFC995" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#C5A869" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="skylineFill" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0E1E34" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#162D4D" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground subtle baseline -->
+  <line x1="0" y1="118" x2="1200" y2="118" stroke="url(#skylineGold)" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Skyline silhouettes -->
+  <!-- Low city skyline base -->
+  <path d="M 0 118 
+           L 40 118 L 40 95 L 65 95 L 65 80 L 85 80 L 85 105 L 110 105 L 110 90 L 130 90 L 130 118
+           L 160 118 L 160 70 L 180 70 L 180 60 L 195 60 L 195 85 L 220 85 L 220 118
+           <!-- Burj Al Arab silhouette -->
+           L 250 118 L 250 100 L 260 90 Q 285 45 295 20 L 297 15 L 299 20 Q 300 60 325 100 L 330 118
+           <!-- Dubai Frame -->
+           L 350 118 L 350 50 L 390 50 L 390 118 L 382 118 L 382 58 L 358 58 L 358 118 L 350 118
+           <!-- Ain Dubai Wheel -->
+           L 420 118 L 435 85 A 25 25 0 0 1 485 85 L 500 118 L 475 118 L 460 70 L 445 118
+           <!-- Tower clusters -->
+           L 520 118 L 520 75 L 540 75 L 540 60 L 555 60 L 555 118
+           <!-- Burj Khalifa (Spire) -->
+           L 580 118 L 580 85 L 588 85 L 588 65 L 594 65 L 594 45 L 598 45 L 598 25 L 600 5 L 602 25 L 602 45 L 606 45 L 606 65 L 612 65 L 612 85 L 620 85 L 620 118
+           <!-- Tower cluster 2 -->
+           L 640 118 L 640 55 L 655 45 L 670 55 L 670 118
+           L 690 118 L 690 70 L 710 70 L 710 118
+           <!-- Emirates Towers -->
+           L 730 118 L 730 40 L 750 20 L 750 118 L 760 118 L 760 50 L 778 32 L 778 118
+           <!-- Midrise blocks -->
+           L 800 118 L 800 85 L 825 85 L 825 118
+           <!-- Grand Mosque Domes & Minarets -->
+           L 850 118 L 850 35 L 854 25 L 858 35 L 858 118 <!-- Minaret 1 -->
+           L 870 118 L 870 85 A 22 18 0 0 1 914 85 L 914 118 <!-- Dome 1 -->
+           L 925 118 L 925 80 A 30 24 0 0 1 985 80 L 985 118 <!-- Main Grand Dome -->
+           L 995 118 L 995 85 A 22 18 0 0 1 1039 85 L 1039 118 <!-- Dome 2 -->
+           L 1050 118 L 1050 35 L 1054 25 L 1058 35 L 1058 118 <!-- Minaret 2 -->
+           <!-- End towers -->
+           L 1080 118 L 1080 75 L 1105 75 L 1105 118
+           L 1130 118 L 1130 90 L 1160 90 L 1160 100 L 1200 100 L 1200 118 Z"
+        fill="url(#skylineFill)" stroke="url(#skylineGold)" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- Light glowing dots/stars on peaks -->
+  <circle cx="600" cy="5" r="2.5" fill="#FFE29A"/>
+  <circle cx="297" cy="15" r="2" fill="#FFE29A"/>
+  <circle cx="750" cy="20" r="1.8" fill="#FFE29A"/>
+  <circle cx="778" cy="32" r="1.8" fill="#FFE29A"/>
+  <circle cx="854" cy="25" r="1.8" fill="#FFE29A"/>
+  <circle cx="1054" cy="25" r="1.8" fill="#FFE29A"/>
+  <circle cx="955" cy="56" r="2" fill="#FFE29A"/>
+</svg>

@@ -1,0 +1,26 @@
+# Launch1500 concierge — Cloudflare Worker backend for the on-site assistant's live mode.
+# Deploy steps and the secret setup are in README.md next to this file.
+name = "launch1500-concierge"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# Model used for free-text answers (Claude Sonnet 5; deterministic flows stay on the page).
+MODEL = "claude-sonnet-5"
+# Exact-match browser origins allowed to call this Worker (comma-separated, no trailing slashes).
+ALLOWED_ORIGINS = "https://launch1500.surge.sh,https://patience-o.github.io,http://localhost:8097,http://127.0.0.1:8097"
+# Global cap on /chat requests per UTC day (hard stop for spend).
+DAILY_LIMIT = "300"
+# Per-client cap on /chat requests per 10-minute window.
+IP_LIMIT = "30"
+
+# Usage counters (hashed per-client window keys + sharded daily keys). Create with:
+#   npx wrangler kv namespace create USAGE
+# then paste the printed id below.
+[[kv_namespaces]]
+binding = "USAGE"
+id = "aa807877102944b39a86da392d362000"
+
+# The Anthropic API key is a Worker secret named ANTHROPIC_API_KEY.
+# It is never placed in this file, in code, or in any other file:
+#   npx wrangler secret put ANTHROPIC_API_KEY
