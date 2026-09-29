@@ -968,18 +968,15 @@
     handoff.addEventListener('click', function () {
       if (handoff.disabled) return;
       var target = window.waLink(preview.value.trim());
-      var popup = window.open('about:blank', '_blank');
+      /* Open the real link directly inside the click (pop-up blockers allow that); if the browser
+         still refuses a new tab, go there in this tab so the customer always reaches WhatsApp. */
+      var popup = null;
+      try { popup = window.open(target, '_blank'); } catch (e) { popup = null; }
       if (popup) {
-        popup.opener = null;
-        popup.location.href = target;
+        try { popup.opener = null; } catch (e) { /* cross-origin popup: nothing to detach */ }
       } else {
-        feedback.textContent = tr('The browser blocked the new tab. Allow pop-ups and try again, or copy the reviewed message.', 'حظر المتصفح التبويب الجديد. اسمح بالنوافذ المنبثقة وأعد المحاولة، أو انسخ الرسالة التي راجعتها.');
-        extra.replaceChildren();
-        var direct = element('a', 'la-handoff la-handoff-link', tr('Open WhatsApp', 'افتح واتساب'));
-        direct.href = target;
-        direct.target = '_blank';
-        direct.rel = 'noopener noreferrer';
-        extra.append(direct, copyButton());
+        feedback.textContent = tr('Opening WhatsApp…', 'جارٍ فتح واتساب…');
+        window.location.assign(target);
         return;
       }
       consent.checked = false;
