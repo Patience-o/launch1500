@@ -14,6 +14,14 @@ guided mode automatically. Nothing on the site breaks.
   folder, to the site, to chat, or to any file.
 - The folder is excluded from the static site by `../.surgeignore`.
 
+## No API key needed (default)
+
+Out of the box the Worker answers with **Workers AI** (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`), which runs on the same
+Cloudflare account that hosts the Worker — no Anthropic/OpenAI key, no card. The `[ai]` binding in `wrangler.toml` enables it.
+The free plan includes a daily allowance (10,000 neurons/day); `DAILY_LIMIT = "120"` keeps a full day of Llama 3.3 70B answers
+inside it. Raise the limit only if the account moves to the Workers Paid plan. Adding an `ANTHROPIC_API_KEY` secret later
+switches answers to Claude automatically (Workers AI then acts as the fallback). `/health` shows which provider is active.
+
 ## Setup (in this order)
 
 All `npx wrangler …` commands need Node 22 or newer. On this Mac use Node 24:

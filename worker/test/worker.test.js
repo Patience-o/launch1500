@@ -130,7 +130,7 @@ test('/health reports live: true when the key secret exists (with and without an
   const env = makeEnv();
   const res = await worker.fetch(new Request(BASE + '/health', { headers: { origin: ORIGIN } }), env, ctx);
   assert.equal(res.status, 200);
-  assert.deepEqual(await res.json(), { ok: true, live: true, model: 'claude-sonnet-5' });
+  assert.deepEqual(await res.json(), { ok: true, live: true, provider: 'claude', model: 'claude-sonnet-5' });
   assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN);
 
   const curl = await worker.fetch(new Request(BASE + '/health'), env, ctx);
@@ -142,7 +142,7 @@ test('/health reports live: false when the key secret is missing', async () => {
   const env = makeEnv({ ANTHROPIC_API_KEY: undefined });
   const res = await worker.fetch(new Request(BASE + '/health', { headers: { origin: ORIGIN } }), env, ctx);
   assert.equal(res.status, 200);
-  assert.deepEqual(await res.json(), { ok: true, live: false, model: 'claude-sonnet-5' });
+  assert.deepEqual(await res.json(), { ok: true, live: false, provider: null, model: null });
 });
 
 /* ---------- /chat validation ---------- */
@@ -361,7 +361,7 @@ test('success: text blocks joined, trimmed, model echoed; upstream request carri
     }
   }));
   assert.equal(res.status, 200);
-  assert.deepEqual(await res.json(), { reply: 'Hello\nworld.', model: 'claude-sonnet-5' });
+  assert.deepEqual(await res.json(), { reply: 'Hello\nworld.', provider: 'claude', model: 'claude-sonnet-5' });
   assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN);
 
   assert.equal(fetchCalls.length, 1);
@@ -484,4 +484,83 @@ test('SYSTEM_PROMPT states the published facts and rules, and only known context
   const bare = SYSTEM_PROMPT('ar', {});
   assert.equal(bare.indexOf('Customer context'), -1);
   assert.match(bare, /ar \(Arabic\)/);
+});
+
+/* ---------- Workers AI provider (no external API key) ---------- */
+
+function makeAi(impl) {
+  const calls = [];
+  return {
+    calls,
+    async run(model, input) {
+      calls.push({ model, input });
+      return impl ? impl(model, input) : { response: '  Launch Plus is AED 3,000. ', usage: { prompt_tokens: 1, completion_tokens: 1 } };
+    }
+  };
+}
+
+test('/health reports live: true with provider workers-ai when only the AI binding exists', async () => {
+  const env = makeEnv({ ANTHROPIC_API_KEY: undefined, AI: makeAi() });
+  const res = await worker.fetch(new Request(BASE + '/health', { headers: { origin: ORIGIN } }), env, ctx);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { ok: true, live: true, provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' });
+});
+
+test('AI_MODEL overrides the default Workers AI model', async () => {
+  const env = makeEnv({ ANTHROPIC_API_KEY: undefined, AI: makeAi(), AI_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast' });
+  const res = await worker.fetch(new Request(BASE + '/health', { headers: { origin: ORIGIN } }), env, ctx);
+  assert.equal((await res.json()).model, '@cf/meta/llama-3.1-8b-instruct-fast');
+});
+
+test('/chat answers through Workers AI without any API key: system prompt first, then the conversation', async () => {
+  const ai = makeAi();
+  const env = makeEnv({ ANTHROPIC_API_KEY: undefined, AI: ai });
+  const res = await chat(env, chatBody({ lang: 'ar', context: { sector: 'clinic', name: 'Omar', phone: '050' } }));
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { reply: 'Launch Plus is AED 3,000.', provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' });
+  assert.equal(fetchCalls.length, 0, 'no outbound HTTP call is made');
+  assert.equal(ai.calls.length, 1);
+  const input = ai.calls[0].input;
+  assert.equal(input.messages[0].role, 'system');
+  assert.match(input.messages[0].content, /Current customer language setting: ar \(Arabic\)/);
+  assert.match(input.messages[0].content, /- Business type: clinic/);
+  assert.doesNotMatch(input.messages[0].content, /Omar|050/);
+  assert.deepEqual(input.messages.slice(1), [{ role: 'user', content: 'How much is Launch Plus?' }]);
+  assert.equal(input.max_tokens, 350);
+});
+
+test('Workers AI errors, empty or non-string responses become 502 without leaking details', async () => {
+  for (const impl of [
+    () => { throw new Error('quota exceeded: neurons'); },
+    () => ({ response: '' }),
+    () => ({ response: 42 }),
+    () => null
+  ]) {
+    const env = makeEnv({ ANTHROPIC_API_KEY: undefined, AI: makeAi(impl) });
+    const res = await chat(env, chatBody());
+    assert.equal(res.status, 502);
+    assert.deepEqual(await res.json(), { error: 'upstream' });
+  }
+  assert.ok(warnings.every((w) => w.indexOf('neurons') === -1), 'the provider error text is never logged');
+});
+
+test('Claude is preferred when a key exists; Workers AI is only used if Claude fails', async () => {
+  const ai = makeAi();
+  const env = makeEnv({ AI: ai });
+  let res = await chat(env, chatBody());
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).provider, 'claude');
+  assert.equal(ai.calls.length, 0);
+
+  upstream = () => new Response('upstream down', { status: 500 });
+  res = await chat(env, chatBody());
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { reply: 'Launch Plus is AED 3,000.', provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' });
+  assert.equal(ai.calls.length, 1);
+});
+
+test('no key and no AI binding: /chat returns 503 not_configured', async () => {
+  const env = makeEnv({ ANTHROPIC_API_KEY: undefined, AI: undefined });
+  const res = await chat(env, chatBody());
+  assert.equal(res.status, 503);
 });

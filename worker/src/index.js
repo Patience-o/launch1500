@@ -35,6 +35,8 @@ const UPSTREAM_TIMEOUT_MS = 20000;
 const ANTHROPIC_VERSION = '2023-06-01';
 const MAX_TOKENS = 350;
 const REPLY_CAP = 1500;
+/* Workers AI (no external API key): the model runs on the Cloudflare account that hosts this Worker. */
+const DEFAULT_AI_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 
 /* Best-effort fallback when the USAGE KV binding is missing (per-isolate, resets on eviction). */
 const memoryDay = { key: '', count: 0 };
@@ -56,7 +58,7 @@ const FACTS = [
 const RULES = [
   'Rules:',
   "- Answer in the customer's language: Arabic when lang is 'ar' or the message is Arabic, otherwise English.",
-  '- At most about 110 words. Warm, specific, honest.',
+  '- At most about 110 words. Warm, specific, honest. Plain text only: no markdown, no ** or # symbols, no bullet lists.',
   '- Never invent prices, discounts, dates, guarantees or features.',
   '- Never claim a payment, booking, approval or delivery happened.',
   '- Never ask for passwords, card numbers or IDs.',
@@ -229,7 +231,45 @@ async function checkAndCount(env, clientIp, now) {
   return true;
 }
 
-/* ---------- upstream ---------- */
+/* ---------- providers ---------- */
+
+/* Claude when an API key secret exists; otherwise Workers AI via the [ai] binding; otherwise nothing. */
+function providerFor(env) {
+  if (env.ANTHROPIC_API_KEY) return 'claude';
+  if (env.AI && typeof env.AI.run === 'function') return 'workers-ai';
+  return null;
+}
+
+function modelFor(env, provider) {
+  if (provider === 'claude') return env.MODEL || null;
+  if (provider === 'workers-ai') return env.AI_MODEL || DEFAULT_AI_MODEL;
+  return null;
+}
+
+function withTimeout(promise, ms) {
+  let timer;
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(Object.assign(new Error('timeout'), { name: 'AbortError' })), ms);
+  });
+  return Promise.race([promise, deadline]).finally(() => clearTimeout(timer));
+}
+
+async function askWorkersAi(env, lang, messages, context) {
+  const model = modelFor(env, 'workers-ai');
+  try {
+    const result = await withTimeout(env.AI.run(model, {
+      messages: [{ role: 'system', content: SYSTEM_PROMPT(lang, context) }].concat(messages),
+      max_tokens: MAX_TOKENS,
+      temperature: 0.4
+    }), UPSTREAM_TIMEOUT_MS);
+    const text = result && typeof result.response === 'string' ? result.response : '';
+    const reply = text.trim().slice(0, REPLY_CAP);
+    return reply || null;
+  } catch (e) {
+    console.warn('Workers AI request failed: ' + (e && e.name === 'AbortError' ? 'timeout' : 'error'));
+    return null;
+  }
+}
 
 async function askClaude(env, lang, messages, context) {
   const controller = new AbortController();
@@ -298,7 +338,8 @@ export default {
 
     if (url.pathname === '/health') {
       if (request.method !== 'GET') return json(405, { error: 'method_not_allowed' }, cors);
-      return json(200, { ok: true, live: Boolean(env.ANTHROPIC_API_KEY), model: env.MODEL || null }, cors);
+      const provider = providerFor(env);
+      return json(200, { ok: true, live: provider !== null, provider, model: modelFor(env, provider) }, cors);
     }
 
     if (url.pathname === '/chat') {
@@ -317,7 +358,8 @@ export default {
       const parsed = validateChat(raw);
       if (!parsed.ok) return json(400, { error: 'bad_request' }, cors);
 
-      if (!env.ANTHROPIC_API_KEY) return json(503, { error: 'not_configured' }, cors);
+      const provider = providerFor(env);
+      if (!provider) return json(503, { error: 'not_configured' }, cors);
 
       /* cf-connecting-ip is set by Cloudflare itself; x-forwarded-for is client-spoofable and is ignored. */
       const clientIp = request.headers.get('cf-connecting-ip') || 'unknown';
@@ -332,9 +374,20 @@ export default {
       }
       if (!allowedNow) return json(429, { error: 'rate_limited' }, cors);
 
-      const reply = await askClaude(env, parsed.lang, parsed.messages, parsed.context);
+      let used = provider;
+      let reply = null;
+      if (provider === 'claude') {
+        reply = await askClaude(env, parsed.lang, parsed.messages, parsed.context);
+        /* Claude unavailable (outage, exhausted credit): use Workers AI when the binding exists */
+        if (reply === null && env.AI && typeof env.AI.run === 'function') {
+          used = 'workers-ai';
+          reply = await askWorkersAi(env, parsed.lang, parsed.messages, parsed.context);
+        }
+      } else {
+        reply = await askWorkersAi(env, parsed.lang, parsed.messages, parsed.context);
+      }
       if (reply === null) return json(502, { error: 'upstream' }, cors);
-      return json(200, { reply, model: env.MODEL || null }, cors);
+      return json(200, { reply, provider: used, model: modelFor(env, used) }, cors);
     }
 
     return json(404, { error: 'not_found' }, cors);
