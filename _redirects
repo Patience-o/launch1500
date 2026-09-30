@@ -1,2 +1,2 @@
-# Netlify: the site's legacy /launch1500/... links map onto the root (surge ignores this file and uses 200.html instead)
-/launch1500/*  /:splat  200
+# The site's legacy /launch1500/... links map onto the root (Cloudflare and Netlify; surge ignores this file and uses 200.html)
+/launch1500/*  /:splat  302

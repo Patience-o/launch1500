@@ -4,3 +4,7 @@ node_modules/
 __pycache__/
 .claude/
 .git/
+dist/
+tools/
+.wrangler/
+wrangler.toml

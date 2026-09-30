@@ -8,7 +8,9 @@
     "serve": "node server.js",
     "tunnel": "./start.sh",
     "publish": "./start.sh",
-    "deploy": "surge ./ launch1500.surge.sh",
+    "build": "node tools/build.js",
+    "deploy": "node tools/build.js && surge ./dist launch1500.surge.sh",
+    "deploy:cloudflare": "node tools/build.js && wrangler deploy",
     "deploy:netlify": "netlify deploy --prod --dir . --site 3f133d7a-cd58-443b-93ee-a2e8bbee4b05"
   },
   "keywords": [

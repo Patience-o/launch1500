@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 CNAME
 live_url.txt
+dist/
+.wrangler/
+.dev.vars*
+.env*

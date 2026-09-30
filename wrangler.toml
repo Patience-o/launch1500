@@ -1,0 +1,16 @@
+# Launch1500 static site on Cloudflare's network (Workers static assets): global CDN, automatic HTTPS,
+# DDoS protection. `node tools/build.js` fills ./dist (runtime files + the _headers security policy).
+# Deploy:  npm run deploy:cloudflare      (the concierge backend has its own config in worker/)
+name = "launch1500"
+compatibility_date = "2026-09-01"
+
+# After launch1500.ae is registered and added to this Cloudflare account, uncomment:
+# routes = [
+#   { pattern = "launch1500.ae", custom_domain = true },
+#   { pattern = "www.launch1500.ae", custom_domain = true }
+# ]
+
+[assets]
+directory = "./dist"
+# unknown paths serve index.html, as surge's 200.html does
+not_found_handling = "single-page-application"

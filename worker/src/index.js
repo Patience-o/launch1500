@@ -95,6 +95,9 @@ function json(status, body, extraHeaders) {
   const headers = new Headers(extraHeaders || undefined);
   headers.set('content-type', 'application/json; charset=utf-8');
   headers.set('cache-control', 'no-store');
+  headers.set('x-content-type-options', 'nosniff');
+  headers.set('referrer-policy', 'no-referrer');
+  headers.set('strict-transport-security', 'max-age=31536000; includeSubDomains');
   return new Response(JSON.stringify(body), { status, headers });
 }
 

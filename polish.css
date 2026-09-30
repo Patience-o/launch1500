@@ -294,14 +294,14 @@ header {
 ============================================================ */
 .hero {
   padding-block: 76px 70px;
-  background: var(--canvas) url('assets/studio-hero-v2.png') center / cover no-repeat;
+  background: var(--canvas) url('assets/studio-hero-v2.webp') center / cover no-repeat;
   color: var(--ink);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 html[dir="rtl"] .hero {
-  background-image: url('assets/studio-hero-ar.png');
+  background-image: url('assets/studio-hero-ar.webp');
 }
 .hero::before { display: none; }
 .hero::after { display: none; }
