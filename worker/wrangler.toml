@@ -15,7 +15,7 @@ AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 # Claude model used only if an ANTHROPIC_API_KEY secret is added later (optional upgrade).
 MODEL = "claude-sonnet-5"
 # Exact-match browser origins allowed to call this Worker (comma-separated, no trailing slashes).
-ALLOWED_ORIGINS = "https://launch1500.ae,https://www.launch1500.ae,https://launch1500.launch1500-concierge-worker.workers.dev,https://launch1500.surge.sh,https://patience-o.github.io,http://localhost:8097,http://127.0.0.1:8097"
+ALLOWED_ORIGINS = "https://launch1500.surge.sh,https://launch1500.launch1500-concierge-worker.workers.dev,https://patience-o.github.io"
 # Global cap on /chat requests per UTC day (hard stop). ~120 answers of Llama 3.3 70B fit the free
 # Workers AI allowance; raise it if the account moves to the Workers Paid plan. "0" pauses live mode.
 DAILY_LIMIT = "120"

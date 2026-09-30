@@ -24,9 +24,28 @@ const CANONICAL_ORIGIN = '';
 
 /* Browser origins the pages may call with fetch(): the concierge Worker (workers.dev now, api.<domain> later) */
 const CONNECT = [
-  'https://launch1500-concierge.launch1500-concierge-worker.workers.dev',
-  'https://api.launch1500.ae'
+  'https://launch1500-concierge.launch1500-concierge-worker.workers.dev'
 ];
+
+/* Hosts such as surge cannot send security headers, so every page also carries the policy itself
+   (a CSP <meta>, a referrer <meta>) and loads this guard first: HTTPS only, never inside a foreign frame. */
+const GUARD_FILE = 'site-guard.js';
+const GUARD_SOURCE = [
+  '/* Launch1500 site guard: HTTPS only, and never inside someone else\'s frame (clickjacking). */',
+  '(function () {',
+  "  'use strict';",
+  "  var local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';",
+  "  if (location.protocol === 'http:' && !local) {",
+  "    location.replace('https://' + location.host + location.pathname + location.search + location.hash);",
+  '    return;',
+  '  }',
+  '  if (window.top !== window.self) {',
+  "    document.documentElement.style.display = 'none';",
+  '    try { window.top.location = window.self.location.href; } catch (e) { /* sandboxed frame: stay hidden */ }',
+  '  }',
+  '})();',
+  ''
+].join('\n');
 
 const FILES = ['index.html', 'polish.css', 'assistant.css', 'assistant.js', 'assistant-core.js', 'local-links.js', '_redirects'];
 const DIRS = ['demos', 'start', 'assets'];
@@ -132,36 +151,54 @@ for (const file of FILES) copy(path.join(root, file), path.join(out, file));
 for (const dir of DIRS) copy(path.join(root, dir), path.join(out, dir));
 fs.writeFileSync(path.join(out, '404.html'), NOT_FOUND);
 fs.writeFileSync(path.join(out, 'robots.txt'), 'User-agent: *\nAllow: /\n');
+fs.writeFileSync(path.join(out, GUARD_FILE), GUARD_SOURCE);
 
 const pages = [];
 walk(out, (file) => { if (path.extname(file).toLowerCase() === '.html') pages.push(file); });
 
+/* Inline script contents never change below, so their hashes can be collected first */
 const hashes = [];
 for (const page of pages) {
-  let html = versionLocalAssets(fs.readFileSync(page, 'utf8'), page);
-  if (CANONICAL_ORIGIN && path.basename(page) !== '404.html') {
-    const rel = '/' + path.relative(out, page).split(path.sep).join('/').replace(/(^|\/)index\.html$/, '$1');
-    html = html.replace(/<\/head>/i, '<link rel="canonical" href="' + CANONICAL_ORIGIN + rel + '">\n</head>');
-  }
-  fs.writeFileSync(page, html);
-  for (const hash of inlineScriptHashes(html)) if (hashes.indexOf(hash) === -1) hashes.push(hash);
+  for (const hash of inlineScriptHashes(fs.readFileSync(page, 'utf8'))) if (hashes.indexOf(hash) === -1) hashes.push(hash);
 }
-/* surge serves 200.html for unknown paths; Cloudflare uses 404.html instead */
-if (forSurge) fs.copyFileSync(path.join(out, 'index.html'), path.join(out, '200.html'));
 
-const csp = [
+const directives = [
   "default-src 'self'",
   "script-src 'self'" + (hashes.length ? ' ' + hashes.join(' ') : ''),
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",
   "connect-src 'self' " + CONNECT.join(' '),
-  "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
   'upgrade-insecure-requests'
-].join('; ');
+];
+/* frame-ancestors is only honoured in a real header; in the <meta> copy the guard script covers framing */
+const csp = directives.slice(0, 6).concat(["frame-ancestors 'none'"], directives.slice(6)).join('; ');
+const cspMeta = directives.join('; ');
+
+function injectHead(html, pageFile) {
+  const up = path.relative(path.dirname(pageFile), out).split(path.sep).join('/');
+  /* the 404 page is served at any unknown path, so it must load the guard by an absolute URL */
+  const prefix = path.basename(pageFile) === '404.html' ? '/' : (up ? up + '/' : '');
+  const tags = '\n<meta http-equiv="Content-Security-Policy" content="' + cspMeta + '">' +
+    '\n<meta name="referrer" content="strict-origin-when-cross-origin">' +
+    '\n<script src="' + prefix + GUARD_FILE + '"></script>';
+  if (/<meta\s+charset=[^>]*>/i.test(html)) return html.replace(/<meta\s+charset=[^>]*>/i, (tag) => tag + tags);
+  return html.replace(/<head[^>]*>/i, (tag) => tag + tags);
+}
+
+for (const page of pages) {
+  let html = versionLocalAssets(injectHead(fs.readFileSync(page, 'utf8'), page), page);
+  if (CANONICAL_ORIGIN && path.basename(page) !== '404.html') {
+    const rel = '/' + path.relative(out, page).split(path.sep).join('/').replace(/(^|\/)index\.html$/, '$1');
+    html = html.replace(/<\/head>/i, '<link rel="canonical" href="' + CANONICAL_ORIGIN + rel + '">\n</head>');
+  }
+  fs.writeFileSync(page, html);
+}
+/* No 200.html on purpose: both surge and Cloudflare then answer unknown paths with 404.html and a
+   real 404 status, instead of a copy of the home page whose relative script paths would break. */
 
 const cspLine = '  Content-Security-Policy: ' + csp;
 if (cspLine.length > 2000) {
@@ -196,7 +233,7 @@ fs.mkdirSync(path.join(out, '.well-known'), { recursive: true });
 fs.writeFileSync(path.join(out, '.well-known', 'security.txt'), [
   'Contact: https://wa.me/971503923733',
   'Preferred-Languages: en, ar',
-  'Canonical: https://launch1500.ae/.well-known/security.txt',
+  'Canonical: https://launch1500.surge.sh/.well-known/security.txt',
   'Expires: 2027-09-30T00:00:00.000Z',
   ''
 ].join('\n'));
