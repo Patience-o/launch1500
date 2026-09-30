@@ -12,5 +12,5 @@ compatibility_date = "2026-09-01"
 
 [assets]
 directory = "./dist"
-# unknown paths serve index.html, as surge's 200.html does
-not_found_handling = "single-page-application"
+# unknown paths get a real 404 (dist/404.html); legacy /launch1500/* links are handled by _redirects
+not_found_handling = "404-page"

@@ -432,9 +432,9 @@
     return bubble;
   }
 
-  /* Server limits: user-first history, each turn ≤ 1200 chars, ≤ 8000 chars in total */
+  /* Server limits: user-first history, each turn ≤ 1200 chars, ≤ 3000 chars in total, at most 6 turns */
   var LIVE_TURN_CHARS = 1200;
-  var LIVE_HISTORY_CHARS = 8000;
+  var LIVE_HISTORY_CHARS = 3000;
   function historyChars(list) {
     return list.reduce(function (sum, turn) { return sum + turn.content.length; }, 0);
   }
@@ -448,7 +448,7 @@
     log.append(typing);
     scroll();
     var topic = core.topic(text);
-    var history = liveHistory.concat([{ role: 'user', content: text }]).slice(-8);
+    var history = liveHistory.concat([{ role: 'user', content: text }]).slice(-6);
     while (history.length > 1 && (history[0].role !== 'user' || historyChars(history) > LIVE_HISTORY_CHARS)) history.shift();
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, LIVE_CHAT_TIMEOUT);

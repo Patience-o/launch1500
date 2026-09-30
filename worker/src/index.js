@@ -12,9 +12,9 @@
  */
 
 const MAX_BODY_BYTES = 16 * 1024;
-const MAX_MESSAGES = 12;
+const MAX_MESSAGES = 6;
 const MAX_CONTENT_CHARS = 1200;
-const MAX_TOTAL_CHARS = 8000;
+const MAX_TOTAL_CHARS = 3000;
 const MAX_CONTEXT_CHARS = 120;
 const CONTEXT_KEYS = ['business', 'sector', 'goal', 'package'];
 const PERSONAL_KEY = /name|phone|email|mobile|whatsapp|tel|contact/i;
@@ -27,8 +27,25 @@ const DAY_KEY_TTL = 172800;     /* seconds; two days */
    read. Workers KV allows one write per second per key, so a single shared key would reject concurrent
    customers; a random shard spreads the writes. Any KV error still fails closed (see checkAndCount). */
 const DAY_SHARDS = 8;
-const DEFAULT_IP_LIMIT = 30;
+const DEFAULT_IP_LIMIT = 8;          /* per client per 10-minute window */
+const DEFAULT_IP_DAILY_LIMIT = 20;   /* per client per UTC day */
 const DEFAULT_DAILY_LIMIT = 300;
+
+/* Published prices: the only package amounts a reply may state (see guardReply). */
+const PACKAGE_PRICES = { lite: 1500, basic: 2000, plus: 3000, store: 4000, premium: 5000 };
+const PACKAGE_NAMES = { lite: 'Launch Lite', basic: 'Launch Basic', plus: 'Launch Plus', store: 'Launch Store', premium: 'Launch Premium' };
+/* Chip labels the page offers for business type and goal (EN + AR); anything else is treated as free text. */
+const KNOWN_LABELS = [
+  'Salon, clinic or spa', 'صالون أو عيادة أو سبا', 'Café, restaurant or roastery', 'مقهى أو مطعم أو محمصة',
+  'Shop, boutique or products', 'متجر أو بوتيك أو منتجات', 'Luxury or premium brand', 'علامة فاخرة أو راقية',
+  'Freelancer, consultant or startup', 'مستقل أو مستشار أو شركة ناشئة',
+  'Learn about my services', 'التعرف على خدماتي', 'Request appointments', 'طلب حجوزات',
+  'Browse products and order', 'تصفح المنتجات وطلبها', 'Luxury brand showcase', 'عرض فاخر لعلامتي',
+  'Intelligent customer service', 'استخدام خدمة عملاء ذكية'
+];
+/* Free-text context is dropped when it talks about prices, packages or instructions instead of a business. */
+const CONTEXT_BLOCKLIST = /launch|lite\b|basic|plus\b|premium|\bstore\b|aed|dirham|price|cost|free|discount|offer|promo|ignore|rule|system|instruction|prompt|assistant|confirm|درهم|سعر|مجان|خصم|عرض خاص|تجاهل|تعليمات|قواعد/i;
+const MAX_FREE_CONTEXT_CHARS = 60;
 
 const UPSTREAM_URL = 'https://api.anthropic.com/v1/messages';
 const UPSTREAM_TIMEOUT_MS = 20000;
@@ -145,6 +162,62 @@ function dayShardKeys(dayKey) {
   return keys;
 }
 
+/* Context values reach the model, so they are reduced to what a business name / type can look like:
+   a known chip label, a package key, or short letters-and-digits text with no price or instruction words. */
+export function safeContextValue(key, value) {
+  if (key === 'package') {
+    const id = value.toLowerCase().replace(/^launch\s+/, '');
+    return Object.prototype.hasOwnProperty.call(PACKAGE_NAMES, id) ? PACKAGE_NAMES[id] : '';
+  }
+  if (KNOWN_LABELS.indexOf(value) !== -1) return value;
+  const allowed = key === 'business' ? /[^\p{L}\p{N} &.'’-]/gu : /[^\p{L} ,&'’-]/gu;
+  const clean = value.replace(allowed, ' ').replace(/\s+/g, ' ').trim().slice(0, MAX_FREE_CONTEXT_CHARS).trim();
+  if (!clean || CONTEXT_BLOCKLIST.test(clean)) return '';
+  return clean;
+}
+
+/* One rate-limit bucket per IPv4 address or per IPv6 /64 (a single customer owns a whole /64). */
+export function clientBucket(ip) {
+  const text = String(ip || 'unknown');
+  if (text.indexOf(':') === -1) return text;
+  const halves = text.split('::');
+  const head = halves[0] ? halves[0].split(':') : [];
+  const tail = halves.length > 1 && halves[1] ? halves[1].split(':') : [];
+  const full = halves.length > 1 ? head.concat(new Array(Math.max(0, 8 - head.length - tail.length)).fill('0'), tail) : head;
+  return full.slice(0, 4).map((group) => (group.replace(/^0+(?=.)/, '') || '0').toLowerCase()).join(':') + '::/64';
+}
+
+/* Deterministic guard on model output: a reply may not quote an amount under AED 100, and the first
+   amount after a package name must be that package's price or its 30% / 70% share. Otherwise the reply
+   is replaced with the published price list, so no prompt trick can make the concierge "confirm" a fake price. */
+export function guardReply(reply, lang) {
+  const text = String(reply).replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  const unit = '(?:AED|aed|Dhs?\\.?|dirhams?|درهم(?:اً| إماراتي)?|د\\.إ)';
+  const number = '(\\d[\\d,٬.]*)';
+  const amount = new RegExp(unit + '\\s*' + number + '|' + number + '\\s*' + unit, 'g');
+  const parse = (raw) => Number(String(raw).replace(/[,٬]/g, '').replace(/\.$/, ''));
+  let unsafe = false;
+  let match;
+  while ((match = amount.exec(text))) {
+    const value = parse(match[1] || match[2]);
+    if (Number.isFinite(value) && value < 100) unsafe = true;
+  }
+  const names = /Launch\s+(Lite|Basic|Plus|Store|Premium)/gi;
+  while (!unsafe && (match = names.exec(text))) {
+    const price = PACKAGE_PRICES[match[1].toLowerCase()];
+    const window = text.slice(match.index + match[0].length, match.index + match[0].length + 60);
+    const next = new RegExp(amount.source).exec(window.split(/Launch\s+(?:Lite|Basic|Plus|Store|Premium)/i)[0]);
+    if (next) {
+      const value = parse(next[1] || next[2]);
+      if ([price, price * 0.3, price * 0.7].indexOf(value) === -1) unsafe = true;
+    }
+  }
+  if (!unsafe) return reply;
+  return lang === 'ar'
+    ? 'لا أستطيع تأكيد هذا الرقم. أسعارنا المنشورة: Launch Lite 1,500 · Launch Basic 2,000 · Launch Plus 3,000 · Launch Store 4,000 · Launch Premium 5,000 درهم. يؤكد الفريق أي عرض سعر كتابياً عبر واتساب.'
+    : 'I can\'t confirm that figure. Our published prices are: Launch Lite 1,500 · Launch Basic 2,000 · Launch Plus 3,000 · Launch Store 4,000 · Launch Premium 5,000 AED. The team confirms any quote in writing on WhatsApp.';
+}
+
 /* ---------- validation ---------- */
 
 /* Returns { ok: true, lang, messages, context } or { ok: false }. Never echoes input. */
@@ -182,7 +255,8 @@ function validateChat(raw) {
       if (typeof value !== 'string') return { ok: false };
       const clean = stripControls(value).replace(/\s+/g, ' ').trim();
       if (clean.length > MAX_CONTEXT_CHARS) return { ok: false };
-      if (clean) context[key] = clean;
+      const safe = safeContextValue(key, clean);
+      if (safe) context[key] = safe;
     }
   }
 
@@ -210,29 +284,49 @@ async function checkAndCount(env, clientIp, now) {
     return true;
   }
 
+  const ipDailyLimit = positiveInt(env.IP_DAILY_LIMIT, DEFAULT_IP_DAILY_LIMIT);
+  const bucket = clientBucket(clientIp);
   const windowStart = Math.floor(now / IP_WINDOW_MS) * IP_WINDOW_MS;
-  const ipKey = 'ip:' + (await sha256Hex(clientIp + ':' + windowStart)).slice(0, 32);
+  const ipKey = 'ip:' + (await sha256Hex(bucket + ':' + windowStart)).slice(0, 32);
+  const ipDayKey = 'ipd:' + (await sha256Hex(bucket + ':' + dayKey)).slice(0, 32);
 
   const shardKeys = dayShardKeys(dayKey);
   const shardKey = shardKeys[Math.floor(Math.random() * DAY_SHARDS)];
 
-  const raws = await Promise.all([kv.get(ipKey)].concat(shardKeys.map((key) => kv.get(key))));
+  const raws = await Promise.all([kv.get(ipKey), kv.get(ipDayKey)].concat(shardKeys.map((key) => kv.get(key))));
   const ipCount = parseInt(raws[0] || '0', 10) || 0;
+  const ipDayCount = parseInt(raws[1] || '0', 10) || 0;
   let dayCount = 0;
   let shardCount = 0;
   for (let i = 0; i < DAY_SHARDS; i++) {
-    const n = parseInt(raws[i + 1] || '0', 10) || 0;
+    const n = parseInt(raws[i + 2] || '0', 10) || 0;
     dayCount += n;
     if (shardKeys[i] === shardKey) shardCount = n;
   }
   if (ipCount >= ipLimit) return false;
+  if (ipDayCount >= ipDailyLimit) return false;
   if (dayCount >= dailyLimit) return false;
 
   await Promise.all([
     kv.put(ipKey, String(ipCount + 1), { expirationTtl: IP_KEY_TTL }),
+    kv.put(ipDayKey, String(ipDayCount + 1), { expirationTtl: DAY_KEY_TTL }),
     kv.put(shardKey, String(shardCount + 1), { expirationTtl: DAY_KEY_TTL })
   ]);
   return true;
+}
+
+/* True when today's global budget is already used up (so /health can stop advertising live mode). */
+async function budgetSpent(env, now) {
+  const kv = env.USAGE;
+  const dailyLimit = positiveInt(env.DAILY_LIMIT, DEFAULT_DAILY_LIMIT);
+  if (dailyLimit === 0) return true;
+  if (!kv || typeof kv.get !== 'function') return memoryDay.key === todayKey(now) && memoryDay.count >= dailyLimit;
+  try {
+    const raws = await Promise.all(dayShardKeys(todayKey(now)).map((key) => kv.get(key)));
+    return raws.reduce((sum, raw) => sum + (parseInt(raw || '0', 10) || 0), 0) >= dailyLimit;
+  } catch (e) {
+    return false; /* the counter is unreadable: /chat itself still fails closed */
+  }
 }
 
 /* ---------- providers ---------- */
@@ -326,6 +420,11 @@ async function askClaude(env, lang, messages, context) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    /* Never answer over cleartext: send the caller to the HTTPS address (local development excepted). */
+    if (url.protocol === 'http:' && url.hostname !== 'localhost' && url.hostname !== '127.0.0.1') {
+      url.protocol = 'https:';
+      return new Response(null, { status: 301, headers: { location: url.toString(), 'strict-transport-security': 'max-age=31536000; includeSubDomains' } });
+    }
     const origin = request.headers.get('origin');
     const allowed = allowedOrigins(env);
     const originOk = origin !== null && allowed.indexOf(origin) !== -1;
@@ -343,7 +442,8 @@ export default {
     if (url.pathname === '/health') {
       if (request.method !== 'GET') return json(405, { error: 'method_not_allowed' }, cors);
       const provider = providerFor(env);
-      return json(200, { ok: true, live: provider !== null, provider, model: modelFor(env, provider) }, cors);
+      const live = provider !== null && !(await budgetSpent(env, Date.now()));
+      return json(200, { ok: true, live, provider, model: modelFor(env, provider) }, cors);
     }
 
     if (url.pathname === '/chat') {
@@ -391,7 +491,7 @@ export default {
         reply = await askWorkersAi(env, parsed.lang, parsed.messages, parsed.context);
       }
       if (reply === null) return json(502, { error: 'upstream' }, cors);
-      return json(200, { reply, provider: used, model: modelFor(env, used) }, cors);
+      return json(200, { reply: guardReply(reply, parsed.lang), provider: used, model: modelFor(env, used) }, cors);
     }
 
     return json(404, { error: 'not_found' }, cors);

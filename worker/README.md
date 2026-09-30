@@ -114,17 +114,18 @@ is capped at 350 output tokens.
 Claude Sonnet 5 is billed per million input tokens and per million output tokens; check
 the current rates on Anthropic's pricing page before estimating. As an illustration, a
 typical question is well under 1,000 input tokens and under 200 output tokens, so the
-spend per question is a fraction of a cent, and the `DAILY_LIMIT` of 300 requests keeps
+spend per question is a fraction of a cent, and the `DAILY_LIMIT` of 120 requests keeps
 the worst case bounded to a few hundred short requests per day.
 
 Hard limits enforced by the Worker:
 
 | Limit | Value | Where |
 |---|---|---|
-| Requests per client per 10 minutes | 30 | `IP_LIMIT` |
-| Requests per UTC day, all clients | 300 | `DAILY_LIMIT` |
+| Requests per client per 10 minutes (client = IPv4 address or IPv6 /64) | 8 | `IP_LIMIT` |
+| Requests per client per UTC day | 20 | `IP_DAILY_LIMIT` |
+| Requests per UTC day, all clients | 120 | `DAILY_LIMIT` (`0` pauses live mode; `/health` then reports `live:false`) |
 | Request body | 16 KB | code |
-| Messages per request | 1–12, ≤ 1,200 chars each, ≤ 8,000 total | code |
+| Messages per request | 1–6, ≤ 1,200 chars each, ≤ 3,000 total | code |
 | Upstream timeout | 20 s | code |
 | Reply length | 1,500 chars, 350 output tokens | code |
 
@@ -146,7 +147,9 @@ Edit `[vars]` in `wrangler.toml` and redeploy (`npx wrangler deploy`):
 
 - `ALLOWED_ORIGINS` — comma-separated, exact-match origins (scheme + host + port, no path,
   no trailing slash). Add a new host here before pointing its copy of the site at the Worker.
-- `DAILY_LIMIT` — global requests per day. `IP_LIMIT` — per-client requests per 10 minutes.
+- `DAILY_LIMIT` — global requests per day. `IP_LIMIT` — per-client requests per 10 minutes. `IP_DAILY_LIMIT` — per-client requests per day.
+- Every reply passes a deterministic price guard (`guardReply`): a fabricated package price is replaced with the published price list.
+- Context fields from the page (`business`, `sector`, `goal`, `package`) are reduced to a business name/type before they reach the model.
 
 Values set in the Cloudflare dashboard are overwritten by the next `wrangler deploy`,
 so keep `wrangler.toml` as the source of truth.

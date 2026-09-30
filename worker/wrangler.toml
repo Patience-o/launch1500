@@ -19,8 +19,9 @@ ALLOWED_ORIGINS = "https://launch1500.ae,https://www.launch1500.ae,https://launc
 # Global cap on /chat requests per UTC day (hard stop). ~120 answers of Llama 3.3 70B fit the free
 # Workers AI allowance; raise it if the account moves to the Workers Paid plan. "0" pauses live mode.
 DAILY_LIMIT = "120"
-# Per-client cap on /chat requests per 10-minute window.
-IP_LIMIT = "30"
+# Per-client caps on /chat (a client = one IPv4 address or one IPv6 /64): per 10-minute window and per UTC day.
+IP_LIMIT = "8"
+IP_DAILY_LIMIT = "20"
 
 # Usage counters (hashed per-client window keys + sharded daily keys). Create with:
 #   npx wrangler kv namespace create USAGE
